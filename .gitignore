@@ -1,0 +1,36 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.export-env/
+
+# Local runtime data (settings, logs) - never committed
+data/
+*.log
+
+# Secrets / environment
+.env
+.env.*
+*.pem
+*.key
+
+# Model weights and runtime binaries (downloaded by scripts/setup_models.py)
+models/*.onnx
+models/*.pt
+models/vlm/*.gguf
+tools/llama.cpp/
+*.part
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Editor / agent local settings
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

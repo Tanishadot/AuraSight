@@ -1,0 +1,154 @@
+@import "@fontsource/atkinson-hyperlegible/400.css";
+@import "@fontsource/atkinson-hyperlegible/700.css";
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens: sage, muted charcoal, warm off-white.
+   All text pairs meet WCAG AA (4.5:1) against their surfaces.
+--------------------------------------------------------------------------- */
+:root {
+  --bg: #f3f0e8;
+  --surface: #fbf9f4;
+  --surface-2: #eeeadf;
+  --border: #dcd6c8;
+  --border-strong: #b9b2a2;
+  --text: #22262a;
+  --text-muted: #565c5a;
+  --sage: #56715b;
+  --sage-ink: #3d5643;
+  --sage-soft: #dfe8dc;
+  --sage-contrast: #fbf9f4;
+  --warn: #8a520f;
+  --warn-soft: #f5e6cd;
+  --danger: #a1302a;
+  --danger-soft: #f6ddd9;
+  --focus: #1f3d2a;
+  --overlay: rgba(34, 38, 42, 0.62);
+  --box: #9fd0a6;
+  --box-warn: #f2b75c;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #151817;
+  --surface: #1c201e;
+  --surface-2: #242a27;
+  --border: #323a35;
+  --border-strong: #4a544e;
+  --text: #ebe9e2;
+  --text-muted: #a9afa9;
+  --sage: #8fb596;
+  --sage-ink: #b0d1b5;
+  --sage-soft: #26342a;
+  --sage-contrast: #141816;
+  --warn: #e8ad5c;
+  --warn-soft: #382b19;
+  --danger: #f0928a;
+  --danger-soft: #3c2220;
+  --focus: #d4ead0;
+  --overlay: rgba(10, 12, 11, 0.7);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-sage: var(--sage);
+  --color-sage-ink: var(--sage-ink);
+  --color-sage-soft: var(--sage-soft);
+  --color-sage-contrast: var(--sage-contrast);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* Strong, always-visible keyboard focus. */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+::selection {
+  background: var(--sage-soft);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes aura-pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--sage) 55%, transparent); }
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.live-dot {
+  animation: aura-pulse 2.2s ease-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.fade-up {
+  animation: fade-up 0.28s ease-out both;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+.breathe {
+  animation: breathe 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Range input styled with tokens. */
+input[type="range"] {
+  accent-color: var(--sage);
+  height: 28px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

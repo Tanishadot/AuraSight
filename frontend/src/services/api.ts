@@ -42,6 +42,7 @@ export const api = {
   resumeCamera: () => post<CameraStatus>("/api/camera/resume"),
   stopCamera: () => post<CameraStatus>("/api/camera/stop"),
   describe: () => post<SceneResult>("/api/scene/describe", { speak: true }),
+  replayScene: () => post<{ description: string; speech: SceneResult["speech"] }>("/api/scene/replay"),
   ask: (question: string) => post<AnswerResult>("/api/ask", { question, speak: true }),
   summary: () => post<{ text: string }>("/api/summary"),
   stopSpeech: () => post<{ stopped: boolean }>("/api/speech/stop"),

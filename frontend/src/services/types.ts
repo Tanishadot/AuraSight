@@ -115,6 +115,10 @@ export interface SceneResult {
   first_sentence_ms?: number | null;
   auto?: boolean;
   objects?: string;
+  /** the exact sentences shown and spoken, in order */
+  sentences?: string[];
+  /** spoken | muted (Speak out loud off) | unavailable (no TTS) | off (not requested) */
+  speech?: "spoken" | "muted" | "unavailable" | "off";
 }
 
 export interface AnswerResult {

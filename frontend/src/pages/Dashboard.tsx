@@ -135,12 +135,23 @@ export function Dashboard() {
   }, []);
 
   const stopSpeech = useCallback(() => api.stopSpeech().catch(() => {}), []);
+  const replayScene = useCallback(async () => {
+    if (!live.scene) return flash("There is no scene description to replay yet.");
+    try {
+      const r = await api.replayScene();
+      if (r.speech === "muted") flash("Speak out loud is off - turn it on in Audio to hear the description.");
+      else if (r.speech === "unavailable") flash("The offline voice isn't available, so the description can't be read aloud.");
+    } catch (e) {
+      flash((e as ApiError).message);
+    }
+  }, [live.scene]);
 
   useShortcuts(
     [
       { keys: ["Escape"], label: "stop", action: stopSpeech, global: true },
       { keys: ["s"], label: "stop", action: stopSpeech },
       { keys: ["d"], label: "describe", action: describe },
+      { keys: ["r"], label: "replay", action: replayScene },
       { keys: ["w"], label: "summary", action: () => api.summary().catch(() => {}) },
       { keys: ["a", "/"], label: "ask", action: () => askRef.current?.focus() },
       { keys: ["c"], label: "camera", action: toggleCamera },
@@ -201,7 +212,11 @@ export function Dashboard() {
             cameraActive={cameraActive}
             pending={describing}
             error={sceneError}
+            speech={live.speech}
+            speechEnabled={settings?.speech_enabled ?? true}
             onDescribe={describe}
+            onReplay={replayScene}
+            onStopSpeaking={stopSpeech}
           />
           <AskPanel ref={askRef} turns={turns} pending={asking} cameraActive={cameraActive} onAsk={ask} />
         </div>

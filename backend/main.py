@@ -26,7 +26,7 @@ from . import hardware
 from .camera.service import CameraState
 from .config.settings import REPO_ROOT, SettingsStore
 from .events import EventBus
-from .pipeline import CameraNotRunning, Pipeline
+from .pipeline import CameraNotRunning, NothingToReplay, Pipeline
 from .speech.service import Priority
 from .vision.analyzer import AnalyzerBusy
 
@@ -172,6 +172,13 @@ def create_app(pipeline: Pipeline | None = None, start_pipeline: bool = True) ->
         except AnalyzerBusy as e:
             raise HTTPException(429, str(e)) from e
 
+    @app.post("/api/scene/replay")
+    def replay() -> dict:
+        try:
+            return P().replay_description()
+        except NothingToReplay as e:
+            raise HTTPException(404, str(e)) from e
+
     @app.post("/api/ask")
     async def ask(body: AskBody) -> dict:
         return await run_in_threadpool(P().ask, body.question, body.speak)
@@ -201,7 +208,7 @@ def create_app(pipeline: Pipeline | None = None, start_pipeline: bool = True) ->
 
     @app.post("/api/speech/stop")
     def speech_stop() -> dict:
-        P().speech.stop_all()
+        P().stop_speech()
         return {"stopped": True}
 
     @app.post("/api/speech/test")

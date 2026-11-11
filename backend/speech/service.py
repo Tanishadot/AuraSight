@@ -41,6 +41,7 @@ class _Item:
     kind: str = field(compare=False, default="info")
     created: float = field(compare=False, default_factory=time.monotonic)
     max_age: float | None = field(compare=False, default=None)
+    cancelled: bool = field(compare=False, default=False)
 
     def __post_init__(self):
         self.sort_key = (-int(self.priority), self.seq)
@@ -52,7 +53,7 @@ class SpeechService:
         settings_getter: Callable[[], object],
         engine_factory: Callable[[], TTSEngine] = create_engine,
         on_event: Callable[[str, dict], None] | None = None,
-        max_queue: int = 6,
+        max_queue: int = 10,
     ):
         self._settings = settings_getter
         self._factory = engine_factory
@@ -102,20 +103,29 @@ class SpeechService:
     def is_speaking(self) -> bool:
         return self._current is not None
 
+    @property
+    def current_kind(self) -> str | None:
+        """Kind of the utterance playing now, or of the next queued one."""
+        with self._cond:
+            if self._current is not None:
+                return self._current.kind
+            return self._heap[0].kind if self._heap else None
+
     # -- public API -------------------------------------------------------------
     def say(self, text: str, priority: Priority = Priority.NORMAL, kind: str = "info",
-            max_age: float | None = None) -> bool:
-        """Queue text. Returns False if dropped (disabled, duplicate, or full)."""
+            max_age: float | None = None, dedupe: bool = True) -> bool:
+        """Queue text. Returns False if dropped (disabled, unavailable, duplicate, or full).
+        ``dedupe=False`` is for explicit repeats such as replaying a description."""
         text = " ".join(text.split())
         if not text:
             return False
         s = self._settings()
-        if not getattr(s, "speech_enabled", True):
+        if not getattr(s, "speech_enabled", True) or self.state == "error":
             return False
         with self._cond:
-            if any(i.text == text for i in self._heap) or (
+            if dedupe and (any(i.text == text for i in self._heap) or (
                 self._current is not None and self._current.text == text
-            ):
+            )):
                 return False
             item = _Item(Priority(priority), next(self._seq), text, kind, max_age=max_age)
             heapq.heappush(self._heap, item)
@@ -133,13 +143,34 @@ class SpeechService:
         """Silence immediately and clear everything queued."""
         with self._cond:
             self._heap.clear()
+            if self._current is not None:
+                self._current.cancelled = True
             if self._engine:
                 self._engine.interrupt()
         self._on_event("speech", {"state": "stopped"})
 
+    def cancel(self, kind: str) -> int:
+        """Drop queued items of one kind and cut off the current one if it is of
+        that kind. Other speech (alerts, answers) is untouched. Returns the number
+        of items removed."""
+        with self._cond:
+            before = len(self._heap)
+            self._heap = [i for i in self._heap if i.kind != kind]
+            heapq.heapify(self._heap)
+            removed = before - len(self._heap)
+            if self._current is not None and self._current.kind == kind and self._engine:
+                # flag covers the gap between the worker taking the item and playback starting
+                self._current.cancelled = True
+                self._engine.interrupt()
+                removed += 1
+        return removed
+
     def skip(self) -> None:
-        if self._engine:
-            self._engine.interrupt()
+        with self._cond:
+            if self._current is not None:
+                self._current.cancelled = True
+            if self._engine:
+                self._engine.interrupt()
 
     def run_on_engine(self, fn: Callable[[TTSEngine], object], timeout: float = 30.0):
         """Execute ``fn(engine)`` on the speech thread (COM affinity) and return its result."""
@@ -186,15 +217,17 @@ class SpeechService:
                 finally:
                     box["done"].set()
                 continue
-            if item.max_age is not None and time.monotonic() - item.created > item.max_age:
-                with self._cond:
+            with self._cond:
+                stale = item.max_age is not None and time.monotonic() - item.created > item.max_age
+                if stale or item.cancelled:
                     self._current = None
-                continue
+                    continue
             s = self._settings()
             self.state = "speaking"
             self._on_event("speech", {"state": "speaking", "text": item.text, "kind": item.kind,
                                       "priority": item.priority.name.lower()})
             completed = True
+            failed: str | None = None
             try:
                 completed = self._engine.speak(
                     item.text, getattr(s, "speech_rate", 1.0), getattr(s, "speech_volume", 0.9),
@@ -203,12 +236,20 @@ class SpeechService:
                 self.spoken_count += 1
             except Exception as e:
                 log.exception("speech failed")
-                self.error = str(e)
+                self.error = failed = str(e) or e.__class__.__name__
             finally:
                 with self._cond:
                     self._current = None
                 self.state = "ready"
-                self._on_event("speech", {"state": "idle", "interrupted": not completed})
+                if not completed and not failed and not item.cancelled and item.priority >= Priority.USER:
+                    # Pre-empted by an urgent warning (not stopped by the user):
+                    # read the sentence again afterwards so nothing asked for is lost.
+                    with self._cond:
+                        heapq.heappush(self._heap, _Item(item.priority, item.seq, item.text, item.kind))
+                        self._cond.notify_all()
+                if failed:
+                    self._on_event("speech", {"state": "error", "error": failed, "kind": item.kind})
+                self._on_event("speech", {"state": "idle", "interrupted": not completed, "kind": item.kind})
         try:
             self._engine.close()
         except Exception:

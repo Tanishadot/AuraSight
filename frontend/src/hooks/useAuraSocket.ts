@@ -5,6 +5,8 @@ export interface SpeechState {
   speaking: boolean;
   text: string | null;
   kind?: string;
+  /** last TTS failure (cleared when speech next succeeds in starting) */
+  error?: { message: string; kind?: string } | null;
 }
 
 export interface LiveState {
@@ -88,9 +90,12 @@ function reducer(state: LiveState, action: Action): LiveState {
         case "scene_progress":
           return { ...state, sceneProgress: { stage: ev.stage, text: ev.text ?? "" } };
         case "speech":
-          if (ev.state === "speaking") return { ...state, speech: { speaking: true, text: ev.text, kind: ev.kind } };
+          if (ev.state === "speaking")
+            return { ...state, speech: { speaking: true, text: ev.text, kind: ev.kind, error: null } };
+          if (ev.state === "error")
+            return { ...state, speech: { ...state.speech, error: { message: ev.error, kind: ev.kind } } };
           if (ev.state === "idle" || ev.state === "stopped")
-            return { ...state, speech: { speaking: false, text: state.speech.text } };
+            return { ...state, speech: { ...state.speech, speaking: false } };
           return state;
         default:
           return state;

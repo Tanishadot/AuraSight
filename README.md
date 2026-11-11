@@ -193,6 +193,13 @@ Environment variables: `AURASIGHT_PORT`, `AURASIGHT_DATA_DIR`, `AURASIGHT_MODELS
 
 **Testing without a webcam:** set `AURASIGHT_CAMERA_SOURCE` to an image, a folder of images (cycling every `AURASIGHT_SOURCE_SECONDS`, default 8) or a video file. The whole pipeline then runs on that input instead of the camera.
 
+**Reading descriptions aloud:**
+- Each sentence is spoken as soon as the model finishes it, using the voice, rate and volume set under Audio. What is spoken is exactly the text shown, sentence for sentence.
+- The detector adds a closing sentence only for objects the model didn't mention, so nothing is said twice. "New: …" announcements are held while a description is being generated or read.
+- Obstacle warnings still interrupt. The sentence they cut off is read again afterwards.
+- A new description replaces one that is still playing. `POST /api/scene/replay` (the Replay button, or `R`) reads the last one again, and `POST /api/speech/stop` silences it, including sentences the model hasn't written yet.
+- With **Speak out loud** off, descriptions are shown but not spoken. A TTS failure is shown in the Scene panel; the text stays complete.
+
 **Diagnosing a description:** `GET /api/vlm/debug` returns the exact prompt, the model's raw output and the size of the image sent for the last request.
 
 If you start llama-server yourself, these flags match what AuraSight uses when it launches the server: `-t 4 -tb 8 --cache-ram 256`. They set physical-core generation threads, all-core prompt threads, and cap the image cache, whose default is 8 GB.
@@ -204,6 +211,7 @@ These work anywhere except while typing in a text box. **Esc** always stops spee
 | Key | Action |
 |---|---|
 | `D` | Describe the scene (VLM) |
+| `R` | Read the last description aloud again |
 | `W` | What's around me? (instant, from the detector) |
 | `A` or `/` | Ask a question |
 | `S` or `Esc` | Stop speaking |

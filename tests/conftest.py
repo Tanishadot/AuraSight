@@ -91,17 +91,32 @@ class RecordingEngine:
         self.spoken: list[str] = []
         self.interrupted: list[str] = []
         self.duration = duration
+        self.fail = False  # simulate a TTS engine error
+        self.interrupts = 0
+        self.max_concurrent = 0
+        self._active = 0
+        self._lock = threading.Lock()
         self._stop = threading.Event()
 
     def speak(self, text, rate, volume, voice_id) -> bool:
-        self._stop.clear()
-        if self._stop.wait(self.duration):
-            self.interrupted.append(text)
-            return False
-        self.spoken.append(text)
-        return True
+        if self.fail:
+            raise RuntimeError("audio device unavailable")
+        with self._lock:
+            self._active += 1
+            self.max_concurrent = max(self.max_concurrent, self._active)
+        try:
+            self._stop.clear()
+            if self._stop.wait(self.duration):
+                self.interrupted.append(text)
+                return False
+            self.spoken.append(text)
+            return True
+        finally:
+            with self._lock:
+                self._active -= 1
 
     def interrupt(self):
+        self.interrupts += 1
         self._stop.set()
 
     def synthesize_to_file(self, text, path, rate, volume, voice_id):

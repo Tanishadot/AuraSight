@@ -10,13 +10,14 @@ Threads:
 from __future__ import annotations
 
 import logging
+import re
 import threading
 import time
 from typing import Any
 
 import numpy as np
 
-from .assistant.announcer import Announcer, summarize_objects
+from .assistant.announcer import Announcer, mentioned_in, summarize_objects
 from .assistant.qa import Assistant
 from .assistant.scene_monitor import ObjectView, SceneMonitor
 from .camera.service import CameraService, CameraState, list_cameras
@@ -35,6 +36,14 @@ log = logging.getLogger("aurasight.pipeline")
 
 class CameraNotRunning(RuntimeError):
     pass
+
+
+class NothingToReplay(RuntimeError):
+    pass
+
+
+def _split_sentences(text: str) -> list[str]:
+    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
 
 
 class Pipeline:
@@ -69,7 +78,10 @@ class Pipeline:
                                    max_lost_frames=self._lost_frames(s))
         self.verifier = ObjectVerifier(lambda: self.store.current, self._crop_detect, self.detector.names)
         self.monitor = SceneMonitor(lambda: self.store.current)
-        self.announcer = Announcer(lambda: self.store.current, self.speech)
+        self._describing = 0  # descriptions in progress
+        self.announcer = Announcer(
+            lambda: self.store.current, self.speech,
+            hold=lambda: self._describing > 0 or self.speech.current_kind == "description")
         self.assistant = Assistant(self.analyzer, self._frame_image, self.objects)
 
         self._objects: list[ObjectView] = []
@@ -80,6 +92,10 @@ class Pipeline:
         self.frames_processed = 0
         self.frames_skipped = 0
         self._last_auto_describe = 0.0
+        self._last_scene: dict[str, Any] | None = None
+        self._desc_lock = threading.Lock()
+        self._desc_seq = 0
+        self._silenced: set[int] = set()
         self._last_status_pub = 0.0
         store.on_change(self._on_settings)
 
@@ -298,6 +314,8 @@ class Pipeline:
     def _maybe_auto_describe(self, s: Settings, scene_changed: bool) -> None:
         if not s.auto_describe or not self.analyzer.available or self.analyzer.busy:
             return
+        if self.speech.current_kind == "description":
+            return  # never talk over a description that is still being read
         now = time.monotonic()
         due = now - self._last_auto_describe >= s.auto_describe_interval_s
         if due or (scene_changed and now - self._last_auto_describe >= 10):
@@ -313,57 +331,119 @@ class Pipeline:
 
     # -- user-facing actions ---------------------------------------------------------
     def describe_scene(self, speak: bool = True, auto: bool = False) -> dict[str, Any]:
+        with self._desc_lock:
+            self._describing += 1
+        try:
+            return self._describe(speak, auto)
+        finally:
+            with self._desc_lock:
+                self._describing -= 1
+
+    def _describe(self, speak: bool, auto: bool) -> dict[str, Any]:
         img = self._frame_image()
         if img is None:
             raise CameraNotRunning("The camera is not running.")
         img = img.copy()  # the exact frame analysed, immune to the capture thread
         objects = self.objects()  # confirmed only
-        det_summary = summarize_objects(objects)
         prio = Priority.NORMAL if auto else Priority.USER
         labels = sorted({spoken_label(o.label) for o in objects})
-        spoken: list[str] = []
+        # Every sentence that is shown is also spoken, in order - this list is the
+        # single source for the on-screen text, the speech queue and replay.
+        sentences: list[str] = []
+        with self._desc_lock:
+            self._desc_seq += 1
+            seq = self._desc_seq
+
+        def emit(sentence: str) -> None:
+            sentences.append(sentence)
+            # Stop pressed while the model was still writing: keep showing the
+            # text, but don't start speaking again on the next sentence.
+            if speak and seq not in self._silenced:
+                self.speech.say(sentence, prio, kind="description", dedupe=False)
+
+        if not auto:
+            # A new description replaces one that is still being read out.
+            self.speech.cancel("description")
+        # The detector's objects are about to be described: don't also announce them.
+        self.announcer.note_described({o.label for o in objects})
         self.bus.publish("scene_progress", {"stage": "analysing", "auto": auto})
 
         def on_sentence(sentence: str) -> None:
             # Speak each sentence the moment it is complete instead of waiting for
             # the whole answer: first words arrive seconds earlier.
-            spoken.append(sentence)
-            self.bus.publish("scene_progress", {"stage": "streaming", "text": " ".join(spoken), "auto": auto})
-            if speak:
-                self.speech.say(sentence, prio, kind="description")
+            emit(sentence)
+            self.bus.publish("scene_progress", {"stage": "streaming", "text": " ".join(sentences), "auto": auto})
 
         first_ms = None
         try:
             res = self.analyzer.describe(img, hint_labels=labels, on_sentence=on_sentence)
-            narrative, source, latency = res.text, "vlm", res.latency_ms
+            narrative, source, latency = res.text.strip(), "vlm", res.latency_ms
             first_ms = res.first_sentence_ms
+            # Anything in the final text that was not streamed (e.g. a tail that
+            # arrived without punctuation) is spoken now, so the whole response is read.
+            streamed = " ".join(sentences)
             if not narrative:
-                narrative = "I'm not sure what I'm looking at."
-                if speak:
-                    self.speech.say(narrative, prio, kind="description")
-            grounded = f"The object detector confirms {det_summary}." if det_summary else ""
-            text = f"{narrative} {grounded}".strip()
-            if speak and grounded:
-                self.speech.say(grounded, prio, kind="description")
+                emit("I'm not sure what I'm looking at.")
+            elif narrative != streamed:
+                rest = narrative[len(streamed):].strip() if narrative.startswith(streamed) else narrative
+                if not sentences or rest != narrative:
+                    for s in _split_sentences(rest):
+                        emit(s)
+            # Only add detector objects the model did not already mention.
+            extra = [o for o in objects if not mentioned_in(o.label, " ".join(sentences))]
+            if extra:
+                emit(f"The object detector also found {summarize_objects(extra)}.")
+            self.announcer.note_described({o.label for o in objects})
         except AnalyzerBusy:
             self.bus.publish("scene_progress", {"stage": "idle", "auto": auto})
             raise
         except VLMUnavailable as e:
             source, latency = "detector", 0.0
-            text = (f"The scene model is unavailable. The object detector sees {det_summary}."
-                    if det_summary else
-                    "The scene model is unavailable, and the object detector doesn't see any "
-                    "objects it recognises.")
+            det_summary = summarize_objects(objects)
+            emit(f"The scene model is unavailable. The object detector sees {det_summary}."
+                 if det_summary else
+                 "The scene model is unavailable, and the object detector doesn't see any "
+                 "objects it recognises.")
             self.bus.activity("vlm", f"Scene model unavailable: {e}", "warning")
-            if speak:
-                self.speech.say(text, prio, kind="description")
-        payload = {"description": text, "source": source, "latency_ms": round(latency),
+        text = " ".join(sentences)
+        payload = {"description": text, "sentences": sentences, "source": source,
+                   "latency_ms": round(latency),
                    "first_sentence_ms": None if first_ms is None else round(first_ms),
-                   "auto": auto, "objects": det_summary}
+                   "auto": auto, "objects": summarize_objects(objects),
+                   "speech": self._speech_outcome(speak)}
+        self._last_scene = payload
         self.bus.publish("scene", payload)
         self.bus.publish("scene_progress", {"stage": "idle", "auto": auto})
         self.bus.activity("description", text, "info", source=source)
         return payload
+
+    def _speech_outcome(self, requested: bool) -> str:
+        if not requested:
+            return "off"
+        if not self.store.current.speech_enabled:
+            return "muted"  # "Speak out loud" is switched off
+        if self.speech.state == "error":
+            return "unavailable"
+        return "spoken"
+
+    def stop_speech(self) -> None:
+        """Silence everything now, including the rest of a description that is
+        still being generated."""
+        with self._desc_lock:
+            self._silenced = {self._desc_seq}
+        self.speech.stop_all()
+
+    def replay_description(self) -> dict[str, Any]:
+        """Read the last description again, exactly as it was shown."""
+        last = self._last_scene
+        if not last:
+            raise NothingToReplay("There is no scene description to replay yet.")
+        self.speech.cancel("description")
+        outcome = self._speech_outcome(True)
+        if outcome == "spoken":
+            for s in last["sentences"]:
+                self.speech.say(s, Priority.USER, kind="description", dedupe=False)
+        return {"description": last["description"], "speech": outcome}
 
     def ask(self, question: str, speak: bool = True) -> dict[str, Any]:
         self.bus.activity("question", question, "info")

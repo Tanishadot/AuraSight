@@ -10,6 +10,7 @@ export interface Shortcut {
 
 export const SHORTCUT_HELP: { keys: string; label: string }[] = [
   { keys: "D", label: "Describe the scene (scene model)" },
+  { keys: "R", label: "Read the last scene description again" },
   { keys: "W", label: "What's around me? (instant, from the object detector)" },
   { keys: "A or /", label: "Ask a question" },
   { keys: "S or Esc", label: "Stop speaking" },

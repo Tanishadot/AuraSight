@@ -5,6 +5,7 @@ region); only the spoken channel is filtered, grouped and prioritised here.
 """
 from __future__ import annotations
 
+import re
 import time
 from typing import Callable
 
@@ -15,14 +16,25 @@ from .scene_monitor import ObjectView, SceneEvent
 
 class Announcer:
     def __init__(self, settings_getter: Callable[[], object], speech: SpeechService,
-                 clock: Callable[[], float] = time.monotonic):
+                 clock: Callable[[], float] = time.monotonic,
+                 hold: Callable[[], bool] = lambda: False):
         self._settings = settings_getter
         self._speech = speech
         self._clock = clock
+        # True while a scene description is being generated or read aloud:
+        # routine announcements would otherwise land between its sentences.
+        self._hold = hold
         self._label_last: dict[str, float] = {}
 
     def reset(self) -> None:
         self._label_last.clear()
+
+    def note_described(self, labels) -> None:
+        """A scene description is covering these classes: treat them as just
+        announced so "New: laptop" doesn't repeat what the description says."""
+        now = self._clock()
+        for label in labels:
+            self._label_last[label] = now
 
     def handle(self, events: list[SceneEvent]) -> list[str]:
         """Speak what matters; returns the spoken phrases (for tests/logging)."""
@@ -40,6 +52,9 @@ class Announcer:
             for e in warnings:
                 if e.label:
                     self._label_last[e.label] = now
+
+        if self._hold():
+            return spoken  # safety warnings above still interrupt; the rest is in the activity feed
 
         if s.announce_new_objects:
             fresh = []
@@ -102,6 +117,45 @@ def summarize_objects(objects: list[ObjectView], max_groups: int = 6, detailed: 
     if extra > 0:
         text += f"; and {extra} more"
     return text
+
+
+# Words a scene description may use for a detector class. Used only to avoid
+# repeating an object the description already named.
+_SYNONYMS = {
+    "person": ("person", "people", "man", "men", "woman", "women", "boy", "girl", "child", "children",
+               "kid", "kids", "someone", "lady", "guy", "baby"),
+    "tv": ("tv", "tvs", "television", "monitor", "monitors", "screen", "screens"),
+    "dining table": ("table", "tables", "desk", "desks"),
+    "cell phone": ("phone", "phones", "smartphone", "mobile"),
+    "couch": ("couch", "sofa", "sofas", "couches"),
+    "potted plant": ("plant", "plants", "flower", "flowers", "pot"),
+    "laptop": ("laptop", "laptops", "computer", "notebook"),
+    "cup": ("cup", "cups", "mug", "mugs"),
+    "wine glass": ("glass", "glasses", "wine"),
+    "car": ("car", "cars", "vehicle", "vehicles"),
+    "bicycle": ("bicycle", "bicycles", "bike", "bikes"),
+    "motorcycle": ("motorcycle", "motorbike", "scooter"),
+    "refrigerator": ("refrigerator", "fridge"),
+    "handbag": ("handbag", "bag", "purse"),
+    "backpack": ("backpack", "bag", "rucksack"),
+    "keyboard": ("keyboard",),
+    "mouse": ("mouse",),
+    "book": ("book", "books"),
+    "bottle": ("bottle", "bottles"),
+    "chair": ("chair", "chairs", "stool", "seat"),
+    "bed": ("bed", "beds"),
+    "dog": ("dog", "dogs", "puppy"),
+    "cat": ("cat", "cats", "kitten"),
+}
+
+
+def mentioned_in(label: str, text: str) -> bool:
+    """True if a description already names this detector class (or a synonym)."""
+    words = set(re.findall(r"[a-z]+", text.lower()))
+    names = _SYNONYMS.get(label) or tuple(label.lower().split()) + (plural(label, 2).lower(),)
+    if label not in _SYNONYMS and " " in label:  # multi-word class: needs the whole phrase
+        return label.lower() in text.lower() or plural(label, 2).lower() in text.lower()
+    return any(n in words for n in names)
 
 
 def _article(word: str) -> str:

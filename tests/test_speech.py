@@ -71,7 +71,7 @@ def test_queue_is_bounded():
     wait_for(lambda: svc.is_speaking, 2)
     for i in range(20):
         svc.say(f"item {i}", Priority.LOW)
-    assert svc.status()["queued"] <= 6
+    assert svc.status()["queued"] <= 10
     svc.stop_all()
     svc.shutdown()
 
@@ -86,6 +86,56 @@ def test_stop_all_silences_and_clears():
     assert wait_for(lambda: not svc.is_speaking, 2)
     time.sleep(0.2)
     assert eng.spoken == [] and eng.interrupted == ["a long announcement"]
+    svc.shutdown()
+
+
+def test_cancel_kind_only_silences_that_kind():
+    eng = RecordingEngine(0.6)
+    svc, _ = make(eng)
+    svc.say("Sentence one of the description.", Priority.USER, kind="description")
+    svc.say("Sentence two of the description.", Priority.USER, kind="description")
+    svc.say("Your answer.", Priority.USER, kind="answer")
+    assert wait_for(lambda: svc.current_kind == "description" and svc.is_speaking, 2)
+    assert svc.cancel("description") == 2  # the playing one + the queued one
+    assert wait_for(lambda: eng.spoken == ["Your answer."], 3), eng.spoken
+    assert eng.interrupted == ["Sentence one of the description."]
+    svc.shutdown()
+
+
+def test_description_cut_off_by_warning_is_read_again_afterwards():
+    eng = RecordingEngine(0.4)
+    svc, _ = make(eng)
+    svc.say("A woman sits at a desk.", Priority.USER, kind="description")
+    svc.say("A laptop is on your right.", Priority.USER, kind="description")
+    assert wait_for(lambda: svc.is_speaking, 2)
+    svc.say("Caution: chair close, ahead.", Priority.URGENT, kind="alert")
+    assert wait_for(lambda: len(eng.spoken) == 3, 4), eng.spoken
+    assert eng.spoken == ["Caution: chair close, ahead.", "A woman sits at a desk.", "A laptop is on your right."]
+    svc.shutdown()
+
+
+def test_replay_bypasses_duplicate_filter():
+    eng = RecordingEngine(0.3)
+    svc, _ = make(eng)
+    svc.say("A laptop is on your right.", kind="description")
+    wait_for(lambda: svc.is_speaking, 2)
+    assert svc.say("A laptop is on your right.", kind="description", dedupe=False)
+    assert wait_for(lambda: len(eng.spoken) == 2, 3)
+    svc.shutdown()
+
+
+def test_speak_error_is_reported_and_worker_survives():
+    eng = RecordingEngine(0.01)
+    events = []
+    s = Settings()
+    svc = SpeechService(lambda: s, engine_factory=lambda: eng, on_event=lambda t, d: events.append(d))
+    svc.start()
+    eng.fail = True
+    svc.say("broken", kind="description")
+    assert wait_for(lambda: any(e.get("state") == "error" for e in events), 2)
+    eng.fail = False
+    svc.say("works again")
+    assert wait_for(lambda: eng.spoken == ["works again"], 2)
     svc.shutdown()
 
 
@@ -104,6 +154,43 @@ def test_engine_failure_reports_error():
     svc = SpeechService(lambda: s, engine_factory=broken)
     svc.start()
     assert svc.state == "error" and "no audio" in svc.error
+
+
+def test_mentioned_in_matches_synonyms_only():
+    from backend.assistant.announcer import mentioned_in
+
+    text = "A woman sits at a desk. A computer screen glows on your right. There is a sofa."
+    assert mentioned_in("person", text)
+    assert mentioned_in("tv", text)
+    assert mentioned_in("laptop", text)
+    assert mentioned_in("couch", text)
+    assert mentioned_in("dining table", text)
+    assert not mentioned_in("cup", text)
+    assert not mentioned_in("chair", text)
+    assert not mentioned_in("teddy bear", "A bear statue.")  # multi-word needs the phrase
+    assert not mentioned_in("cat", "A category label.")  # whole words only
+
+
+def test_announcer_holds_routine_speech_during_description_but_not_warnings():
+    from backend.assistant.announcer import Announcer
+    from backend.assistant.scene_monitor import SceneEvent
+
+    said = []
+
+    class Spy:
+        def say(self, text, priority=Priority.NORMAL, kind="info", max_age=None, dedupe=True):
+            said.append(kind)
+            return True
+
+    hold = {"on": True}
+    a = Announcer(lambda: Settings(), Spy(), hold=lambda: hold["on"])
+    new = SceneEvent(kind="entered", message="chair", priority="info", label="chair")
+    warn = SceneEvent(kind="obstacle", message="Caution: chair close.", priority="warning", label="person")
+    a.handle([new, warn])
+    assert said == ["alert"]  # obstacle warnings still interrupt
+    hold["on"] = False
+    a.handle([SceneEvent(kind="entered", message="cup", priority="info", label="cup")])
+    assert said == ["alert", "new_objects"]
 
 
 # ---- real offline engine (Windows SAPI 5) --------------------------------------

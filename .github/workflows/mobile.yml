@@ -164,3 +164,52 @@ jobs:
           cache: true
       - run: flutter pub get
       - run: flutter build ios --simulator --debug
+
+  # Runs the real app code (Dart + Kotlin + LiteRT) on an Android emulator:
+  # genuine model download and SHA-256 check, load + self-test, offline reload,
+  # parity with the desktop detector on the fixture photos, and the camera YUV path.
+  android-device-test:
+    name: Android emulator integration test (detector)
+    runs-on: ubuntu-latest
+    needs: [detector-model, app]
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - id: check
+        run: test -f mobile/app/assets/models/detector.json && echo "ok=true" >> "$GITHUB_OUTPUT" || echo "ok=false" >> "$GITHUB_OUTPUT"
+      - if: steps.check.outputs.ok == 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - if: steps.check.outputs.ok == 'true'
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Enable KVM
+        if: steps.check.outputs.ok == 'true'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - if: steps.check.outputs.ok == 'true'
+        run: python3 mobile/tools/gen_integration_fixtures.py
+      - if: steps.check.outputs.ok == 'true'
+        working-directory: mobile/app
+        run: flutter pub get
+      - if: steps.check.outputs.ok == 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          working-directory: mobile/app
+          script: flutter test integration_test/detector_test.dart -d emulator-5554 --reporter expanded 2>&1 | tee ../../integration.log
+      - if: always() && steps.check.outputs.ok == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-integration-log
+          path: integration.log

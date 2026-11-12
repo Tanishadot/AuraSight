@@ -173,7 +173,7 @@ class _ObjectTile extends StatelessWidget {
       child: ListTile(
         leading: ExcludeSemantics(child: Icon(_icon(o.spatial.horizontal), size: 30)),
         title: Text(cap),
-        subtitle: Text('${o.spatial.phrase()} · ${(o.confidence * 100).round()}% sure'),
+        subtitle: Text('${o.spatial.phrase()} Â· ${(o.confidence * 100).round()}% sure'),
         trailing: o.approaching ? const Icon(Icons.warning_amber_rounded, semanticLabel: 'approaching') : null,
       ),
     );

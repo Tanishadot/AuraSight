@@ -50,7 +50,7 @@ class FakeCamera implements CameraService {
   final _frames = StreamController<CameraFrame>.broadcast();
   int starts = 0, stops = 0;
   @override
-  final state = ValueNotifier(const CameraState(CameraStatus.off));
+  final ValueNotifier<CameraState> state = ValueNotifier(const CameraState(CameraStatus.off));
   @override
   CameraFrame? latestFrame;
   @override

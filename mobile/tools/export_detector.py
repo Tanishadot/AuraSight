@@ -186,7 +186,7 @@ def write_report(path: Path, info: dict, par: dict) -> None:
         f"- Mean score difference (mobile - desktop): {par['mean_score_diff']:+.3f}, max |diff| "
         f"{par['max_abs_score_diff']:.3f}" if par["mean_score_diff"] is not None else "", "",
         "Expected differences: the desktop pads to a multiple of 32 (non-square) while the phone model has a",
-        "fixed square 320x320 input; float16 weights; and small resampling differences.", "",
+        "fixed square 320x320 input; small resampling differences; TFLite vs ONNX Runtime kernels.", "",
         "| Image | Ref | Matched | Missed | Extra (mobile only) |", "|---|---|---|---|---|",
     ]
     for r in par["images"]:

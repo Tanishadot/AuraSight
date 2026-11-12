@@ -15,6 +15,7 @@ import 'package:aurasight/services/detection_service.dart';
 import 'package:aurasight/services/detector_controller.dart';
 import 'package:aurasight/services/detector_model.dart';
 import 'package:aurasight/services/model_manager.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/testing.dart';

@@ -33,4 +33,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/models/detector.json
     - assets/selftest/person_living_room.jpg

@@ -133,6 +133,8 @@ jobs:
             mobile/app/.metadata
           include-hidden-files: true
       - run: flutter pub get
+      - name: Generate integration-test fixtures (needed to analyse integration_test/)
+        run: python3 ../tools/gen_integration_fixtures.py
       - run: flutter analyze --no-fatal-infos
       - run: flutter test --reporter expanded
       - run: flutter build apk --debug

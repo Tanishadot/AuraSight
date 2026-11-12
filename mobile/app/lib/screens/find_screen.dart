@@ -27,11 +27,12 @@ class _FindScreenState extends ConsumerState<FindScreen> {
   FindGuidance? _last;
   bool _wasCentred = false;
 
-  LivePipeline get _pipeline => ref.read(livePipelineProvider);
+  late final LivePipeline _pipeline; // cached: ref can't be used in dispose()
 
   @override
   void initState() {
     super.initState();
+    _pipeline = ref.read(livePipelineProvider);
     _pipeline.snapshot.addListener(_onSnapshot);
   }
 

@@ -66,15 +66,13 @@ class _HomeShellState extends ConsumerState<HomeShell> {
         actions: [
           IconButton(
             iconSize: 30,
-            tooltip: 'Settings and models',
-            icon: const Icon(Icons.settings_outlined),
+            icon: const Icon(Icons.settings_outlined, semanticLabel: 'Settings and models'),
             onPressed: () =>
                 Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const SettingsScreen())),
           ),
           IconButton(
             iconSize: 30,
-            tooltip: 'Stop speaking',
-            icon: const Icon(Icons.volume_off_outlined),
+            icon: const Icon(Icons.volume_off_outlined, semanticLabel: 'Stop speaking'),
             onPressed: () => ref.read(sceneControllerProvider).stop(),
           ),
         ],
@@ -87,7 +85,9 @@ class _HomeShellState extends ConsumerState<HomeShell> {
         onDestinationSelected: (i) => setState(() => _index = i),
         destinations: [
           for (final t in _tabs)
-            NavigationDestination(icon: Icon(t.icon), selectedIcon: Icon(t.selectedIcon), label: t.label),
+            // tooltip '' : the label is always visible and read by screen readers
+            NavigationDestination(
+                icon: Icon(t.icon), selectedIcon: Icon(t.selectedIcon), label: t.label, tooltip: ''),
         ],
       ),
     );

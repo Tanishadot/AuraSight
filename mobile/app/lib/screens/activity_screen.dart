@@ -34,7 +34,7 @@ class ActivityScreen extends ConsumerWidget {
       ]),
       const SizedBox(height: 12),
       items.when(
-        loading: () => const Padding(padding: EdgeInsets.all(24), child: Center(child: CircularProgressIndicator())),
+        loading: () => const Padding(padding: EdgeInsets.symmetric(vertical: 24), child: Text('Loading…')),
         error: (e, _) => StatusCard(icon: Icons.error_outline_rounded, title: "Couldn't load activity", body: '$e'),
         data: (list) => list.isEmpty
             ? Padding(

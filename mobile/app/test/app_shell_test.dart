@@ -42,9 +42,11 @@ void main() {
 
   testWidgets('settings opens from every screen', (tester) async {
     await pumpApp(tester);
-    await tester.tap(find.byTooltip('Settings and models'));
+    await tester.tap(find.bySemanticsLabel('Settings and models'));
     await tester.pumpAndSettle();
     expect(find.text('Speak out loud'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('SmolVLM 500M (recommended)'), 300,
+        scrollable: find.byType(Scrollable).last);
     expect(find.text('SmolVLM 500M (recommended)'), findsOneWidget);
   });
 

@@ -170,7 +170,7 @@ class _SentenceSplitter {
   final int maxSentences;
   String _buf = '';
   int _count = 0;
-  _SentenceSplitter(this.onSentence, {this.maxSentences = 3});
+  _SentenceSplitter(this.onSentence) : maxSentences = 3;
 
   static final _end = RegExp(r'[.!?](?=\s)');
 

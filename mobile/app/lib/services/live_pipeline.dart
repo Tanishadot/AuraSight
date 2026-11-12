@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math' as math;
-import 'dart:typed_data';
 
 import 'package:aura_core/aura_core.dart';
 import 'package:flutter/foundation.dart';

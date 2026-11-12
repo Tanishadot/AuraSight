@@ -159,7 +159,7 @@ class _VoicePicker extends ConsumerWidget {
         return Padding(
           padding: const EdgeInsets.only(top: 8),
           child: DropdownButtonFormField<String?>(
-            value: offline.any((v) => v.id == selected) ? selected : null,
+            initialValue: offline.any((v) => v.id == selected) ? selected : null,
             isExpanded: true,
             decoration: InputDecoration(
               labelText: 'Voice (offline voices only)',

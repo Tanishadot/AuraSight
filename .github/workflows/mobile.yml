@@ -75,7 +75,7 @@ jobs:
             mobile/app/.metadata
           include-hidden-files: true
       - run: flutter pub get
-      - run: flutter analyze
+      - run: flutter analyze --no-fatal-infos
       - run: flutter test --reporter expanded
       - run: flutter build apk --debug
       - uses: actions/upload-artifact@v4

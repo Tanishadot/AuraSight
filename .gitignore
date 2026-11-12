@@ -7,7 +7,7 @@ __pycache__/
 .export-env/
 
 # Local runtime data (settings, logs) - never committed
-data/
+/data/
 *.log
 
 # Secrets / environment

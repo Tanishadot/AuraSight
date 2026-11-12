@@ -11,6 +11,55 @@ permissions:
   contents: read
 
 jobs:
+  # The Android detector model. Exported once from the pinned YOLO11n weights and
+  # published as a release asset (model binaries stay out of Git); every later run
+  # downloads it and validates it against the committed manifest.
+  detector-model:
+    name: Detector model (export or fetch, validate)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create/upload the model release asset
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: mobile-models-v1
+      FILE: yolo11n_320_float16.tflite
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - id: mode
+        run: |
+          if [ -f mobile/app/assets/models/detector.json ]; then echo "mode=validate" >> "$GITHUB_OUTPUT"; else echo "mode=export" >> "$GITHUB_OUTPUT"; fi
+      - name: Export YOLO11n to TFLite (first run only)
+        if: steps.mode.outputs.mode == 'export'
+        run: |
+          pip install "ultralytics>=8.3,<9" opencv-python-headless
+          python mobile/tools/export_detector.py export --out dist
+      - name: Publish model as a release asset (first run only)
+        if: steps.mode.outputs.mode == 'export'
+        run: |
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release upload "$TAG" "dist/$FILE" --clobber
+          else
+            gh release create "$TAG" "dist/$FILE" --target "$GITHUB_SHA" --prerelease \
+              --title "AuraSight mobile models v1" \
+              --notes "On-device models for the AuraSight mobile app. YOLO11n by Ultralytics (AGPL-3.0), exported to LiteRT/TFLite float16 at 320x320 by mobile/tools/export_detector.py."
+          fi
+      - name: Fetch and validate the published model
+        if: steps.mode.outputs.mode == 'validate'
+        run: |
+          pip install ai-edge-litert opencv-python-headless numpy
+          gh release download "$TAG" -p "$FILE" -D dist --clobber
+          python mobile/tools/export_detector.py validate --model "dist/$FILE" --report dist/parity.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: detector-model-report
+          path: |
+            dist/detector.json
+            dist/parity.md
+
   core:
     name: aura_core (pure Dart)
     runs-on: ubuntu-latest

@@ -1,0 +1,536 @@
+{
+ "size": 320,
+ "conf": 0.25,
+ "model": "yolo11n.onnx (desktop)",
+ "images": [
+  {
+   "file": "desk_laptop_cup_plant.jpg",
+   "sha256": "3f40374d2260456f67521c3583236474fe322ee8b94f8abbf055b035dd309e14",
+   "width": 640,
+   "height": 427,
+   "detections": [
+    {
+     "label": "laptop",
+     "cls": 63,
+     "score": 0.9375,
+     "box": [
+      0.78,
+      0.0,
+      297.43,
+      412.2
+     ]
+    }
+   ]
+  },
+  {
+   "file": "empty_room.jpg",
+   "sha256": "51ac44b3e165307e6f980f101ddc1aee1de4e9c17f239330798387ea80529d6a",
+   "width": 640,
+   "height": 853,
+   "detections": []
+  },
+  {
+   "file": "empty_room_windows.jpg",
+   "sha256": "5c4747f8670a009e30db772fc5fece7673ad3ca9ce98f01d017b69978c10b7dc",
+   "width": 640,
+   "height": 480,
+   "detections": []
+  },
+  {
+   "file": "fp_door_as_refrigerator.jpg",
+   "sha256": "467d7022de07d0b1c9f828bc387cd8c456befba8eb8eae5dc822fff94e70b1c7",
+   "width": 960,
+   "height": 1280,
+   "detections": []
+  },
+  {
+   "file": "fp_glass_transom_as_tv.jpg",
+   "sha256": "ae440aca4c364634a2d55a76409a4205c5bc23c414d0cec6069be0a4f1d041df",
+   "width": 960,
+   "height": 1280,
+   "detections": [
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.6102,
+     "box": [
+      150.3,
+      170.14,
+      755.14,
+      507.96
+     ]
+    }
+   ]
+  },
+  {
+   "file": "fp_window_as_tv.jpg",
+   "sha256": "78639f26f4294375913b43aab8c56eb3e0bb8afb6d55633536bdea61bc2dfec1",
+   "width": 960,
+   "height": 443,
+   "detections": [
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.6455,
+     "box": [
+      383.53,
+      69.51,
+      567.37,
+      275.02
+     ]
+    }
+   ]
+  },
+  {
+   "file": "multi_modern_living_room.jpg",
+   "sha256": "5483f0d22a17d8eb19369fd7dffe7697eff2d984d3092bbe54d45985cee0bcda",
+   "width": 640,
+   "height": 424,
+   "detections": [
+    {
+     "label": "chair",
+     "cls": 56,
+     "score": 0.8963,
+     "box": [
+      301.55,
+      226.53,
+      548.91,
+      420.5
+     ]
+    },
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.7415,
+     "box": [
+      44.18,
+      183.46,
+      117.85,
+      284.66
+     ]
+    },
+    {
+     "label": "dining table",
+     "cls": 60,
+     "score": 0.2524,
+     "box": [
+      0.14,
+      233.0,
+      211.61,
+      419.41
+     ]
+    }
+   ]
+  },
+  {
+   "file": "multi_rural_living_room.jpg",
+   "sha256": "f4e5f1e93677061aedab7b2fc668377ab33c4e564483db3af7033556b2531fcb",
+   "width": 640,
+   "height": 436,
+   "detections": []
+  },
+  {
+   "file": "person_desk_laptop_cup.jpg",
+   "sha256": "66cf5e7afa35b3e2af155db9f831c1307d61340ac76d0874208e78d1b1b96a7c",
+   "width": 640,
+   "height": 960,
+   "detections": [
+    {
+     "label": "person",
+     "cls": 0,
+     "score": 0.9404,
+     "box": [
+      3.9,
+      112.42,
+      549.12,
+      957.38
+     ]
+    },
+    {
+     "label": "laptop",
+     "cls": 63,
+     "score": 0.8592,
+     "box": [
+      236.13,
+      342.17,
+      599.38,
+      619.53
+     ]
+    },
+    {
+     "label": "chair",
+     "cls": 56,
+     "score": 0.7847,
+     "box": [
+      0.0,
+      689.44,
+      434.4,
+      959.68
+     ]
+    },
+    {
+     "label": "book",
+     "cls": 73,
+     "score": 0.3104,
+     "box": [
+      531.61,
+      602.72,
+      639.35,
+      698.47
+     ]
+    },
+    {
+     "label": "potted plant",
+     "cls": 58,
+     "score": 0.2877,
+     "box": [
+      496.46,
+      201.38,
+      637.79,
+      512.26
+     ]
+    }
+   ]
+  },
+  {
+   "file": "person_living_room.jpg",
+   "sha256": "660e80ba968defe1809f814efc55aaba38b4fa7f2ceb23e6b4c5fda1470ceec6",
+   "width": 640,
+   "height": 510,
+   "detections": [
+    {
+     "label": "person",
+     "cls": 0,
+     "score": 0.8391,
+     "box": [
+      359.6,
+      240.92,
+      491.22,
+      449.28
+     ]
+    },
+    {
+     "label": "chair",
+     "cls": 56,
+     "score": 0.3164,
+     "box": [
+      90.27,
+      249.96,
+      229.07,
+      413.85
+     ]
+    }
+   ]
+  },
+  {
+   "file": "table_objects.jpg",
+   "sha256": "61fe0024a07ff4535f4e26a822bfd591775f52cb05ae61cf865fb081485e8d82",
+   "width": 640,
+   "height": 897,
+   "detections": [
+    {
+     "label": "bowl",
+     "cls": 45,
+     "score": 0.8396,
+     "box": [
+      3.66,
+      488.3,
+      298.09,
+      626.44
+     ]
+    },
+    {
+     "label": "dining table",
+     "cls": 60,
+     "score": 0.6189,
+     "box": [
+      2.85,
+      463.96,
+      634.42,
+      880.47
+     ]
+    },
+    {
+     "label": "vase",
+     "cls": 75,
+     "score": 0.5681,
+     "box": [
+      281.37,
+      449.53,
+      379.55,
+      621.39
+     ]
+    },
+    {
+     "label": "potted plant",
+     "cls": 58,
+     "score": 0.5118,
+     "box": [
+      223.83,
+      240.66,
+      485.54,
+      621.52
+     ]
+    },
+    {
+     "label": "potted plant",
+     "cls": 58,
+     "score": 0.446,
+     "box": [
+      98.16,
+      359.84,
+      241.69,
+      495.71
+     ]
+    },
+    {
+     "label": "bowl",
+     "cls": 45,
+     "score": 0.3273,
+     "box": [
+      396.39,
+      556.71,
+      579.6,
+      669.47
+     ]
+    },
+    {
+     "label": "orange",
+     "cls": 49,
+     "score": 0.2955,
+     "box": [
+      141.87,
+      551.25,
+      191.64,
+      592.55
+     ]
+    },
+    {
+     "label": "chair",
+     "cls": 56,
+     "score": 0.265,
+     "box": [
+      439.74,
+      429.04,
+      639.39,
+      562.38
+     ]
+    }
+   ]
+  },
+  {
+   "file": "tv_control_room_monitors.jpg",
+   "sha256": "a8286a3bd563c61603cb542438651534842c66db3a76d7404a90081a28238256",
+   "width": 960,
+   "height": 640,
+   "detections": [
+    {
+     "label": "chair",
+     "cls": 56,
+     "score": 0.7431,
+     "box": [
+      419.52,
+      482.11,
+      724.57,
+      635.51
+     ]
+    },
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.6154,
+     "box": [
+      305.59,
+      376.71,
+      434.78,
+      498.67
+     ]
+    },
+    {
+     "label": "person",
+     "cls": 0,
+     "score": 0.5286,
+     "box": [
+      875.83,
+      283.46,
+      959.62,
+      545.83
+     ]
+    },
+    {
+     "label": "laptop",
+     "cls": 63,
+     "score": 0.4878,
+     "box": [
+      154.63,
+      415.75,
+      284.45,
+      554.81
+     ]
+    },
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.4657,
+     "box": [
+      156.36,
+      416.11,
+      281.47,
+      549.47
+     ]
+    },
+    {
+     "label": "person",
+     "cls": 0,
+     "score": 0.3801,
+     "box": [
+      427.87,
+      293.09,
+      576.56,
+      497.58
+     ]
+    },
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.3094,
+     "box": [
+      46.42,
+      393.51,
+      131.43,
+      462.95
+     ]
+    },
+    {
+     "label": "laptop",
+     "cls": 63,
+     "score": 0.2934,
+     "box": [
+      543.08,
+      332.93,
+      626.89,
+      413.06
+     ]
+    },
+    {
+     "label": "chair",
+     "cls": 56,
+     "score": 0.2785,
+     "box": [
+      14.08,
+      500.64,
+      215.99,
+      638.18
+     ]
+    },
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.2549,
+     "box": [
+      797.17,
+      214.79,
+      849.35,
+      298.46
+     ]
+    },
+    {
+     "label": "cup",
+     "cls": 41,
+     "score": 0.253,
+     "box": [
+      211.07,
+      562.79,
+      264.92,
+      635.08
+     ]
+    }
+   ]
+  },
+  {
+   "file": "tv_living_room.jpg",
+   "sha256": "3e0988300684ab44915ea1e816c2c0bc6e71884fe17172bd68b1044c8d86207d",
+   "width": 640,
+   "height": 853,
+   "detections": [
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.8643,
+     "box": [
+      53.86,
+      387.62,
+      496.72,
+      774.45
+     ]
+    }
+   ]
+  },
+  {
+   "file": "tv_living_room_1998.jpg",
+   "sha256": "c47ad221f52b8d99cae1010f538cd3c06e24a1cbec0f8c6afa5a9e614c893520",
+   "width": 640,
+   "height": 423,
+   "detections": [
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.4029,
+     "box": [
+      153.71,
+      301.4,
+      249.5,
+      373.85
+     ]
+    },
+    {
+     "label": "bottle",
+     "cls": 39,
+     "score": 0.3295,
+     "box": [
+      175.14,
+      101.84,
+      197.74,
+      165.71
+     ]
+    },
+    {
+     "label": "chair",
+     "cls": 56,
+     "score": 0.2637,
+     "box": [
+      115.33,
+      299.61,
+      251.26,
+      417.27
+     ]
+    },
+    {
+     "label": "tv",
+     "cls": 62,
+     "score": 0.2523,
+     "box": [
+      112.86,
+      299.73,
+      251.75,
+      418.93
+     ]
+    }
+   ]
+  },
+  {
+   "file": "window_door_living_room.jpg",
+   "sha256": "f7d4be2372cc5504fd99887f77657e0399ac938e9b7a680d0ddfa943a3e65512",
+   "width": 640,
+   "height": 512,
+   "detections": []
+  },
+  {
+   "file": "window_large_historic.jpg",
+   "sha256": "c0372d61f84302d8a69159de80b57d820a67c273f3dda3fe489e708437b1c180",
+   "width": 640,
+   "height": 1048,
+   "detections": []
+  }
+ ]
+}

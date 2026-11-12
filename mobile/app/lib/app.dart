@@ -86,8 +86,7 @@ class _HomeShellState extends ConsumerState<HomeShell> {
         destinations: [
           for (final t in _tabs)
             // tooltip '' : the label is always visible and read by screen readers
-            NavigationDestination(
-                icon: Icon(t.icon), selectedIcon: Icon(t.selectedIcon), label: t.label, tooltip: ''),
+            NavigationDestination(icon: Icon(t.icon), selectedIcon: Icon(t.selectedIcon), label: t.label, tooltip: ''),
         ],
       ),
     );

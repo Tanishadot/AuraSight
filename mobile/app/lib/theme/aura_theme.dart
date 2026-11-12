@@ -70,14 +70,16 @@ ThemeData auraTheme(Brightness brightness) {
 
   final base = ThemeData(colorScheme: scheme, useMaterial3: true, brightness: brightness);
   // Generous sizes; everything scales with the system text size (never clamped).
-  final text = base.textTheme.copyWith(
-    headlineMedium: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, height: 1.2),
-    titleLarge: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, height: 1.25),
-    titleMedium: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, height: 1.3),
-    bodyLarge: const TextStyle(fontSize: 20, height: 1.45),
-    bodyMedium: const TextStyle(fontSize: 17, height: 1.45),
-    labelLarge: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, letterSpacing: 0.2),
-  ).apply(bodyColor: scheme.onSurface, displayColor: scheme.onSurface);
+  final text = base.textTheme
+      .copyWith(
+        headlineMedium: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, height: 1.2),
+        titleLarge: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, height: 1.25),
+        titleMedium: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, height: 1.3),
+        bodyLarge: const TextStyle(fontSize: 20, height: 1.45),
+        bodyMedium: const TextStyle(fontSize: 17, height: 1.45),
+        labelLarge: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, letterSpacing: 0.2),
+      )
+      .apply(bodyColor: scheme.onSurface, displayColor: scheme.onSurface);
 
   final shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(18));
   return base.copyWith(
@@ -129,8 +131,8 @@ ThemeData auraTheme(Brightness brightness) {
     switchTheme: SwitchThemeData(
       thumbColor: WidgetStateProperty.resolveWith(
           (s) => s.contains(WidgetState.selected) ? scheme.onPrimary : scheme.onSurfaceVariant),
-      trackColor: WidgetStateProperty.resolveWith(
-          (s) => s.contains(WidgetState.selected) ? scheme.primary : scheme.outline),
+      trackColor:
+          WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? scheme.primary : scheme.outline),
     ),
     sliderTheme: SliderThemeData(
       trackHeight: 6,

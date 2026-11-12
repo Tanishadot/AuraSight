@@ -86,10 +86,11 @@ void main() {
       await mm0.dirFor(m).create(recursive: true);
       await File('${mm0.fileFor(m, m.files.first).path}.part').writeAsBytes(payload.sublist(0, 5000));
       String? range;
-      final mm = ModelManager(dir, client: () => MockClient((req) async {
-            range = req.headers['Range'];
-            return http.Response.bytes(payload.sublist(5000), 206);
-          }));
+      final mm = ModelManager(dir,
+          client: () => MockClient((req) async {
+                range = req.headers['Range'];
+                return http.Response.bytes(payload.sublist(5000), 206);
+              }));
       final last = await mm.install(m).last;
       expect(range, 'bytes=5000-');
       expect(last.status, ModelStatus.installed);

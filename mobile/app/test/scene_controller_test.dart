@@ -36,8 +36,7 @@ class FakeTts implements TtsEngine {
 
 class FakeCamera implements CameraService {
   @override
-  CameraFrame? latestFrame =
-      CameraFrame(4, 4, 0, [FramePlane(Uint8List(16), 4, 1)], DateTime(2026));
+  CameraFrame? latestFrame = CameraFrame(4, 4, 0, [FramePlane(Uint8List(16), 4, 1)], DateTime(2026));
   @override
   final state = ValueNotifier(const CameraState(CameraStatus.running));
   @override
@@ -101,7 +100,8 @@ class UnloadedVlm extends ScriptedVlm {
 
 ObjectView obj(int id, String label, List<double> b) {
   final box = Box.fromList(b);
-  return ObjectView(id, label, 0.9, [b[0] / 640, b[1] / 480, b[2] / 640, b[3] / 480], analyzeBox(box, 640, 480, label), 5, 0);
+  return ObjectView(
+      id, label, 0.9, [b[0] / 640, b[1] / 480, b[2] / 640, b[3] / 480], analyzeBox(box, 640, 480, label), 5, 0);
 }
 
 Future<void> until(bool Function() c) async {
@@ -138,9 +138,12 @@ void main() {
   setUp(() => settings = const AuraSettings());
 
   test('every sentence shown is spoken, and named objects are not repeated', () async {
-    scene = build(
-        ScriptedVlm('A woman is sitting at a desk. A laptop is open on your right. There is a cup next to it.'),
-        [obj(1, 'person', [220, 20, 420, 478]), obj(2, 'laptop', [450, 200, 600, 300]), obj(3, 'chair', [20, 250, 120, 400])]);
+    scene =
+        build(ScriptedVlm('A woman is sitting at a desk. A laptop is open on your right. There is a cup next to it.'), [
+      obj(1, 'person', [220, 20, 420, 478]),
+      obj(2, 'laptop', [450, 200, 600, 300]),
+      obj(3, 'chair', [20, 250, 120, 400])
+    ]);
     await audio.start();
     final v = await scene.describe();
     expect(v.source, 'vlm');
@@ -153,7 +156,9 @@ void main() {
   });
 
   test('without the scene model, falls back to the detector and says so', () async {
-    scene = build(UnloadedVlm(), [obj(1, 'chair', [20, 250, 120, 400])]);
+    scene = build(UnloadedVlm(), [
+      obj(1, 'chair', [20, 250, 120, 400])
+    ]);
     await audio.start();
     final v = await scene.describe();
     expect(v.source, 'detector');

@@ -15,8 +15,7 @@ class AuraDatabase {
   static Future<AuraDatabase> open({String? path, DatabaseFactory? factory}) async {
     final f = factory ?? databaseFactory;
     final dbPath = path ?? p.join(await f.getDatabasesPath(), 'aurasight.db');
-    final db = await f.openDatabase(dbPath,
-        options: OpenDatabaseOptions(version: _version, onCreate: _create));
+    final db = await f.openDatabase(dbPath, options: OpenDatabaseOptions(version: _version, onCreate: _create));
     return AuraDatabase._(db);
   }
 
@@ -45,8 +44,9 @@ class AuraDatabase {
     }
   }
 
-  Future<void> saveSettings(AuraSettings s) => db.insert('settings', {'key': 'settings', 'value': jsonEncode(s.toJson())},
-      conflictAlgorithm: ConflictAlgorithm.replace);
+  Future<void> saveSettings(AuraSettings s) =>
+      db.insert('settings', {'key': 'settings', 'value': jsonEncode(s.toJson())},
+          conflictAlgorithm: ConflictAlgorithm.replace);
 
   // -- activity log -------------------------------------------------------------
   static const maxActivity = 2000;

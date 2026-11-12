@@ -58,8 +58,8 @@ final detectionServiceProvider = Provider<DetectionService>((ref) => NativeDetec
 final vlmServiceProvider = Provider<SceneUnderstandingService>((ref) => NativeVlmService());
 final ttsEngineProvider = Provider<NativeTtsEngine>((ref) => NativeTtsEngine());
 
-final trackingServiceProvider = Provider<TrackingService>(
-    (ref) => TrackingService(() => ref.read(settingsProvider), ref.read(clockProvider)));
+final trackingServiceProvider =
+    Provider<TrackingService>((ref) => TrackingService(() => ref.read(settingsProvider), ref.read(clockProvider)));
 
 final audioProvider = Provider<AudioOrchestrator>((ref) {
   AuraSettings settings() => ref.read(settingsProvider);

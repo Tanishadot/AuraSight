@@ -59,7 +59,10 @@ class _FindScreenState extends ConsumerState<FindScreen> {
   void _onSnapshot() {
     final g = _guide;
     if (g == null || !mounted) return;
-    final confirmed = [for (final o in _pipeline.snapshot.value.objects) if (o.confirmed) o];
+    final confirmed = [
+      for (final o in _pipeline.snapshot.value.objects)
+        if (o.confirmed) o
+    ];
     final guidance = g.update(confirmed);
     final say = g.speakable(guidance);
     final audio = ref.read(audioProvider);
@@ -73,7 +76,10 @@ class _FindScreenState extends ConsumerState<FindScreen> {
   Widget build(BuildContext context) {
     final camera = ref.watch(cameraServiceProvider);
     final labels = _pipeline.detector.info.labels;
-    final targets = [for (final t in commonTargets) if (labels.isEmpty || labels.contains(t)) t];
+    final targets = [
+      for (final t in commonTargets)
+        if (labels.isEmpty || labels.contains(t)) t
+    ];
     final text = Theme.of(context).textTheme;
     return ValueListenableBuilder<CameraState>(
       valueListenable: camera.state,

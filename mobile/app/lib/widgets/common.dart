@@ -57,7 +57,8 @@ class StatusCard extends StatelessWidget {
   final String? body;
   final Tone tone;
   final Widget? action;
-  const StatusCard({super.key, required this.icon, required this.title, this.body, this.tone = Tone.neutral, this.action});
+  const StatusCard(
+      {super.key, required this.icon, required this.title, this.body, this.tone = Tone.neutral, this.action});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +75,8 @@ class StatusCard extends StatelessWidget {
     };
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(18), border: Border.all(color: cs.outline)),
+      decoration:
+          BoxDecoration(color: bg, borderRadius: BorderRadius.circular(18), border: Border.all(color: cs.outline)),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

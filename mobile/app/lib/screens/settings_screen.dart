@@ -75,7 +75,9 @@ class SettingsScreen extends ConsumerWidget {
         ),
         const SizedBox(height: 8),
         SecondaryButton(
-            label: 'Open-source licences', icon: Icons.description_outlined, onPressed: () => showLicensePage(context: context)),
+            label: 'Open-source licences',
+            icon: Icons.description_outlined,
+            onPressed: () => showLicensePage(context: context)),
       ]),
     );
   }
@@ -144,7 +146,10 @@ class _VoicePicker extends ConsumerWidget {
       loading: () => const SizedBox.shrink(),
       error: (_, __) => const SizedBox.shrink(),
       data: (list) {
-        final offline = [for (final v in list) if (v.offline) v];
+        final offline = [
+          for (final v in list)
+            if (v.offline) v
+        ];
         if (offline.isEmpty) {
           return const Padding(
             padding: EdgeInsets.only(top: 8),
@@ -266,7 +271,8 @@ class _ModelTileState extends ConsumerState<_ModelTile> {
             if (p?.status == ModelStatus.failed)
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
-                child: Text(p!.error ?? 'Download failed.', style: TextStyle(color: Theme.of(context).colorScheme.error)),
+                child:
+                    Text(p!.error ?? 'Download failed.', style: TextStyle(color: Theme.of(context).colorScheme.error)),
               ),
             FilledButton.icon(
               onPressed: _installed == null ? null : _install,

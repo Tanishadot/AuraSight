@@ -70,7 +70,9 @@ class _Entry extends StatelessWidget {
       child: ListTile(
         leading: ExcludeSemantics(
           child: Icon(
-            e.isAlert ? Icons.warning_amber_rounded : (e.priority == 'error' ? Icons.error_outline : Icons.circle_outlined),
+            e.isAlert
+                ? Icons.warning_amber_rounded
+                : (e.priority == 'error' ? Icons.error_outline : Icons.circle_outlined),
             color: e.isAlert || e.priority == 'error' ? cs.error : cs.onSurfaceVariant,
           ),
         ),

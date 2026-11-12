@@ -102,8 +102,8 @@ class NativeVlmService implements SceneUnderstandingService {
         'maxTokens': maxTokens,
         'params': params,
       });
-      return GenerationResult(r!['text']! as String, (r['imageMs']! as num).toDouble(), (r['totalMs']! as num).toDouble(),
-          r['tokens']! as int);
+      return GenerationResult(r!['text']! as String, (r['imageMs']! as num).toDouble(),
+          (r['totalMs']! as num).toDouble(), r['tokens']! as int);
     } on PlatformException catch (e) {
       throw VlmUnavailable(e.message ?? e.code);
     } finally {

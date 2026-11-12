@@ -74,7 +74,10 @@ class SceneController {
     double? firstMs;
     audio.speech.cancel('description');
     audio.describing++;
-    final objects = [for (final o in live.snapshot.value.objects) if (o.confirmed) o];
+    final objects = [
+      for (final o in live.snapshot.value.objects)
+        if (o.confirmed) o
+    ];
     audio.announcer.noteDescribed({for (final o in objects) o.label});
     view.value = const SceneView(stage: SceneStage.analysing);
 
@@ -99,7 +102,10 @@ class SceneController {
       splitter.finish(r.text);
       source = 'vlm';
       if (sentences.isEmpty) emit("I'm not sure what I'm looking at.");
-      final extra = [for (final o in objects) if (!mentionedIn(o.label, sentences.join(' '))) o];
+      final extra = [
+        for (final o in objects)
+          if (!mentionedIn(o.label, sentences.join(' '))) o
+      ];
       if (extra.isNotEmpty) emit('The object detector also found ${summarizeObjects(extra)}.');
     } on VlmUnavailable catch (e) {
       final det = summarizeObjects(objects);

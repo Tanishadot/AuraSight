@@ -77,7 +77,8 @@ class NativeDetectionService implements DetectionService {
   }
 
   @override
-  Future<List<Detection>> detectCrop(CameraFrame frame, (int, int, int, int) rect, int size, {double conf = 0.05}) async {
+  Future<List<Detection>> detectCrop(CameraFrame frame, (int, int, int, int) rect, int size,
+      {double conf = 0.05}) async {
     final r = await _ch.invokeMapMethod<String, Object?>('detectCrop', {
       'frame': frame.toChannel(),
       'rect': [rect.$1, rect.$2, rect.$3, rect.$4],

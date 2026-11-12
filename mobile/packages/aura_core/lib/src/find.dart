@@ -30,7 +30,10 @@ class FindGuide {
 
   /// Best match: nearest first, then most central.
   FindGuidance update(List<ObjectView> confirmed) {
-    final matches = [for (final o in confirmed) if (o.label == label) o];
+    final matches = [
+      for (final o in confirmed)
+        if (o.label == label) o
+    ];
     final name = spokenLabel(label);
     if (matches.isEmpty) {
       if (_lostSince < 0) _lostSince = _clock();

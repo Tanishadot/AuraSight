@@ -9,7 +9,10 @@ class FrameAnalysis {
   final List<VerifyRequest> verifyRequests;
   const FrameAnalysis(this.objects, this.events, this.verifyRequests);
 
-  List<ObjectView> get confirmed => [for (final o in objects) if (o.confirmed) o];
+  List<ObjectView> get confirmed => [
+        for (final o in objects)
+          if (o.confirmed) o
+      ];
 }
 
 /// Tracking, verification, spatial awareness and scene events, all in shared
@@ -67,7 +70,10 @@ class TrackingService {
           status: st.status, statusReason: st.reason));
     }
     // Only confirmed objects can create events, announcements and alerts.
-    final events = monitor.update([for (final o in objects) if (o.confirmed) o], thumbnail);
+    final events = monitor.update([
+      for (final o in objects)
+        if (o.confirmed) o
+    ], thumbnail);
     return FrameAnalysis(objects, events, up.requests);
   }
 }

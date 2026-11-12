@@ -49,7 +49,8 @@ class NativeTtsEngine implements TtsEngine {
 
   @override
   Future<bool> speak(String text, {required double rate, required double volume, String? voiceId}) async {
-    final done = await _ch.invokeMethod<bool>('speak', {'text': text, 'rate': rate, 'volume': volume, 'voiceId': voiceId});
+    final done =
+        await _ch.invokeMethod<bool>('speak', {'text': text, 'rate': rate, 'volume': volume, 'voiceId': voiceId});
     return done ?? false;
   }
 

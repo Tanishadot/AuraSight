@@ -19,27 +19,45 @@ void main() {
   test('guides to the nearest matching object and says when it is centred', () {
     final far = obj(1, 'cup', [600, 100, 620, 120]);
     final near = obj(2, 'cup', [280, 200, 400, 330]);
-    final g = guide.update([obj(3, 'chair', [0, 0, 100, 200]), far, near]);
+    final g = guide.update([
+      obj(3, 'chair', [0, 0, 100, 200]),
+      far,
+      near
+    ]);
     expect(g.target!.trackId, 2);
     expect(g.centred, isTrue);
     expect(g.message, 'Cup straight ahead, near.');
   });
 
   test('direction for an off-centre object', () {
-    final g = guide.update([obj(1, 'cup', [440, 200, 480, 250])]);
+    final g = guide.update([
+      obj(1, 'cup', [440, 200, 480, 250])
+    ]);
     expect(g.centred, isFalse);
     expect(g.message, startsWith('Cup slightly right'));
   });
 
   test('speaks new information at once and repeats only after the gap', () {
-    final g = guide.update([obj(1, 'cup', [440, 200, 480, 250])]);
+    final g = guide.update([
+      obj(1, 'cup', [440, 200, 480, 250])
+    ]);
     expect(guide.speakable(g), g.message);
     t = 1;
-    expect(guide.speakable(guide.update([obj(1, 'cup', [440, 200, 480, 250])])), isNull);
+    expect(
+        guide.speakable(guide.update([
+          obj(1, 'cup', [440, 200, 480, 250])
+        ])),
+        isNull);
     t = 5;
-    expect(guide.speakable(guide.update([obj(1, 'cup', [440, 200, 480, 250])])), isNotNull);
+    expect(
+        guide.speakable(guide.update([
+          obj(1, 'cup', [440, 200, 480, 250])
+        ])),
+        isNotNull);
     t = 5.5;
-    final moved = guide.update([obj(1, 'cup', [20, 200, 60, 250])]);
+    final moved = guide.update([
+      obj(1, 'cup', [20, 200, 60, 250])
+    ]);
     expect(guide.speakable(moved), startsWith('Cup on your left'));
   });
 
@@ -52,7 +70,9 @@ void main() {
   });
 
   test('uses friendly names', () {
-    final g = FindGuide('cell phone', () => 0).update([obj(1, 'cell phone', [300, 200, 340, 260])]);
+    final g = FindGuide('cell phone', () => 0).update([
+      obj(1, 'cell phone', [300, 200, 340, 260])
+    ]);
     expect(g.message, startsWith('Phone straight ahead'));
   });
 }

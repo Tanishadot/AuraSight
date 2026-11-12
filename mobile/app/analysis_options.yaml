@@ -5,6 +5,8 @@ analyzer:
     strict-casts: true
   exclude:
     - "build/**"
+    - android/**
+    - ios/**
 
 linter:
   rules:

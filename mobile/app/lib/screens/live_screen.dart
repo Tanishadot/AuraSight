@@ -21,7 +21,10 @@ class LiveScreen extends ConsumerWidget {
         valueListenable: pipeline.snapshot,
         builder: (context, snap, _) {
           final running = cam.status == CameraStatus.running;
-          final confirmed = [for (final o in snap.objects) if (o.confirmed) o];
+          final confirmed = [
+            for (final o in snap.objects)
+              if (o.confirmed) o
+          ];
           return ScreenBody(children: [
             _Preview(camera: camera, snap: snap, running: running),
             const SizedBox(height: 16),
@@ -50,7 +53,11 @@ class LiveScreen extends ConsumerWidget {
                 cam.status == CameraStatus.error ||
                 cam.status == CameraStatus.unavailable) ...[
               const SizedBox(height: 16),
-              StatusCard(icon: Icons.no_photography_rounded, title: 'Camera unavailable', body: cam.message, tone: Tone.danger),
+              StatusCard(
+                  icon: Icons.no_photography_rounded,
+                  title: 'Camera unavailable',
+                  body: cam.message,
+                  tone: Tone.danger),
             ],
             if (running && !snap.detector.available) ...[
               const SizedBox(height: 16),
@@ -95,7 +102,10 @@ class _Preview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final confirmed = [for (final o in snap.objects) if (o.confirmed) o];
+    final confirmed = [
+      for (final o in snap.objects)
+        if (o.confirmed) o
+    ];
     final label = !running
         ? 'Camera is off.'
         : confirmed.isEmpty
@@ -115,7 +125,10 @@ class _Preview extends StatelessWidget {
               child: preview == null
                   ? Center(child: Icon(Icons.videocam_off_rounded, size: 56, color: cs.onSurfaceVariant))
                   : Stack(fit: StackFit.expand, children: [
-                      FittedBox(fit: BoxFit.cover, clipBehavior: Clip.hardEdge, child: SizedBox(width: 300, height: 400, child: preview)),
+                      FittedBox(
+                          fit: BoxFit.cover,
+                          clipBehavior: Clip.hardEdge,
+                          child: SizedBox(width: 300, height: 400, child: preview)),
                       CustomPaint(painter: _BoxPainter(snap.objects, cs.primary, cs.onPrimary)),
                     ]),
             ),
@@ -135,7 +148,8 @@ class _BoxPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     for (final o in objects) {
-      final r = Rect.fromLTRB(o.box[0] * size.width, o.box[1] * size.height, o.box[2] * size.width, o.box[3] * size.height);
+      final r =
+          Rect.fromLTRB(o.box[0] * size.width, o.box[1] * size.height, o.box[2] * size.width, o.box[3] * size.height);
       final p = Paint()
         ..style = PaintingStyle.stroke
         ..strokeWidth = o.confirmed ? 3 : 1.5

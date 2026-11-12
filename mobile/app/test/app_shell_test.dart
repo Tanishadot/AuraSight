@@ -13,8 +13,8 @@ void main() {
   sqfliteFfiInit();
 
   Future<void> pumpApp(WidgetTester tester) async {
-    final db = await tester.runAsync(
-        () => AuraDatabase.open(path: inMemoryDatabasePath, factory: databaseFactoryFfiNoIsolate));
+    final db = await tester
+        .runAsync(() => AuraDatabase.open(path: inMemoryDatabasePath, factory: databaseFactoryFfiNoIsolate));
     await tester.pumpWidget(ProviderScope(
       overrides: [
         databaseProvider.overrideWithValue(db!),

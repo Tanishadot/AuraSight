@@ -127,7 +127,7 @@ jobs:
       - run: flutter analyze --no-fatal-infos
       - run: flutter test --reporter expanded
       - run: flutter build apk --debug
-      - name: Native unit tests (Kotlin: letterbox, YUV/rotation sampling, decoding, NMS)
+      - name: "Native unit tests (Kotlin): letterbox, YUV/rotation sampling, decoding, NMS"
         working-directory: mobile/app/android
         run: ./gradlew :aura_native:testDebugUnitTest --console=plain
       - uses: actions/upload-artifact@v4

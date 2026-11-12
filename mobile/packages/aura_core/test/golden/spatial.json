@@ -1,0 +1,5038 @@
+{
+ "analyze": [
+  {
+   "box": [
+    321.4946995962368,
+    305.7479984043282,
+    511.21920880595644,
+    553.3911108732182
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6505577409392135,
+   "area": 0.15294260407658708,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    535.7017151387316,
+    37.76924281336468,
+    672.3009427564803,
+    67.21616438125886
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.9437520764806344,
+   "area": 0.013093837050438702,
+   "phrase": "on your right, far away"
+  },
+  {
+   "box": [
+    410.7906646916512,
+    46.87026627468525,
+    703.5550759042032,
+    154.26934527177167
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.8705826098405114,
+   "area": 0.10235230510205849,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    285.43427352856804,
+    400.11866503232466,
+    776.7340238482302,
+    867.6015918268008
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8298189823256237,
+   "area": 0.7476375169688511,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    237.3627421462432,
+    110.42153761480662,
+    682.5053202749958,
+    324.6370535084079
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.718646923766593,
+   "area": 0.3104051009767528,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    261.85681520165787,
+    328.5260127406179,
+    786.0142261328042,
+    455.87902489583774
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8186492510425485,
+   "area": 0.21729500366394158,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    220.54217968450223,
+    410.736478935798,
+    845.2992729548153,
+    735.1187249943845
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8326886348744669,
+   "area": 0.6597008761590427,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    481.5361063507612,
+    163.5358389755879,
+    756.2216283226262,
+    365.0522133651929
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9669982302135839,
+   "area": 0.18018759923530736,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    325.8612726808396,
+    146.31979100878593,
+    473.77088325413285,
+    344.416751287504
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6247126218241972,
+   "area": 0.09537905029485134,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    160.9115200197682,
+    190.53574368856985,
+    712.3505547410665,
+    474.005873310785
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6822359959069021,
+   "area": 0.5088427560260275,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    482.961208614305,
+    152.09737650399026,
+    535.7132798640549,
+    518.3721568046587
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7958394441237188,
+   "area": 0.06289633238088332,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    501.4455166018173,
+    298.6115223351817,
+    789.5922978525168,
+    475.7232422649896
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0086232925424485,
+   "area": 0.16612686204280444,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    442.98265832324284,
+    297.9027440536516,
+    885.6122210576134,
+    480.3628030243925
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0379647495162938,
+   "area": 0.2628978389280811,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    283.360577007429,
+    228.4550160429267,
+    812.9519049271472,
+    481.2170775974472
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8564941265113877,
+   "area": 0.4357441270390106,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    167.40343936129474,
+    351.2304308037251,
+    375.2827843418697,
+    366.312657634832
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "far",
+   "in_path": true,
+   "cx": 0.42397361226809716,
+   "area": 0.010206000763342977,
+   "phrase": "ahead, far away"
+  },
+  {
+   "box": [
+    383.29565209251854,
+    313.0120041412418,
+    689.9769198453824,
+    601.4272970771267
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.8384941968264851,
+   "area": 0.28792828019821226,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    553.9543263985852,
+    107.5686013067437,
+    670.7537698479016,
+    582.9616642302166
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9568032001925678,
+   "area": 0.18074754286825356,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    60.16219605748958,
+    234.5077566315206,
+    184.42460988415226,
+    691.7558470713445
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.1910834421419077,
+   "area": 0.1849568731630361,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    184.3342403727188,
+    146.35928575175308,
+    523.4147261679188,
+    353.10601562632445
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.5529288801098732,
+   "area": 0.22820241407043834,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    430.3180890253831,
+    200.91037979928862,
+    970.0536120570538,
+    559.6677334258593
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0940403914706538,
+   "area": 0.6303192965530442,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    546.6646655436814,
+    271.4861593422844,
+    784.0369369250884,
+    539.0873315887461
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0396106269287264,
+   "area": 0.20677440781402914,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    429.9151668383489,
+    341.0708835783203,
+    1052.1976277775402,
+    750.2823066730336
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1579006207936633,
+   "area": 0.8289228235931212,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    291.568732284765,
+    59.28693433739781,
+    486.0570837426108,
+    191.970413902927
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.6075201687713874,
+   "area": 0.08400192449996921,
+   "phrase": "slightly right, middle distance"
+  },
+  {
+   "box": [
+    262.2732041181495,
+    80.27345346830265,
+    379.8037009273075,
+    120.2446963474975
+   ],
+   "label": "unknownthing",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.5016225820667632,
+   "area": 0.015292448026273725,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    54.782770700078444,
+    -2.0976767992015226,
+    694.7671883544333,
+    130.17750381871758
+   ],
+   "label": "dining table",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5855859055113373,
+   "area": 0.2755665834566522,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    109.81147670386545,
+    316.1257370993576,
+    528.2744359342811,
+    548.6404283534221
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.49850461924855194,
+   "area": 0.31672781825104906,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    319.22106447430065,
+    206.2351507436967,
+    406.5541353159043,
+    619.760546367
+   ],
+   "label": "dining table",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5670118748360976,
+   "area": 0.11756003473558635,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    315.27171843562616,
+    365.2327190280723,
+    428.2430190262067,
+    493.89662857430704
+   ],
+   "label": "tv",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.5808708886420569,
+   "area": 0.04731552474123355,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    271.8129095081508,
+    305.4184923821442,
+    492.7166685932955,
+    641.3747384188589
+   ],
+   "label": "unknownthing",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5972887328917549,
+   "area": 0.24158202356003908,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    160.34091641427514,
+    320.8979069437988,
+    265.6922871497238,
+    656.0055386357149
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.3328384402843742,
+   "area": 0.1149220323654077,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    430.83428882295976,
+    145.18946143720603,
+    897.2822810192354,
+    216.43634542387468
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0375910701892148,
+   "area": 0.10818022781843285,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    382.73541793332475,
+    122.58235367773128,
+    921.9950604644889,
+    363.49820745421056
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.019320686248292,
+   "area": 0.422904287720034,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    475.3578779168984,
+    426.94717665587115,
+    713.8492723145957,
+    529.2935668870662
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9290680861183548,
+   "area": 0.07945551210224143,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    488.1160935258488,
+    119.14921599630225,
+    560.3763909043319,
+    260.14367646121264
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.8191347534610787,
+   "area": 0.03316504440726953,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    157.97085410230238,
+    363.4964267978534,
+    716.8048419359378,
+    412.25893290313445
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6834185125298752,
+   "area": 0.08870490150903709,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    205.1072956300666,
+    348.026370929329,
+    667.0252270661035,
+    639.2093733913058
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6813535333563829,
+   "area": 0.4378341476776393,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    247.10531365144521,
+    228.14539012174671,
+    312.79024118064484,
+    630.6786560107139
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.43741840221257033,
+   "area": 0.08606890754560173,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    460.48004532537266,
+    86.18468216511036,
+    1078.4413232779148,
+    447.9226531413405
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2022823192213183,
+   "area": 0.7276694623321315,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    581.0460867590243,
+    311.2695685195581,
+    846.454087248768,
+    382.3784110609191
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.1152345109435877,
+   "area": 0.06143507720065967,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    14.497755452046668,
+    321.65914583282927,
+    212.97364037427562,
+    572.1317196083708
+   ],
+   "label": "bottle",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.1777120279893143,
+   "area": 0.1618254092735966,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    291.70564955814007,
+    361.34049609837365,
+    343.7196501959378,
+    593.8253359018468
+   ],
+   "label": "bottle",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.49642601543287335,
+   "area": 0.03936349806580779,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    203.87194043569028,
+    386.6697483142665,
+    403.26277302025915,
+    526.4222357899578
+   ],
+   "label": "chair",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.47432399488746047,
+   "area": 0.09070756781752154,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    314.0514479619654,
+    14.760546072406157,
+    435.7468698998665,
+    227.0301610515003
+   ],
+   "label": "bottle",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5857799358295562,
+   "area": 0.08408932408683815,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    587.027897720917,
+    114.94307645777829,
+    880.5158813492626,
+    309.0581075190343
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.1465185773985778,
+   "area": 0.18545061542357322,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    150.81525476889004,
+    347.4104044743028,
+    253.0269607302278,
+    458.4888165950278
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.3155017308586858,
+   "area": 0.036958053379999474,
+   "phrase": "slightly left, middle distance"
+  },
+  {
+   "box": [
+    123.90100134383533,
+    -14.132474211283482,
+    303.2957937683331,
+    438.27684711350736
+   ],
+   "label": "bottle",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.3337474961813816,
+   "area": 0.2641923056314088,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    401.2911183394368,
+    345.7941101012537,
+    773.4248511378828,
+    680.8074742585264
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9177468511541559,
+   "area": 0.40582608639717127,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    8.703645855627972,
+    182.13390500963868,
+    249.91114410862218,
+    470.71044505479546
+   ],
+   "label": "bottle",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.20204280465957045,
+   "area": 0.2265847177044182,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    471.8600595085471,
+    271.77959691584044,
+    959.8671863900772,
+    579.8547167308777
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1185369108583003,
+   "area": 0.48939731147337073,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    560.3027494273846,
+    106.7541329895931,
+    657.5618732993977,
+    445.213694422033
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9514567365052986,
+   "area": 0.10715586071297167,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    -4.4843246103214245,
+    10.300146187351547,
+    207.69331827128414,
+    292.6669389855917
+   ],
+   "label": "tv",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.1587570262976271,
+   "area": 0.19502578295562928,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    132.8519906937515,
+    304.78584444864293,
+    176.93034530339585,
+    449.76525628520085
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.24201744999777136,
+   "area": 0.020802258873793847,
+   "phrase": "slightly left, far away"
+  },
+  {
+   "box": [
+    407.9712242048813,
+    37.112487417827055,
+    751.804007398509,
+    443.22480490178486
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9060743996901486,
+   "area": 0.4545401315420683,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    268.7297042951168,
+    374.250559015007,
+    383.27879442064045,
+    772.7557220809595
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5093816396216854,
+   "area": 0.14859506458179783,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    517.511288923935,
+    290.95843023539396,
+    805.6667487173365,
+    614.9542978616755
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0337328419072436,
+   "area": 0.3039100853092878,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    463.6019978747228,
+    32.18427857749396,
+    791.2819651935872,
+    451.1418100508336
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9803780961471172,
+   "area": 0.44688798900122406,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    12.84450960612682,
+    355.48385527646496,
+    540.5978195790681,
+    371.419768221741
+   ],
+   "label": "dining table",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.43237681967593355,
+   "area": 0.02737705339944681,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    236.93969267508186,
+    318.24912624776624,
+    544.8928799116213,
+    561.0177646050714
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6108066973333619,
+   "area": 0.24336385398179342,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    546.915873289858,
+    331.51095371191946,
+    682.4969898147936,
+    446.6083180459019
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.960478799300509,
+   "area": 0.05079762098137575,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    535.3585092777328,
+    95.08691349910563,
+    1124.4445991502212,
+    509.8243299469208
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.296721178459339,
+   "area": 0.795299619072465,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    332.099347969299,
+    32.86882949691813,
+    821.042906723482,
+    120.15070790947186
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9008923864787353,
+   "area": 0.1389189851750779,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    319.96336816542686,
+    367.4309615309675,
+    726.8933064127232,
+    748.2465664063643
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8178567770141797,
+   "area": 0.5044442401547917,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    398.382159538349,
+    343.7929242049708,
+    1027.3887173682836,
+    388.7312477163944
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1138834975833067,
+   "area": 0.09201334696148629,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    362.4877476522656,
+    242.72238984179052,
+    818.3102582592023,
+    400.4181254956492
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9224984421183343,
+   "area": 0.23398849654215387,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    260.24720215037667,
+    226.08876616996625,
+    704.00915404132,
+    273.59888708264293
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.753325278274763,
+   "area": 0.06863015622000043,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    579.3727335581423,
+    4.843210752252848,
+    1043.1235320096682,
+    308.15531431140823
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2675752074748519,
+   "area": 0.4578816087420906,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    114.31510271170521,
+    217.47246136784372,
+    481.39733415300964,
+    613.8540221068861
+   ],
+   "label": "unknownthing",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.46540034130055846,
+   "area": 0.47364787701261263,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    572.7343566171962,
+    385.91970445013015,
+    974.932188023106,
+    709.391105169711
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.209114488000236,
+   "area": 0.42350096318765446,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    147.64303806765383,
+    411.29370365230295,
+    641.373782319919,
+    485.4513424605086
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6164193909277913,
+   "area": 0.11918589258061862,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    597.387509444463,
+    2.5659129523605557,
+    794.6781065221476,
+    359.45226434463956
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0875512624739145,
+   "area": 0.2292002648276662,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    26.32944466871075,
+    162.28059965203542,
+    276.6123515558926,
+    328.1373075054531
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.23667327830047133,
+   "area": 0.13512727528740712,
+   "phrase": "slightly left, far away"
+  },
+  {
+   "box": [
+    310.38487683809586,
+    227.75845143389662,
+    771.3323694245095,
+    427.30573629689616
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8450915986426605,
+   "area": 0.2994167337565965,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    240.02362506172102,
+    432.2544223834927,
+    845.4842725232443,
+    502.93714444109037
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8480530449882542,
+   "area": 0.1393086154340364,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    510.4398817928027,
+    130.988721167025,
+    570.2045804704369,
+    298.76137261877307
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.8442534861431559,
+   "area": 0.03263958971471834,
+   "phrase": "on your right, far away"
+  },
+  {
+   "box": [
+    268.01292726677286,
+    -16.920659544502506,
+    522.2325923675091,
+    462.57510005385194
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6173793122142828,
+   "area": 0.3968009486403542,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    531.0391851900043,
+    18.084330487049826,
+    676.1669576143601,
+    427.36300298454535
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9431297990659097,
+   "area": 0.19335189466262678,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    363.9829093092793,
+    73.42952210094062,
+    577.3046566236203,
+    242.28241699487359
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7353809108850778,
+   "area": 0.11725258651646663,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    84.84301264422956,
+    119.31539627730578,
+    113.4249764437036,
+    598.5302584642712
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.15489686647494777,
+   "area": 0.04458626902082612,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    243.7197628073464,
+    176.22002046025057,
+    581.1324395100864,
+    532.7167292920116
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6444157830604944,
+   "area": 0.3915576457117247,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    74.52722179400673,
+    396.42185458889855,
+    87.83480611364205,
+    822.5019482253952
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.1268453343028506,
+   "area": 0.018457346266229774,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    216.73152486947677,
+    430.06637010218566,
+    499.0206206839798,
+    775.1103100045722
+   ],
+   "label": "tv",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5591813637136379,
+   "area": 0.3170642637087188,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    546.3922035449716,
+    310.9656296367553,
+    856.631489201443,
+    355.97091290421235
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0961122599581363,
+   "area": 0.045450543397340566,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    284.1761554553012,
+    110.57752438763652,
+    628.6728789367779,
+    215.16178177392402
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.7131633081188118,
+   "area": 0.11728168618919099,
+   "phrase": "slightly right, middle distance"
+  },
+  {
+   "box": [
+    297.7026281309367,
+    286.4445432256567,
+    359.07857087009046,
+    412.90456895890054
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "far",
+   "in_path": true,
+   "cx": 0.5131103117195525,
+   "area": 0.025265635736313425,
+   "phrase": "ahead, far away"
+  },
+  {
+   "box": [
+    242.95185817890024,
+    189.73807230917166,
+    802.6288676122183,
+    367.0623355302257
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8168599420243113,
+   "area": 0.32306091581876967,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    320.5268580313053,
+    120.35123796233256,
+    720.6953817965953,
+    450.39453037215964
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.8134548748655472,
+   "area": 0.42992492546313943,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    191.71551111047364,
+    189.49622281612162,
+    248.6526329251132,
+    332.855270190612
+   ],
+   "label": "bottle",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.34403761252780224,
+   "area": 0.026570480285130347,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    134.1877579183731,
+    185.45404330825582,
+    200.9764146287893,
+    629.290734936948
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.26184700980247066,
+   "area": 0.09649497536678248,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    531.0065992145388,
+    51.253970658365546,
+    596.0001838829182,
+    507.14155522870146
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.8804740492948884,
+   "area": 0.09645106877290073,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    174.68057748102086,
+    130.18704796261457,
+    384.6378616369278,
+    590.9805652006442
+   ],
+   "label": "chair",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4369675305608974,
+   "area": 0.3149314955597161,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    257.5599955722192,
+    212.5746028418163,
+    511.1636122766854,
+    681.8368606424133
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6005653186319566,
+   "area": 0.3873912947953614,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    571.5717803535533,
+    308.6119079661003,
+    684.9096242429628,
+    627.6973315403502
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9816260973410282,
+   "area": 0.11772283178530087,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    156.29754535200567,
+    367.66432665699205,
+    446.19256754111575,
+    784.0088952643243
+   ],
+   "label": "tv",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4706954006977512,
+   "area": 0.3928913344880796,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    245.95093892085987,
+    155.1869098576448,
+    723.7749638418152,
+    211.41618100382976
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.7575983615333399,
+   "area": 0.08745995005677683,
+   "phrase": "slightly right, middle distance"
+  },
+  {
+   "box": [
+    289.2592353955994,
+    12.25474603835773,
+    816.8929463673123,
+    203.31579776539738
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8641813920022748,
+   "area": 0.3281583715654178,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    173.16059211528463,
+    7.76599451498107,
+    723.6459568951075,
+    328.51147213143383
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.7006301164143689,
+   "area": 0.574758109528553,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    33.64125029525023,
+    180.27782586881563,
+    538.4871984105962,
+    418.0567444420003
+   ],
+   "label": "bottle",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4469753505514425,
+   "area": 0.3907608189743524,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    353.1660677151916,
+    187.81189224887362,
+    843.1835886166434,
+    595.9476626224548
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9346481690092461,
+   "area": 0.6510210885080289,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    575.7358165891267,
+    352.0075373993865,
+    738.2774195561043,
+    789.0207699022814
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0265728407384618,
+   "area": 0.23122666448177417,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    59.61362751392612,
+    214.8175062088756,
+    252.20930958567521,
+    382.0672244896686
+   ],
+   "label": "dog",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.24361166960906355,
+   "area": 0.10485538271027736,
+   "phrase": "slightly left, middle distance"
+  },
+  {
+   "box": [
+    43.53559551695772,
+    309.48938593812494,
+    338.0513513651285,
+    503.0167264033546
+   ],
+   "label": "dog",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.29811480225162984,
+   "area": 0.1855366242005319,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    -10.637520592859083,
+    175.7781757326706,
+    530.2691368948324,
+    609.5840729994286
+   ],
+   "label": "chair",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4059622002359166,
+   "area": 0.7638297457324575,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    503.78435091118024,
+    206.54882043120952,
+    679.584607309457,
+    332.4197711421089
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9245069986098728,
+   "area": 0.07203172333356438,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    29.359893030561665,
+    365.71256533489696,
+    101.50672464369391,
+    623.5652999404913
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.10223954505801217,
+   "area": 0.06055747989770668,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    531.4930510535703,
+    336.64427472215596,
+    712.0567784578265,
+    414.1329291492515
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9715233043057786,
+   "area": 0.04554570401984597,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    362.06592692735154,
+    5.7076256535765175,
+    925.109386924533,
+    19.246915051358535
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0056057139467849,
+   "area": 0.024815131342546693,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    175.71949718606652,
+    376.13635169681874,
+    644.6445058310471,
+    453.2864001864491
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.6409093773571201,
+   "area": 0.11776558318672069,
+   "phrase": "slightly right, middle distance"
+  },
+  {
+   "box": [
+    132.0225024219455,
+    10.622194917576529,
+    237.98909532353386,
+    71.74917790530134
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.2890715607386557,
+   "area": 0.02108534544779477,
+   "phrase": "slightly left, far away"
+  },
+  {
+   "box": [
+    562.4638881188297,
+    430.39934306662417,
+    986.3451698393229,
+    627.3398031475783
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2100070765298068,
+   "area": 0.27174275599524245,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    472.42520245512213,
+    48.519903464844134,
+    829.4143345057756,
+    63.7132861049769
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0170621382507012,
+   "area": 0.017655834901088747,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    585.1110243262202,
+    278.9409622249719,
+    730.7480465786452,
+    398.19251502232055
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "far",
+   "in_path": false,
+   "cx": 1.028014899144426,
+   "area": 0.05653463882937404,
+   "phrase": "on your right, far away"
+  },
+  {
+   "box": [
+    584.063559690808,
+    324.25620044661804,
+    1216.1324561950678,
+    691.3194401755139
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.4064031374108406,
+   "area": 0.7552384664151099,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    147.30651870214047,
+    283.03845667792496,
+    465.93468229919483,
+    612.7857731649672
+   ],
+   "label": "tv",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4790946882822932,
+   "area": 0.3420142640082127,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    549.3666051065654,
+    165.31814329711193,
+    938.0015227749235,
+    173.93645380568663
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.1620063499074131,
+   "area": 0.01090291795227953,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    213.19200296171167,
+    353.03084101279404,
+    222.822500833259,
+    569.4062174194431
+   ],
+   "label": "bottle",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.34063633108982083,
+   "area": 0.006783211594855101,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    65.1899487570347,
+    288.48754394793735,
+    612.3671718979158,
+    315.20156827304015
+   ],
+   "label": "dining table",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.52934150051168,
+   "area": 0.0475823751599209,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    586.522200707189,
+    22.893886375853683,
+    948.8214970617039,
+    348.97538510923175
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1994872638819476,
+   "area": 0.38456737482203296,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    80.17970519212206,
+    352.45137380420226,
+    353.4906959795111,
+    469.9728719058296
+   ],
+   "label": "chair",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.3388050009153384,
+   "area": 0.10455702176098315,
+   "phrase": "slightly left, middle distance"
+  },
+  {
+   "box": [
+    160.21804294524608,
+    428.2418788902433,
+    252.3902060342067,
+    824.1616646701074
+   ],
+   "label": "dog",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.32235019451519753,
+   "area": 0.11879161153986972,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    368.3060269320673,
+    191.8643277099287,
+    627.4790780155383,
+    655.1054166904862
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7779571132403169,
+   "area": 0.39081903130963797,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    145.03872801360973,
+    -19.39163424239365,
+    564.9497905037225,
+    26.226756365840934
+   ],
+   "label": "dining table",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.5546785300916659,
+   "area": 0.06235568642380458,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    263.7913232437182,
+    414.91197114294124,
+    600.5792433992283,
+    707.5640733385774
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6752895051898019,
+   "area": 0.32083884383986355,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    465.4850141539338,
+    339.87912815482616,
+    747.9998378755402,
+    595.0427311781938
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9480350406480266,
+   "area": 0.23465983179790575,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    412.68989391517755,
+    212.13578787595898,
+    445.933106830964,
+    336.4047430297561
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6707992193329231,
+   "area": 0.013447588981119774,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    143.17775439870033,
+    427.4491238606348,
+    650.5651493659955,
+    855.6317213797452
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6201116435661687,
+   "area": 0.707208504965987,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    283.80722757376935,
+    397.36535946467944,
+    579.8757046279259,
+    635.1508292282683
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6747522907825744,
+   "area": 0.22916921190922182,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    140.76915884181847,
+    358.48128967786977,
+    615.9732702044366,
+    501.326439742077
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5912050226923868,
+   "area": 0.22096550325104636,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    437.19439821958787,
+    356.50186126893095,
+    1023.7917898054245,
+    398.2680612355843
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1413954593945408,
+   "area": 0.07975242173467224,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    181.12365864121512,
+    299.6048188637773,
+    476.307916146712,
+    645.5883907599598
+   ],
+   "label": "laptop",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.513618417803068,
+   "area": 0.33245085865649193,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    533.7482678927781,
+    50.33887181867024,
+    857.6896868482484,
+    350.8800602666082
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.087060902141427,
+   "area": 0.31691972343876434,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    330.27817953809637,
+    37.49778120763248,
+    428.00166731927413,
+    243.82132308230698
+   ],
+   "label": "dining table",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.5924061303573207,
+   "area": 0.06563364623489282,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    249.9276625575729,
+    182.14800146405176,
+    579.4021398085675,
+    360.8817912693438
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6479139080985472,
+   "area": 0.1916934308697518,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    444.7575981231656,
+    89.7009283575384,
+    513.4271492481038,
+    251.03751613602958
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.7485818338838042,
+   "area": 0.03606416361581436,
+   "phrase": "slightly right, middle distance"
+  },
+  {
+   "box": [
+    -3.1716050339957462,
+    224.75489117292463,
+    42.662620110216494,
+    280.61818328979103
+   ],
+   "label": "tv",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.03085235552829746,
+   "area": 0.008334800482361172,
+   "phrase": "on your left, far away"
+  },
+  {
+   "box": [
+    260.8504998801153,
+    54.476400705533194,
+    673.6983105689999,
+    267.7753432108117
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.7301162581633712,
+   "area": 0.28665365050637526,
+   "phrase": "slightly right, middle distance"
+  },
+  {
+   "box": [
+    446.1675180382574,
+    115.03665455558703,
+    1040.0917985784683,
+    207.51538018550093
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.161140091106817,
+   "area": 0.17879349148770238,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    51.48516082024989,
+    278.6001777158713,
+    604.1209478220173,
+    336.67899125681544
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5121922723767713,
+   "area": 0.10448056910588722,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    295.3699885037758,
+    51.729835765532556,
+    707.8356063708007,
+    440.4624697640297
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.7837543709957628,
+   "area": 0.5219363478752155,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    490.2842962217453,
+    141.69154896674567,
+    890.3479488891406,
+    387.83403308028437
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.0786189414928795,
+   "area": 0.3205490275751583,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    441.7453838231492,
+    239.25341596770448,
+    733.4017732472162,
+    547.5211691431876
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.918083716461223,
+   "area": 0.29267011675465776,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    2.893687527255537,
+    399.844061908822,
+    190.65009607810453,
+    537.5324902169191
+   ],
+   "label": "chair",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.15120608094168755,
+   "area": 0.08415327082727654,
+   "phrase": "on your left, middle distance"
+  },
+  {
+   "box": [
+    424.78508662424963,
+    398.348901173375,
+    723.761038957803,
+    790.057908519475
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.8973016606109786,
+   "area": 0.38122257001605164,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    173.24149339300274,
+    357.0495886668037,
+    738.7827137546376,
+    562.1927598923838
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.712518911834094,
+   "area": 0.3776592428508151,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    182.08377040251432,
+    10.266209004350696,
+    625.404083693649,
+    161.86911187001164
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6308498860126276,
+   "area": 0.21877814581461677,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    513.7543461516957,
+    146.87782079704246,
+    723.4569374423161,
+    453.1518225286575
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9665713153078217,
+   "area": 0.20907048114605348,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    31.819665219153983,
+    174.61285061037555,
+    115.78373526237635,
+    411.9997405268263
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.11531515662619558,
+   "area": 0.064882713060832,
+   "phrase": "on your left, middle distance"
+  },
+  {
+   "box": [
+    205.26449486089402,
+    205.5359617355492,
+    652.660776324834,
+    280.3876869083415
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.67025411811385,
+   "area": 0.10901166505035179,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    554.3328155053296,
+    388.9214120651207,
+    774.9579385379654,
+    704.35564186394
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0385084015963242,
+   "area": 0.22653878827496504,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    269.0241070584125,
+    100.06177764387088,
+    352.814598961251,
+    213.79609078432333
+   ],
+   "label": "tv",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.4858114890778621,
+   "area": 0.03102166030035802,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    458.0212072118475,
+    302.48830560683786,
+    874.8668377226494,
+    412.37799059560376
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0413187851050758,
+   "area": 0.14911144214119637,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    337.7034009631171,
+    47.671954445414784,
+    448.2232766917301,
+    347.55299746557995
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6140052169178494,
+   "area": 0.10788676955714688,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    343.3643567751464,
+    115.77689134616179,
+    803.0896713221308,
+    217.30348162814937
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.8956672094509978,
+   "area": 0.1519347124097316,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    -6.192511177827317,
+    203.27821252900063,
+    158.94157526170213,
+    211.2060093187343
+   ],
+   "label": "chair",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.11933520631552719,
+   "area": 0.004261554298017261,
+   "phrase": "on your left, middle distance"
+  },
+  {
+   "box": [
+    540.7855807868813,
+    48.337270891443794,
+    669.0643319273503,
+    295.19592320540147
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.9451952443079934,
+   "area": 0.10308176961931557,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    71.53387711183156,
+    140.35041759996093,
+    702.0754138176574,
+    519.9923082779097
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6043822585386632,
+   "area": 0.779231709459567,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    440.2290555540448,
+    0.5484471845479213,
+    910.6927500377745,
+    456.92275686079586
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.055407660618609,
+   "area": 0.6989177857999654,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    326.605402729603,
+    244.31675542098077,
+    907.998015096497,
+    595.4261416324111
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9645339201766406,
+   "area": 0.6644935002473967,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    512.5136831440325,
+    29.81744071522656,
+    872.8996368947603,
+    335.3673797466327
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.082354156280307,
+   "area": 0.35845021548278005,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    3.676487244365081,
+    213.41874248768252,
+    473.8928629287523,
+    531.772733799281
+   ],
+   "label": "chair",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.37310105482274797,
+   "area": 0.4872892577447876,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    386.99050300342407,
+    270.54954131162094,
+    779.2789186280801,
+    353.7761776708683
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9111479856496126,
+   "area": 0.10627879334354995,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    442.5199142085882,
+    360.2016178505234,
+    936.1842883439899,
+    452.12354408114163
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0771126582442017,
+   "area": 0.14771673236314686,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    387.59174793613494,
+    3.8107583617573972,
+    840.5505634862602,
+    169.36746289036637
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9594861807987461,
+   "area": 0.24410927340384372,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    76.7543253031197,
+    134.29951043396457,
+    147.2264533953774,
+    148.0186619552483
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.17498498335820084,
+   "area": 0.0031471933701985627,
+   "phrase": "on your left, middle distance"
+  },
+  {
+   "box": [
+    124.81941427003804,
+    352.70067850573724,
+    610.4540177643981,
+    425.0020767958348
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5744323687769033,
+   "area": 0.11429707321191188,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    430.55432529554014,
+    426.9477920627121,
+    627.9250017527064,
+    524.1094306960271
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.8269369742564425,
+   "area": 0.0624246690844535,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    280.8061482702135,
+    160.1595915952811,
+    416.4311850874411,
+    579.8321042761883
+   ],
+   "label": "tv",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5447166666856676,
+   "area": 0.1852802733838752,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    336.15473867931445,
+    149.71859849190434,
+    528.8131733936225,
+    186.5892228816984
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.675756181306982,
+   "area": 0.023123166607672233,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    275.1702954755166,
+    211.6406233195269,
+    849.6780061164417,
+    403.46614479095007
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8787877356187174,
+   "area": 0.3587410194760708,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    109.09406056498983,
+    333.0217365064207,
+    410.3539698627715,
+    522.3555709443591
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4058187737716885,
+   "area": 0.1856728313469223,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    558.4293622471639,
+    191.86699235892794,
+    728.3713495361478,
+    617.7218488172512
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0053130560807122,
+   "area": 0.23558144727601701,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    348.4013359181391,
+    192.35501979493122,
+    794.8535528007694,
+    624.5019055714664
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.8931678818116474,
+   "area": 0.6280368983524054,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    358.59282009366154,
+    235.478141909676,
+    910.3198988385498,
+    713.8520959893228
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.99133806166579,
+   "area": 0.8591532038802241,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    162.410760187069,
+    374.04911902393803,
+    651.4599365207027,
+    622.8972187545196
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6358364818029466,
+   "area": 0.39615546290830356,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    550.0649376346671,
+    238.00918954118248,
+    614.6577074800982,
+    294.391983516942
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.9099395664959105,
+   "area": 0.011855211049865215,
+   "phrase": "on your right, far away"
+  },
+  {
+   "box": [
+    500.7235680968713,
+    255.8769671315415,
+    765.6107698449539,
+    406.4149363093667
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.989323701517051,
+   "area": 0.12980332491000396,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    478.00704120308296,
+    155.50918513654503,
+    777.7700265039382,
+    369.8463920756991
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.9810758341461103,
+   "area": 0.2091483105896094,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    233.92369521554164,
+    -14.937851270062641,
+    691.6358073681705,
+    429.59634704328704
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.7230933613935251,
+   "area": 0.6623329649546839,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    219.42956709803423,
+    431.6197093626397,
+    530.3710763815841,
+    874.884493188232
+   ],
+   "label": "cup",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5857817527184518,
+   "area": 0.44866347947583374,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    544.6453625585395,
+    230.38492635648268,
+    681.9333710768378,
+    570.0302414034852
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9582646356526385,
+   "area": 0.15178785450967772,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    92.66741021981485,
+    189.53811452294025,
+    224.40862091615233,
+    455.99157943411456
+   ],
+   "label": "unknownthing",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.24771564932497436,
+   "area": 0.11426725931520892,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    175.05234535553677,
+    98.71078596053492,
+    446.3799800956899,
+    369.3239059026152
+   ],
+   "label": "tv",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4854940042587709,
+   "area": 0.2390130786573503,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    527.4182634375154,
+    246.64207186491382,
+    1104.2952032130825,
+    669.8004142319396
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2747761458207796,
+   "area": 0.7946298489101287,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    -3.1408425566555565,
+    298.59982174580824,
+    443.42748932715733,
+    453.19441960141876
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.3439739427894545,
+   "area": 0.2247299859460575,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    552.7041592003034,
+    405.0807345985048,
+    978.6981043603519,
+    855.7803004107935
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1964080184067618,
+   "area": 0.6249846553460214,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    336.4955213134627,
+    436.96474324702785,
+    973.2414162140153,
+    822.4371729983297
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0232319824433422,
+   "area": 0.7989843334683696,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    108.04799146322947,
+    14.713394645364303,
+    127.23357059496178,
+    413.98263511290963
+   ],
+   "label": "person",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.1838137203579619,
+   "area": 0.02493558466099202,
+   "phrase": "on your left, middle distance"
+  },
+  {
+   "box": [
+    342.7499169146259,
+    145.06573226892985,
+    555.5871336651426,
+    231.98129741345446
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7018258207654441,
+   "area": 0.06021766594289986,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    467.4810514892659,
+    49.79308360605526,
+    1036.6102766629194,
+    323.95295644652833
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1750713501188947,
+   "area": 0.5079179557402534,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    38.018924502139726,
+    416.6025747116376,
+    306.554417002901,
+    814.6409145312514
+   ],
+   "label": "bottle",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.2691979230508131,
+   "area": 0.34794082557827266,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    424.43214569925044,
+    190.49888957603247,
+    989.5846763480334,
+    635.1202982059604
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1047006422244405,
+   "area": 0.8179652157155937,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    141.59867356384294,
+    267.912982825783,
+    424.7021923512473,
+    472.7716673878866
+   ],
+   "label": "bottle",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4424225514961642,
+   "area": 0.1887897605914403,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    40.82170835230928,
+    282.1932663440003,
+    426.6275502156476,
+    642.3253807521633
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.3651947332562163,
+   "area": 0.452282140564015,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    301.91728936289655,
+    -19.81808653418883,
+    443.7576861621397,
+    193.71263697941114
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5825585746289346,
+   "area": 0.09859141455728677,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    483.91478030190507,
+    108.15856392641774,
+    728.8436272710406,
+    251.02827724218224
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.9474675059163639,
+   "area": 0.11390922574622774,
+   "phrase": "on your right, far away"
+  },
+  {
+   "box": [
+    125.76915468478347,
+    321.7963650462312,
+    634.2891978831994,
+    580.1399870575453
+   ],
+   "label": "unknownthing",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5937955879437367,
+   "area": 0.427646190837333,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    142.76572581872537,
+    240.91770296723593,
+    614.5837771874028,
+    341.3151513580397
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.5916792992235377,
+   "area": 0.15419703275435026,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    543.3318258386171,
+    316.824238179125,
+    1112.4765729679907,
+    777.2427112860346
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2936003115676624,
+   "area": 0.8530102716475402,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    65.4307398869461,
+    247.86505292567762,
+    230.46659828223048,
+    536.0396174381876
+   ],
+   "label": "person",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.2311697954446692,
+   "area": 0.15481489785810335,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    333.499355589531,
+    235.32199672115078,
+    934.0671889369568,
+    348.2327162567376
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9902863629113184,
+   "area": 0.22073745505594478,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    594.5297001502174,
+    109.39941988001604,
+    637.395266824257,
+    545.5296851145224
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9624413804488082,
+   "area": 0.06085602527010509,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    83.9821887751855,
+    426.66303048632125,
+    649.6081007487877,
+    605.2765465225141
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5731174136906041,
+   "area": 0.32886859667572654,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    570.4115826672299,
+    357.2010754249936,
+    1149.785373125234,
+    730.1794235370396
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.3439038717128624,
+   "area": 0.703430596694144,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    102.67250051798507,
+    346.94776636580553,
+    130.01661475996033,
+    625.7513249429473
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.18178837131089484,
+   "area": 0.024816524598966824,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    26.131626530010536,
+    370.3866916698152,
+    115.92655010786207,
+    713.1980747855066
+   ],
+   "label": "chair",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.11098295049833798,
+   "area": 0.1002041730094111,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    386.83847271365363,
+    402.1588952951107,
+    433.20797456110915,
+    502.9722228046608
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "far",
+   "in_path": true,
+   "cx": 0.6406612869334085,
+   "area": 0.015217004479824945,
+   "phrase": "slightly right, far away"
+  },
+  {
+   "box": [
+    561.5569219916495,
+    155.2908338324153,
+    835.3811592859264,
+    357.06511396755616
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.091357875998106,
+   "area": 0.17985250118361562,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    62.27039189528074,
+    130.98275138150422,
+    397.66789491636064,
+    302.4023891104098
+   ],
+   "label": "chair",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.35932678657159484,
+   "area": 0.18715403145525072,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    26.8259681412871,
+    132.99394767868205,
+    152.0894948867209,
+    444.7520407689518
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.13977770549063123,
+   "area": 0.12712212966119285,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    209.8973116493059,
+    261.34114788448466,
+    672.3803753530455,
+    430.6668633412893
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.689279442970587,
+   "area": 0.2549162618759461,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    277.3158040510942,
+    218.26846979004526,
+    492.94935387945725,
+    674.0073742604117
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6017696546332433,
+   "area": 0.3198977791856587,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    209.00024281484147,
+    416.55626510135573,
+    599.9194362406356,
+    846.2594719361933
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6319684992620915,
+   "area": 0.5468073926704163,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    32.55710696919198,
+    121.82264559688667,
+    414.1835684679735,
+    561.7363692618085
+   ],
+   "label": "person",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.3490161526852855,
+   "area": 0.546493221767568,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    13.855537085804094,
+    414.8315750881798,
+    475.8609405542396,
+    502.91643973050395
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.38259099815628417,
+   "area": 0.132472927827277,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    -14.994166380887995,
+    434.0651550917474,
+    82.54058345239412,
+    610.5655310558946
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.052770638337114165,
+   "area": 0.05603815109096137,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    166.1141502623192,
+    54.409435495021725,
+    590.4604426205495,
+    444.28723226663425
+   ],
+   "label": "dining table",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.5910739006897412,
+   "area": 0.538552075302179,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    63.686619937226766,
+    6.108633931834444,
+    371.7652198355602,
+    38.962760038690845
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.34019674982248976,
+   "area": 0.03294808975222527,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    69.2219496224718,
+    392.9246762697748,
+    244.35491063648698,
+    507.74266800162627
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.24498192207731156,
+   "area": 0.0654570796539123,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    37.14826082052642,
+    54.691438300627084,
+    406.52300989359605,
+    127.55285788148544
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.34661818024540814,
+   "area": 0.08760797062105208,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    48.2147556052287,
+    235.5518575224933,
+    512.211310620275,
+    499.03117426396454
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.43783286423867473,
+   "area": 0.3979605966333362,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    123.53303838470774,
+    301.8135533826849,
+    578.6525240368936,
+    578.6343982952612
+   ],
+   "label": "chair",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.548582470641876,
+   "area": 0.41011250180473713,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    197.33611263880493,
+    369.76484195355977,
+    788.4868852442664,
+    411.2162758480091
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.7701742170961495,
+   "area": 0.0797657785556899,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    533.8861582495012,
+    234.20351930934976,
+    717.9887607905304,
+    352.14170171994544
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.9780272805000247,
+   "area": 0.07067944765868908,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    363.0071869744801,
+    331.9916338366067,
+    755.5232428983958,
+    399.884925526487
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.8738518983381842,
+   "area": 0.08674872095639251,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    394.5023982098496,
+    340.8766411967037,
+    585.1905673431536,
+    576.9452406936532
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7653851293382837,
+   "area": 0.14653479501281416,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    351.12025397883764,
+    -11.423333481850378,
+    577.1913525648018,
+    377.85500634978933
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7252434426122184,
+   "area": 0.28647324850735384,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    339.50432692883066,
+    310.7563555873446,
+    535.252396180485,
+    763.4131433882378
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6834036899291529,
+   "area": 0.28843324298724166,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    385.63474385464764,
+    275.67919555605675,
+    423.5283093750624,
+    347.04296409619826
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.6321586353357109,
+   "area": 0.008802824345571504,
+   "phrase": "slightly right, middle distance"
+  },
+  {
+   "box": [
+    354.4897722384928,
+    275.4886956081861,
+    515.1273853381236,
+    336.03895974684707
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6793884043567315,
+   "area": 0.03166227182222225,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    551.1993380126412,
+    63.5963493007917,
+    1034.5399529400638,
+    317.20843701256223
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2388588210568008,
+   "area": 0.39902676571495643,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    585.1651229151734,
+    429.59313025684673,
+    1043.217329574988,
+    577.5380151233975
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2721737910079387,
+   "area": 0.22059401359751235,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    507.8762106697509,
+    146.2974681008671,
+    1043.6241247147377,
+    378.0043291645221
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.2121096370191318,
+   "area": 0.4040900634269686,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    424.9052719287217,
+    262.8088495133271,
+    1051.9803023920615,
+    510.5349990131649
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1538168549381118,
+   "area": 0.5056734464328666,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    445.06814723568726,
+    128.04602914999666,
+    1001.4955519338666,
+    422.07874329048343
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.130127889976214,
+   "area": 0.5325776693540126,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    366.23052358042486,
+    237.35165991110523,
+    449.69075730912743,
+    573.2063827155017
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6374385006949627,
+   "area": 0.09124516166713394,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    249.63369854250988,
+    418.3082284367154,
+    323.8552807563465,
+    722.9572008946084
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4480382650772315,
+   "area": 0.07360523683477976,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    310.2866468442284,
+    133.83083782500503,
+    799.3954450930421,
+    528.0152166452336
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8669391343259927,
+   "area": 0.6276010671003163,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    28.917160883538266,
+    200.24303176764704,
+    500.5015679190479,
+    342.4967550453228
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4136083818770205,
+   "area": 0.21837447181151107,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    525.9779712975597,
+    159.98130627588202,
+    870.7091317200031,
+    401.72367765598005
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0911617992324711,
+   "area": 0.27127645901410957,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    387.3760345642137,
+    392.6381471826322,
+    746.4213101603561,
+    709.2541133703197
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.8857791755660702,
+   "area": 0.3700503477799387,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    26.660583201211224,
+    127.67744305613925,
+    534.7612274892421,
+    398.60878203959305
+   ],
+   "label": "bottle",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.43861078960191663,
+   "area": 0.44811324184671797,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    466.4500216016382,
+    339.45020790909575,
+    875.0721534143058,
+    691.3332018358185
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0480641992312063,
+   "area": 0.4680572237205775,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    3.2888907203118514,
+    27.271017740320886,
+    181.7524540637548,
+    74.43113687318065
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.14456355061255208,
+   "area": 0.027397014674972114,
+   "phrase": "on your left, far away"
+  },
+  {
+   "box": [
+    226.38689211113802,
+    412.46191203771895,
+    813.4790085843697,
+    594.6251567513448
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.8123952349183654,
+   "area": 0.3481334794353966,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    -13.362157999640518,
+    356.2805637470294,
+    88.58867966175251,
+    584.4259761065101
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.058770720048524995,
+   "area": 0.07571489550342769,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    444.5945101927812,
+    436.90089358513296,
+    1075.5198621706413,
+    722.4856942464882
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.187589353408924,
+   "area": 0.5865321968645592,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    362.55340643901303,
+    340.83836745377033,
+    587.3658283406146,
+    394.5948033778182
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7421244021715842,
+   "area": 0.03933956560183419,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    -7.510436006930522,
+    301.3584937516033,
+    166.15823046671784,
+    567.2372332299168
+   ],
+   "label": "chair",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.12394358942170884,
+   "area": 0.15030861370082443,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    502.03715087275896,
+    406.5876157703114,
+    708.398947131278,
+    572.6619595091806
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.9456532015656538,
+   "area": 0.11156054650523368,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    580.8154515813496,
+    375.9813134470847,
+    855.1843701015184,
+    630.0357699059407
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.1218748606897406,
+   "area": 0.22690314604116418,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    570.9865848636922,
+    427.7796387721164,
+    650.6517646684212,
+    552.4835837429373
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.9544049605719636,
+   "area": 0.03233906965644359,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    92.06666277576299,
+    295.6528322697308,
+    229.06286785136706,
+    714.9272003501053
+   ],
+   "label": "dining table",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.25088244580244534,
+   "area": 0.1869759027099065,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    440.7257349214122,
+    376.8256618635125,
+    770.2811796141862,
+    614.5647585658351
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9460991519809362,
+   "area": 0.255039758250626,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    252.9238159911643,
+    181.45218326800492,
+    331.4216225107281,
+    630.3525723884271
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.45651987382960346,
+   "area": 0.11470604131423118,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    228.18386664242536,
+    27.66907788066777,
+    739.5901579980307,
+    283.9164738728678
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.7560734567503562,
+   "area": 0.426583757987963,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    504.9156011125424,
+    420.96425989700793,
+    592.7505451040804,
+    633.7074520540884
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.8575516767317366,
+   "area": 0.06082775510318417,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    347.00570377935696,
+    190.5214909824954,
+    885.229088215235,
+    353.47567877756285
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9626834312457749,
+   "area": 0.2855005028094429,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    153.75225255717461,
+    320.5361887761972,
+    205.63765173726011,
+    636.4351332718863
+   ],
+   "label": "tv",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.2807733627300271,
+   "area": 0.05335463162671388,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    -4.781265307016705,
+    120.07982137793621,
+    341.2902052254245,
+    141.452336485237
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.26289760931125605,
+   "area": 0.024076880638542963,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    438.85634555584517,
+    63.54005825035267,
+    459.54306012318835,
+    292.0567619558108
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.701874535686745,
+   "area": 0.015388215571044753,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    499.30287228785767,
+    271.9196923733232,
+    889.6802932275291,
+    689.7831795447195
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0851430980588959,
+   "area": 0.5310041355039946,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    411.69547698151445,
+    273.75339236752535,
+    492.3297339427198,
+    590.8011607241466
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.706269696034558,
+   "area": 0.0832191120528793,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    385.3590508071035,
+    13.599590286081153,
+    976.5998256335486,
+    31.522957142132363
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0640303722192594,
+   "area": 0.03449552508942169,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    10.423380294650645,
+    134.05550906592669,
+    21.619277093368172,
+    348.9602166641332
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.0250333260843897,
+   "area": 0.007832197030690385,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    291.95002220752787,
+    160.49353250163333,
+    475.0517574171044,
+    577.8217616054743
+   ],
+   "label": "dining table",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.599220140331744,
+   "area": 0.2487419365262141,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    486.18100006804934,
+    191.32335823332807,
+    702.330501463846,
+    581.7563139096385
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9285246105717931,
+   "area": 0.2747131793552137,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    22.527129228904528,
+    11.75235859454408,
+    52.09235182104286,
+    238.76903677925594
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.05829646957027139,
+   "area": 0.021848302808134244,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    567.4769686049013,
+    396.78963590581276,
+    815.2585360189502,
+    727.9722951399798
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.080262112987384,
+   "area": 0.26712551564256093,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    -18.785474314713767,
+    331.58626233639063,
+    427.94158890960716,
+    602.0233151992225
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.3196532145272605,
+   "area": 0.39326676566553803,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    282.6530739179987,
+    191.89122510056862,
+    675.3377092889898,
+    352.0577995103133
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.7484302993804597,
+   "area": 0.20473617470934669,
+   "phrase": "slightly right, middle distance"
+  },
+  {
+   "box": [
+    411.0654184054406,
+    -12.071307625700019,
+    915.7957946288514,
+    222.20684693956014
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.0366103226830405,
+   "area": 0.3849195999174809,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    10.750954423207716,
+    433.30193874087405,
+    103.55506506665465,
+    473.7932340971714
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "far",
+   "in_path": false,
+   "cx": 0.08930157772645497,
+   "area": 0.012232287286270542,
+   "phrase": "on your left, far away"
+  },
+  {
+   "box": [
+    29.613261282157453,
+    179.44299050396052,
+    433.4656813037437,
+    282.46760545743047
+   ],
+   "label": "chair",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.36178042389523524,
+   "area": 0.13543860700114238,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    105.00467987537387,
+    308.12397076119765,
+    320.8751518107173,
+    403.21037889201386
+   ],
+   "label": "unknownthing",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.3327186185047587,
+   "area": 0.06681753840441397,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    554.1062298982755,
+    280.8489616135046,
+    622.6254933924404,
+    333.0721620738355
+   ],
+   "label": "unknownthing",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 0.9193216588208717,
+   "area": 0.011648096461100271,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    484.12675147190276,
+    226.85932021671573,
+    915.8142576742781,
+    365.85161482604144
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0937039133954538,
+   "area": 0.1953165268269716,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    395.6133422880571,
+    322.6024427712222,
+    804.4812735403771,
+    674.9205668324082
+   ],
+   "label": "tv",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9375739186159642,
+   "area": 0.4689179118736828,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    217.5252228605634,
+    71.42570845612644,
+    473.0300923624965,
+    338.5564563321085
+   ],
+   "label": "person",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "middle",
+   "in_path": true,
+   "cx": 0.5394963400180155,
+   "area": 0.22217840779950057,
+   "phrase": "ahead, middle distance"
+  },
+  {
+   "box": [
+    262.4804159153571,
+    234.84812469399142,
+    661.3125428552767,
+    581.9696199772684
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.7217132490395576,
+   "area": 0.45066147223435743,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    582.1432614951121,
+    36.83312163676667,
+    708.3978444836241,
+    407.06590370602504
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.0082352390458875,
+   "area": 0.15216010907822541,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    306.83852026573584,
+    234.0559151181317,
+    687.546041413206,
+    638.4138203877119
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.7768629388116733,
+   "area": 0.5011135930063979,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    84.15739512906005,
+    415.5267540168944,
+    707.0676659002906,
+    698.9581560944391
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6181445789291803,
+   "area": 0.5747146204856539,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    539.7931405042758,
+    34.142348740027174,
+    755.7477441480742,
+    415.24033692115574
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "middle",
+   "in_path": false,
+   "cx": 1.0121413161346484,
+   "area": 0.26790320633823106,
+   "phrase": "on your right, middle distance"
+  },
+  {
+   "box": [
+    243.3076650370889,
+    432.19380795829204,
+    549.5470221183226,
+    710.5106258767042
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6194177243401653,
+   "area": 0.27744649539137156,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    585.9235347905189,
+    291.86267237149065,
+    737.1358154385056,
+    426.1377949724255
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "far",
+   "in_path": false,
+   "cx": 1.0336401173664254,
+   "area": 0.06609390469653444,
+   "phrase": "on your right, far away"
+  },
+  {
+   "box": [
+    535.4802983606646,
+    131.120135990636,
+    1099.352228565394,
+    199.80899195557686
+   ],
+   "label": "dining table",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2772129116609832,
+   "area": 0.1260798105355008,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    558.4936273518991,
+    65.08250670344573,
+    1066.4327355630742,
+    242.34463732783894
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.2694737210273228,
+   "area": 0.29309364762033563,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    114.74335921999392,
+    61.59222800939486,
+    406.3501353798625,
+    304.2074756526792
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4071042926561378,
+   "area": 0.23030029366043717,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    520.8028782542714,
+    167.35551686241405,
+    700.4911898037411,
+    522.273859599873
+   ],
+   "label": "chair",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9541359906703223,
+   "area": 0.20759986244931647,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    9.79684025404115,
+    196.16953581948303,
+    495.39186733533836,
+    378.0646115340695
+   ],
+   "label": "unknownthing",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.39467867780420274,
+   "area": 0.28752390695826574,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    50.753147994982996,
+    46.44345940842619,
+    263.8677228518117,
+    374.3812475463155
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.2457975553490584,
+   "area": 0.2275010491487469,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    525.582114963255,
+    219.74880662183074,
+    560.4208149511591,
+    406.47248914260405
+   ],
+   "label": "laptop",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.8484397889956359,
+   "area": 0.02117581496086546,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    196.01030963340082,
+    113.08570651204764,
+    387.732917904387,
+    550.7103329982344
+   ],
+   "label": "dog",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4560493965138967,
+   "area": 0.27312023057795526,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    274.906567563893,
+    438.82897991992667,
+    864.3707375725319,
+    699.9495501282103
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.890060394637832,
+   "area": 0.5010456386393501,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    336.1228734281364,
+    81.60167731188854,
+    627.1348270219331,
+    275.0727582314085
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7525450784766168,
+   "area": 0.1832760326246518,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    327.2579503565909,
+    218.28340084777804,
+    400.37822805314573,
+    685.1332921743651
+   ],
+   "label": "bottle",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.5684657643826068,
+   "area": 0.11112042218882318,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    526.1335172657874,
+    303.2714489895271,
+    729.7193592202775,
+    567.421058574186
+   ],
+   "label": "person",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.9811350597547381,
+   "area": 0.17505573134519084,
+   "phrase": "on your right, near"
+  },
+  {
+   "box": [
+    21.92532424504529,
+    385.90369169054395,
+    149.226007134564,
+    791.4550126785874
+   ],
+   "label": "laptop",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.13371197764031975,
+   "area": 0.168056510769936,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    354.05901805924225,
+    144.70368624096244,
+    647.673837181534,
+    468.2226650418207
+   ],
+   "label": "dog",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.7826037931568565,
+   "area": 0.30921213034909684,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    20.13244793254671,
+    304.72705251926595,
+    476.30787196154057,
+    444.8928915993499
+   ],
+   "label": "unknownthing",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.3878439999172557,
+   "area": 0.20813870793208666,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    389.3513136908489,
+    168.39239627903424,
+    435.49746523540955,
+    476.7815000765741
+   ],
+   "label": "bottle",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6444131085361394,
+   "area": 0.04632477317230639,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    -10.0,
+    100,
+    10.0,
+    200
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "on your left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.0,
+   "area": 0.006510416666666667,
+   "phrase": "on your left, near"
+  },
+  {
+   "box": [
+    118.0,
+    100,
+    138.0,
+    200
+   ],
+   "label": "cup",
+   "horizontal": "left",
+   "direction": "slightly left",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.2,
+   "area": 0.006510416666666667,
+   "phrase": "slightly left, near"
+  },
+  {
+   "box": [
+    246.0,
+    100,
+    266.0,
+    200
+   ],
+   "label": "cup",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.4,
+   "area": 0.006510416666666667,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    374.0,
+    100,
+    394.0,
+    200
+   ],
+   "label": "cup",
+   "horizontal": "centre",
+   "direction": "ahead",
+   "distance": "near",
+   "in_path": true,
+   "cx": 0.6,
+   "area": 0.006510416666666667,
+   "phrase": "ahead, near"
+  },
+  {
+   "box": [
+    502.0,
+    100,
+    522.0,
+    200
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "slightly right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 0.8,
+   "area": 0.006510416666666667,
+   "phrase": "slightly right, near"
+  },
+  {
+   "box": [
+    630.0,
+    100,
+    650.0,
+    200
+   ],
+   "label": "cup",
+   "horizontal": "right",
+   "direction": "on your right",
+   "distance": "near",
+   "in_path": false,
+   "cx": 1.0,
+   "area": 0.006510416666666667,
+   "phrase": "on your right, near"
+  }
+ ],
+ "plural": [
+  {
+   "label": "person",
+   "n": 1,
+   "out": "person"
+  },
+  {
+   "label": "person",
+   "n": 2,
+   "out": "people"
+  },
+  {
+   "label": "mouse",
+   "n": 1,
+   "out": "mouse"
+  },
+  {
+   "label": "mouse",
+   "n": 2,
+   "out": "mice"
+  },
+  {
+   "label": "chair",
+   "n": 1,
+   "out": "chair"
+  },
+  {
+   "label": "chair",
+   "n": 2,
+   "out": "chairs"
+  },
+  {
+   "label": "tv",
+   "n": 1,
+   "out": "tv"
+  },
+  {
+   "label": "tv",
+   "n": 2,
+   "out": "TVs"
+  },
+  {
+   "label": "dining table",
+   "n": 1,
+   "out": "dining table"
+  },
+  {
+   "label": "dining table",
+   "n": 2,
+   "out": "tables"
+  },
+  {
+   "label": "cell phone",
+   "n": 1,
+   "out": "cell phone"
+  },
+  {
+   "label": "cell phone",
+   "n": 2,
+   "out": "phones"
+  },
+  {
+   "label": "glass",
+   "n": 1,
+   "out": "glass"
+  },
+  {
+   "label": "glass",
+   "n": 2,
+   "out": "glasses"
+  },
+  {
+   "label": "bus",
+   "n": 1,
+   "out": "bus"
+  },
+  {
+   "label": "bus",
+   "n": 2,
+   "out": "buses"
+  },
+  {
+   "label": "cup",
+   "n": 1,
+   "out": "cup"
+  },
+  {
+   "label": "cup",
+   "n": 2,
+   "out": "cups"
+  }
+ ],
+ "spoken": [
+  {
+   "label": "person",
+   "out": "person"
+  },
+  {
+   "label": "mouse",
+   "out": "mouse"
+  },
+  {
+   "label": "chair",
+   "out": "chair"
+  },
+  {
+   "label": "tv",
+   "out": "TV or monitor"
+  },
+  {
+   "label": "dining table",
+   "out": "table"
+  },
+  {
+   "label": "cell phone",
+   "out": "phone"
+  },
+  {
+   "label": "glass",
+   "out": "glass"
+  },
+  {
+   "label": "bus",
+   "out": "bus"
+  },
+  {
+   "label": "cup",
+   "out": "cup"
+  },
+  {
+   "label": "couch",
+   "out": "sofa"
+  },
+  {
+   "label": "potted plant",
+   "out": "plant"
+  }
+ ]
+}

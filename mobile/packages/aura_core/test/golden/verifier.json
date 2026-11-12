@@ -1,0 +1,4193 @@
+[
+ {
+  "name": "plain_confirm",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8
+    }
+   ]
+  ],
+  "crop_scores": {},
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   }
+  ]
+ },
+ {
+  "name": "low_confidence_never",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 1,
+     "score": 0.4
+    }
+   ]
+  ],
+  "crop_scores": {},
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   }
+  ]
+ },
+ {
+  "name": "flicker",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.9
+    }
+   ],
+   [],
+   []
+  ],
+  "crop_scores": {},
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "flickering"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "flickering"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "flickering"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "flickering"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "flickering"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "flickering"
+    }
+   },
+   {},
+   {},
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "flickering"
+    }
+   },
+   {},
+   {}
+  ]
+ },
+ {
+  "name": "tv_strong",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.75
+    }
+   ]
+  ],
+  "crop_scores": {},
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   }
+  ]
+ },
+ {
+  "name": "tv_verified",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ]
+  ],
+  "crop_scores": {
+   "1": [
+    0.7
+   ]
+  },
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.70)"
+    }
+   }
+  ]
+ },
+ {
+  "name": "tv_two_pass",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ]
+  ],
+  "crop_scores": {
+   "1": [
+    0.5,
+    0.42
+   ]
+  },
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "checking (0.50)"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "checking (0.50)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.46)"
+    }
+   }
+  ]
+ },
+ {
+  "name": "tv_rejected_fast",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.6
+    }
+   ]
+  ],
+  "crop_scores": {
+   "1": [
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1
+   ]
+  },
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.10)"
+    }
+   }
+  ]
+ },
+ {
+  "name": "tv_rejected_two",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 2,
+     "score": 0.58
+    }
+   ]
+  ],
+  "crop_scores": {
+   "1": [
+    0.3,
+    0.35,
+    0.3,
+    0.3,
+    0.3,
+    0.3
+   ]
+  },
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "checking (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "checking (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.32)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "checking (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "checking (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "checking (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "checking (0.30)"
+    }
+   },
+   {
+    "1": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.30)"
+    }
+   }
+  ]
+ },
+ {
+  "name": "fridge_demoted",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.75
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 5,
+     "score": 0.3
+    }
+   ]
+  ],
+  "crop_scores": {},
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "confidence fell to 0.43"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.50"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.34 < 0.50"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.30 < 0.50"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.30 < 0.50"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.30 < 0.50"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.30 < 0.50"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.30 < 0.50"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "mean confidence 0.30 < 0.50"
+    }
+   }
+  ]
+ },
+ {
+  "name": "mixed",
+  "frames": [
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.5721078755507076
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.4538950482975249
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.3852874105993378
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7899735716768592
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5340407209175455
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.39417083926711294
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.5051123258362434
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5474743214639743
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.5767226609373464
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8403180357507115
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5959928940441637
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.24349442874758997
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8575616681140326
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.621430849414566
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.2660346470380909
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7529336055293985
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.45409672255824657
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.2466949075120065
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.6265469246450162
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.4815824613349874
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.5035918352642021
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8273101431456574
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5189248981918435
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.3275195187449734
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.5446644927978641
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.4667906286644114
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.48509037427553714
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7398173585030622
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.4611347359170157
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.3919189126637721
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.6606705922522609
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.6195957995093949
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.4871396717359515
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7408256204995298
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5604767643010995
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.579640959098655
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8946693321433874
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5176108099299056
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.29594987162098935
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8185743015951785
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.4627372861549311
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.34584625719841644
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.528009121049801
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.513873541410182
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.22815303804278275
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.6161054668541248
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.6080202246867579
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.5621601283200287
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8170485540319705
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5623637420289757
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.4464073540290605
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.6445934168812807
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.48376345971709056
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.37449637346606435
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7931301345392705
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.4625775247721401
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.20829319155246853
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8082192265660076
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5099904018861109
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.48046571001740673
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7938670883618006
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.6365809254374692
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.36013137316872335
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.6433751713392625
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.6113133581855442
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.5057964386177886
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7610458959662336
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.6121933147910135
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.45688594349642203
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8829776211303821
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5167748842902185
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.4953010491394692
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8799333222948724
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.516872830832248
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.4446527986939257
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.6462680670308613
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5423080582774601
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.2300007972434863
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.507737344919297
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.6019298935104347
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.381103665796799
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7491336030611958
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5979903035595789
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.36746537207273633
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.64704705002706
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.48380576211815046
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.5175489626539228
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.833214963433771
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5968425974610706
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.5501178320094731
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7592225767903253
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5892132349541315
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.27720723210663906
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8070528939757233
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5168165788604678
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.3751836824251113
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.6275480959034301
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5636579337854533
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.46347694057323535
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7302234164220938
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5136374387974095
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.28720135010820796
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8379754123488703
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5104329375575222
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.3752882683509375
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.5365658347702601
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5101958339681868
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.23427792240535472
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.6374853227841217
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5918602035542871
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.5895873023061036
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7500899360285281
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.5038607080357089
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.4626835224754649
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.7507991276765242
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.6151304458144501
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.41347759275854135
+    }
+   ],
+   [
+    {
+     "id": 1,
+     "cls": 0,
+     "score": 0.8644486659202908
+    },
+    {
+     "id": 2,
+     "cls": 2,
+     "score": 0.533100733844968
+    },
+    {
+     "id": 3,
+     "cls": 3,
+     "score": 0.3144178677980759
+    }
+   ]
+  ],
+  "crop_scores": {
+   "2": [
+    0.3,
+    0.5,
+    0.6,
+    0.2,
+    0.7,
+    0.4
+   ]
+  },
+  "expected": [
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    },
+    "2": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "seen 1/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    },
+    "2": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "seen 2/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    },
+    "2": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "seen 3/4 frames"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "tentative",
+     "reason": "checking (0.30)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "tentative",
+     "reason": "checking (0.30)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.37 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.35 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.37 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.37 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.38 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.38 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.41 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.38 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.42 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.41 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.42 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "rejected",
+     "reason": "not confirmed on zoomed crops (0.40)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.38 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.41 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.43 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.42 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.43 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.42 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.41 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.41 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.39 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.38 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.38 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.41 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.40 < 0.45"
+    }
+   },
+   {
+    "1": {
+     "status": "confirmed",
+     "reason": "stable and confident"
+    },
+    "2": {
+     "status": "confirmed",
+     "reason": "verified on zoomed crops (0.60)"
+    },
+    "3": {
+     "status": "tentative",
+     "reason": "mean confidence 0.38 < 0.45"
+    }
+   }
+  ]
+ }
+]

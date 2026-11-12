@@ -34,3 +34,16 @@ frontend/dist/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Mobile (Flutter / Dart)
+mobile/**/.dart_tool/
+mobile/**/build/
+mobile/**/pubspec.lock.bak
+mobile/**/.flutter-plugins
+mobile/**/.flutter-plugins-dependencies
+mobile/**/android/.gradle/
+mobile/**/android/local.properties
+mobile/**/ios/Pods/
+mobile/**/ios/.symlinks/
+mobile/**/ios/Flutter/Generated.xcconfig
+mobile/**/ios/Flutter/flutter_export_environment.sh

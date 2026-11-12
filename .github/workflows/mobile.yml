@@ -1,0 +1,28 @@
+name: mobile
+
+on:
+  push:
+    paths: ["mobile/**", ".github/workflows/mobile.yml"]
+  pull_request:
+    paths: ["mobile/**", ".github/workflows/mobile.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    name: aura_core (pure Dart)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile/packages/aura_core
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      - run: dart format --output=none --set-exit-if-changed --line-length 120 lib test
+      - run: dart analyze --fatal-infos
+      - run: dart test --reporter expanded

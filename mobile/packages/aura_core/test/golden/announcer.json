@@ -1,0 +1,1600 @@
+{
+ "batches": [
+  [
+   {
+    "kind": "entered",
+    "message": "x",
+    "priority": "info",
+    "label": "chair",
+    "track_id": 1,
+    "spatial": {
+     "horizontal": "left",
+     "direction": "on your left",
+     "distance": "middle",
+     "in_path": false,
+     "cx": 0.109375,
+     "area": 0.042317708333333336
+    }
+   }
+  ],
+  [
+   {
+    "kind": "entered",
+    "message": "x",
+    "priority": "info",
+    "label": "cup",
+    "track_id": 2,
+    "spatial": {
+     "horizontal": "centre",
+     "direction": "ahead",
+     "distance": "middle",
+     "in_path": true,
+     "cx": 0.5,
+     "area": 0.006510416666666667
+    }
+   },
+   {
+    "kind": "entered",
+    "message": "x",
+    "priority": "info",
+    "label": "laptop",
+    "track_id": 3,
+    "spatial": {
+     "horizontal": "right",
+     "direction": "on your right",
+     "distance": "middle",
+     "in_path": false,
+     "cx": 0.875,
+     "area": 0.0390625
+    }
+   },
+   {
+    "kind": "entered",
+    "message": "x",
+    "priority": "info",
+    "label": "bottle",
+    "track_id": 4,
+    "spatial": {
+     "horizontal": "left",
+     "direction": "on your left",
+     "distance": "middle",
+     "in_path": false,
+     "cx": 0.03125,
+     "area": 0.0032552083333333335
+    }
+   },
+   {
+    "kind": "entered",
+    "message": "x",
+    "priority": "info",
+    "label": "tv",
+    "track_id": 5,
+    "spatial": {
+     "horizontal": "centre",
+     "direction": "ahead",
+     "distance": "middle",
+     "in_path": true,
+     "cx": 0.46875,
+     "area": 0.09765625
+    }
+   }
+  ],
+  [
+   {
+    "kind": "entered",
+    "message": "x",
+    "priority": "info",
+    "label": "chair",
+    "track_id": 6,
+    "spatial": {
+     "horizontal": "right",
+     "direction": "slightly right",
+     "distance": "middle",
+     "in_path": false,
+     "cx": 0.703125,
+     "area": 0.042317708333333336
+    }
+   }
+  ],
+  [
+   {
+    "kind": "obstacle",
+    "message": "Caution: person close, ahead.",
+    "priority": "warning",
+    "label": "person",
+    "track_id": 7
+   },
+   {
+    "kind": "approaching",
+    "message": "Dog approaching, slightly left.",
+    "priority": "warning",
+    "label": "dog",
+    "track_id": 8
+   },
+   {
+    "kind": "obstacle",
+    "message": "Caution: chair close, ahead.",
+    "priority": "warning",
+    "label": "chair",
+    "track_id": 9
+   }
+  ],
+  [
+   {
+    "kind": "left",
+    "message": "x",
+    "priority": "info",
+    "label": "cup",
+    "track_id": 2
+   },
+   {
+    "kind": "left",
+    "message": "x",
+    "priority": "info",
+    "label": "laptop",
+    "track_id": 3
+   }
+  ],
+  [
+   {
+    "kind": "scene_change",
+    "message": "x",
+    "priority": "info",
+    "label": null,
+    "track_id": null
+   }
+  ]
+ ],
+ "runs": [
+  {
+   "settings": {},
+   "said": [
+    {
+     "text": "New: chair on your left.",
+     "priority": 1,
+     "kind": "new_objects",
+     "max_age": 4.0
+    },
+    {
+     "text": "New: cup ahead, laptop on your right, bottle on your left, and 1 more.",
+     "priority": 1,
+     "kind": "new_objects",
+     "max_age": 4.0
+    },
+    {
+     "text": "Caution: person close, ahead. Dog approaching, slightly left.",
+     "priority": 3,
+     "kind": "alert",
+     "max_age": 2.5
+    },
+    {
+     "text": "The view has changed.",
+     "priority": 1,
+     "kind": "scene_change",
+     "max_age": 3.0
+    }
+   ],
+   "returned": [
+    [
+     "New: chair on your left."
+    ],
+    [
+     "New: cup ahead, laptop on your right, bottle on your left, and 1 more."
+    ],
+    [],
+    [
+     "Caution: person close, ahead. Dog approaching, slightly left."
+    ],
+    [],
+    [
+     "The view has changed."
+    ]
+   ]
+  },
+  {
+   "settings": {
+    "verbosity": "detailed",
+    "announce_departures": true
+   },
+   "said": [
+    {
+     "text": "New: chair on your left, middle distance.",
+     "priority": 1,
+     "kind": "new_objects",
+     "max_age": 4.0
+    },
+    {
+     "text": "New: cup ahead, middle distance, laptop on your right, middle distance, bottle on your left, middle distance, and 1 more.",
+     "priority": 1,
+     "kind": "new_objects",
+     "max_age": 4.0
+    },
+    {
+     "text": "Caution: person close, ahead. Dog approaching, slightly left.",
+     "priority": 3,
+     "kind": "alert",
+     "max_age": 2.5
+    },
+    {
+     "text": "Cup, laptop gone.",
+     "priority": 0,
+     "kind": "departure",
+     "max_age": 4.0
+    },
+    {
+     "text": "The view has changed.",
+     "priority": 1,
+     "kind": "scene_change",
+     "max_age": 3.0
+    }
+   ],
+   "returned": [
+    [
+     "New: chair on your left, middle distance."
+    ],
+    [
+     "New: cup ahead, middle distance, laptop on your right, middle distance, bottle on your left, middle distance, and 1 more."
+    ],
+    [],
+    [
+     "Caution: person close, ahead. Dog approaching, slightly left."
+    ],
+    [
+     "Cup, laptop gone."
+    ],
+    [
+     "The view has changed."
+    ]
+   ]
+  },
+  {
+   "settings": {
+    "announcements_muted": true
+   },
+   "said": [],
+   "returned": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  },
+  {
+   "settings": {
+    "obstacle_alerts": false,
+    "announce_scene_changes": false
+   },
+   "said": [
+    {
+     "text": "New: chair on your left.",
+     "priority": 1,
+     "kind": "new_objects",
+     "max_age": 4.0
+    },
+    {
+     "text": "New: cup ahead, laptop on your right, bottle on your left, and 1 more.",
+     "priority": 1,
+     "kind": "new_objects",
+     "max_age": 4.0
+    }
+   ],
+   "returned": [
+    [
+     "New: chair on your left."
+    ],
+    [
+     "New: cup ahead, laptop on your right, bottle on your left, and 1 more."
+    ],
+    [],
+    [],
+    [],
+    []
+   ]
+  }
+ ],
+ "summaries": [
+  {
+   "objects": [],
+   "max_groups": 6,
+   "detailed": true,
+   "out": ""
+  },
+  {
+   "objects": [],
+   "max_groups": 6,
+   "detailed": false,
+   "out": ""
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": true,
+   "out": "a chair on your left, middle distance"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": false,
+   "out": "a chair on your left"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": true,
+   "out": "2 chairs on your left, middle distance"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": false,
+   "out": "2 chairs on your left"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": true,
+   "out": "a cup ahead, middle distance; 2 chairs on your left, middle distance"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": false,
+   "out": "a cup ahead; 2 chairs on your left"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": true,
+   "out": "a person ahead, near; a cup ahead, middle distance; 2 chairs on your left, middle distance"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": false,
+   "out": "a person ahead; a cup ahead; 2 chairs on your left"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    },
+    {
+     "id": 5,
+     "label": "tv",
+     "box": [
+      500.0,
+      50.0,
+      630.0,
+      200.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": true,
+   "out": "a person ahead, near; a cup ahead, middle distance; 2 chairs on your left, middle distance; a TV or monitor on your right, middle distance"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    },
+    {
+     "id": 5,
+     "label": "tv",
+     "box": [
+      500.0,
+      50.0,
+      630.0,
+      200.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": false,
+   "out": "a person ahead; a cup ahead; 2 chairs on your left; a TV or monitor on your right"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    },
+    {
+     "id": 5,
+     "label": "tv",
+     "box": [
+      500.0,
+      50.0,
+      630.0,
+      200.0
+     ]
+    },
+    {
+     "id": 6,
+     "label": "laptop",
+     "box": [
+      250.0,
+      250.00000000000003,
+      400.0,
+      360.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": true,
+   "out": "a person ahead, near; a cup ahead, middle distance; a laptop ahead, middle distance; 2 chairs on your left, middle distance; a TV or monitor on your right, middle distance"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    },
+    {
+     "id": 5,
+     "label": "tv",
+     "box": [
+      500.0,
+      50.0,
+      630.0,
+      200.0
+     ]
+    },
+    {
+     "id": 6,
+     "label": "laptop",
+     "box": [
+      250.0,
+      250.00000000000003,
+      400.0,
+      360.0
+     ]
+    }
+   ],
+   "max_groups": 6,
+   "detailed": false,
+   "out": "a person ahead; a cup ahead; a laptop ahead; 2 chairs on your left; a TV or monitor on your right"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    },
+    {
+     "id": 5,
+     "label": "tv",
+     "box": [
+      500.0,
+      50.0,
+      630.0,
+      200.0
+     ]
+    },
+    {
+     "id": 6,
+     "label": "laptop",
+     "box": [
+      250.0,
+      250.00000000000003,
+      400.0,
+      360.0
+     ]
+    },
+    {
+     "id": 7,
+     "label": "bottle",
+     "box": [
+      600.0,
+      10.0,
+      630.0,
+      60.0
+     ]
+    }
+   ],
+   "max_groups": 3,
+   "detailed": true,
+   "out": "a person ahead, near; a cup ahead, middle distance; a laptop ahead, middle distance; and 3 more"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    },
+    {
+     "id": 5,
+     "label": "tv",
+     "box": [
+      500.0,
+      50.0,
+      630.0,
+      200.0
+     ]
+    },
+    {
+     "id": 6,
+     "label": "laptop",
+     "box": [
+      250.0,
+      250.00000000000003,
+      400.0,
+      360.0
+     ]
+    },
+    {
+     "id": 7,
+     "label": "bottle",
+     "box": [
+      600.0,
+      10.0,
+      630.0,
+      60.0
+     ]
+    }
+   ],
+   "max_groups": 3,
+   "detailed": false,
+   "out": "a person ahead; a cup ahead; a laptop ahead; and 3 more"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    },
+    {
+     "id": 5,
+     "label": "tv",
+     "box": [
+      500.0,
+      50.0,
+      630.0,
+      200.0
+     ]
+    },
+    {
+     "id": 6,
+     "label": "laptop",
+     "box": [
+      250.0,
+      250.00000000000003,
+      400.0,
+      360.0
+     ]
+    },
+    {
+     "id": 7,
+     "label": "bottle",
+     "box": [
+      600.0,
+      10.0,
+      630.0,
+      60.0
+     ]
+    },
+    {
+     "id": 8,
+     "label": "dining table",
+     "box": [
+      100.0,
+      300.0,
+      500.0,
+      478.0
+     ]
+    }
+   ],
+   "max_groups": 3,
+   "detailed": true,
+   "out": "a person ahead, near; a table ahead, near; a cup ahead, middle distance; and 4 more"
+  },
+  {
+   "objects": [
+    {
+     "id": 1,
+     "label": "chair",
+     "box": [
+      20.0,
+      200.0,
+      120.0,
+      330.0
+     ]
+    },
+    {
+     "id": 2,
+     "label": "chair",
+     "box": [
+      40.0,
+      210.0,
+      130.0,
+      340.0
+     ]
+    },
+    {
+     "id": 3,
+     "label": "cup",
+     "box": [
+      300.0,
+      300.0,
+      340.0,
+      350.0
+     ]
+    },
+    {
+     "id": 4,
+     "label": "person",
+     "box": [
+      220.0,
+      20.0,
+      420.0,
+      478.0
+     ]
+    },
+    {
+     "id": 5,
+     "label": "tv",
+     "box": [
+      500.0,
+      50.0,
+      630.0,
+      200.0
+     ]
+    },
+    {
+     "id": 6,
+     "label": "laptop",
+     "box": [
+      250.0,
+      250.00000000000003,
+      400.0,
+      360.0
+     ]
+    },
+    {
+     "id": 7,
+     "label": "bottle",
+     "box": [
+      600.0,
+      10.0,
+      630.0,
+      60.0
+     ]
+    },
+    {
+     "id": 8,
+     "label": "dining table",
+     "box": [
+      100.0,
+      300.0,
+      500.0,
+      478.0
+     ]
+    }
+   ],
+   "max_groups": 3,
+   "detailed": false,
+   "out": "a person ahead; a table ahead; a cup ahead; and 4 more"
+  }
+ ],
+ "mentioned": [
+  {
+   "label": "person",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": true
+  },
+  {
+   "label": "tv",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": true
+  },
+  {
+   "label": "laptop",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": true
+  },
+  {
+   "label": "couch",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": true
+  },
+  {
+   "label": "dining table",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": true
+  },
+  {
+   "label": "cup",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": false
+  },
+  {
+   "label": "chair",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": false
+  },
+  {
+   "label": "teddy bear",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": false
+  },
+  {
+   "label": "cat",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": false
+  },
+  {
+   "label": "refrigerator",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": false
+  },
+  {
+   "label": "cell phone",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": false
+  },
+  {
+   "label": "bottle",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": false
+  },
+  {
+   "label": "wine glass",
+   "text": "A woman sits at a desk. A computer screen glows on your right. There is a sofa.",
+   "out": false
+  },
+  {
+   "label": "person",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "tv",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "laptop",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "couch",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "dining table",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "cup",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "chair",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "teddy bear",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "cat",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "refrigerator",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "cell phone",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "bottle",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "wine glass",
+   "text": "A category label.",
+   "out": false
+  },
+  {
+   "label": "person",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "tv",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "laptop",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "couch",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "dining table",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "cup",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "chair",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "teddy bear",
+   "text": "A bear statue near a teddy bear.",
+   "out": true
+  },
+  {
+   "label": "cat",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "refrigerator",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "cell phone",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "bottle",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "wine glass",
+   "text": "A bear statue near a teddy bear.",
+   "out": false
+  },
+  {
+   "label": "person",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "tv",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "laptop",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "couch",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "dining table",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "cup",
+   "text": "Two cups and a mug.",
+   "out": true
+  },
+  {
+   "label": "chair",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "teddy bear",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "cat",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "refrigerator",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "cell phone",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "bottle",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "wine glass",
+   "text": "Two cups and a mug.",
+   "out": false
+  },
+  {
+   "label": "person",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "tv",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "laptop",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "couch",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "dining table",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "cup",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "chair",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "teddy bear",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "cat",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "refrigerator",
+   "text": "The fridge is open.",
+   "out": true
+  },
+  {
+   "label": "cell phone",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "bottle",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "wine glass",
+   "text": "The fridge is open.",
+   "out": false
+  },
+  {
+   "label": "person",
+   "text": "Someone is holding a phone.",
+   "out": true
+  },
+  {
+   "label": "tv",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "laptop",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "couch",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "dining table",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "cup",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "chair",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "teddy bear",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "cat",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "refrigerator",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "cell phone",
+   "text": "Someone is holding a phone.",
+   "out": true
+  },
+  {
+   "label": "bottle",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "wine glass",
+   "text": "Someone is holding a phone.",
+   "out": false
+  },
+  {
+   "label": "person",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "tv",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "laptop",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "couch",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "dining table",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "cup",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "chair",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "teddy bear",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "cat",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "refrigerator",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "cell phone",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "bottle",
+   "text": "",
+   "out": false
+  },
+  {
+   "label": "wine glass",
+   "text": "",
+   "out": false
+  }
+ ]
+}

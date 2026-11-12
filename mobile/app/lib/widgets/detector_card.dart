@@ -63,7 +63,8 @@ class DetectorCard extends ConsumerWidget {
                 Semantics(
                   label: verifying ? 'Checking' : 'Download progress',
                   value: '$pct percent',
-                  child: LinearProgressIndicator(value: verifying && s.totalBytes == 0 ? null : s.fraction, minHeight: 10),
+                  child:
+                      LinearProgressIndicator(value: verifying && s.totalBytes == 0 ? null : s.fraction, minHeight: 10),
                 ),
                 if (!verifying) ...[
                   const SizedBox(height: 8),
@@ -94,7 +95,8 @@ class DetectorCard extends ConsumerWidget {
               body: '${s.error}\n${s.recovery ?? ''}'.trim(),
               tone: Tone.danger,
               action: Wrap(spacing: 10, runSpacing: 10, children: [
-                FilledButton.icon(onPressed: c.retry, icon: const Icon(Icons.refresh_rounded), label: const Text('Retry')),
+                FilledButton.icon(
+                    onPressed: c.retry, icon: const Icon(Icons.refresh_rounded), label: const Text('Retry')),
                 if (!compact)
                   OutlinedButton(
                     onPressed: c.deleteModel,

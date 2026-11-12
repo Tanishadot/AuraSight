@@ -13,12 +13,12 @@ A feature is marked **verified** only after it has run on a physical phone for t
 | Shared logic (tracking, verification, spatial, events, announcements, speech queue, find) | Tested in CI | Tested in CI | Matches the desktop's outputs on every golden scenario |
 | App shell, six screens, settings, activity log, model downloads | Builds; unit and widget tests pass | Builds for the simulator | Not yet run on a phone |
 | Camera | Code in place (`camera` plugin) | Code in place | Not yet run on a phone |
-| Object detection (YOLO11n) | Not built yet | Not built yet | LiteRT on Android, Core ML on iOS |
+| Object detection (YOLO11n) | LiteRT (GPU, CPU fallback); tested on an Android emulator in CI, not yet on the phone | Not built yet | Model downloaded on first use (10.2 MB, SHA-256 verified); see below |
 | Scene model (SmolVLM via llama.cpp) | Not built yet | Not built yet | Downloadable from Settings, but there is no runtime yet |
 | Speech (system TTS, offline voices) | Code in place (TextToSpeech) | Code in place (AVSpeechSynthesizer) | Not yet run on a phone |
 | Thermal and memory monitoring | Code in place | Code in place | Feeds the adaptive detection rate |
 | Voice input | Not started | Not started | Optional; sherpa-onnx or whisper.cpp |
-| Benchmarks | Not started | Not started | Target phone: iQOO Z7s (Snapdragon 695) |
+| Benchmarks | Benchmark mode built; no phone results yet | Not started | `docs/benchmark-android.md` |
 
 Until a native module exists, the app shows a clear message for it, such as "This build doesn't include the on-device detector yet". It never shows made-up results.
 
@@ -52,8 +52,10 @@ Everything is built in GitHub Actions (`.github/workflows/mobile.yml`); nothing 
 | Job | What it does |
 |---|---|
 | `aura_core` | Analyses and tests the shared Dart logic |
-| `app` | Runs `flutter analyze` and `flutter test`, and builds a debug APK (artifact `aurasight-debug-apk`) |
+| `app` | Runs `flutter analyze`, the Dart tests and the Kotlin unit tests, and builds a debug APK (artifact `aurasight-debug-apk`) |
 | `ios` | Builds for the iOS simulator, unsigned |
+| `detector-model` | Downloads the published detector, checks its size, SHA-256, tensors and labels against the manifest, and compares its detections with the desktop's |
+| `android-device-test` | On an Android x86_64 emulator: real download and checksum, LiteRT load and self-test, offline reload, desktop parity, camera YUV path, damaged-file refusal |
 
 Building locally needs Flutter (stable), JDK 17 and, for iOS, a Mac with Xcode:
 
@@ -73,6 +75,24 @@ flutter run            # with a phone connected
    - **Without a computer**: copy `app-debug.apk` to the phone, open it, and allow installing from that app when asked.
 
 Debug builds are unsigned for release and meant for testing only.
+
+## Object detector (Android)
+
+- **Model:** YOLO11n, exported once by CI (`tools/export_detector.py`) to LiteRT/TFLite with a fixed 320×320 FP32 input. Published as the release asset `mobile-models-v1/yolo11n_320_float32.tflite` (10.2 MB). Its size and SHA-256 are pinned in `app/assets/models/detector.json`. It is not in Git or in the APK.
+- **Pipeline:** camera YUV frame → upright rotation and letterbox (Kotlin) → LiteRT → decode and per-class NMS at IoU 0.5 (same rules as the desktop) → shared Dart tracker, false-positive verifier, left/right/near/far positions and spoken events.
+- **Acceleration:** the GPU delegate (Adreno) is tried first and checked with a warm-up inference. If it is unsupported or fails, the CPU (XNNPACK) is used and the reason is shown.
+- **States in the app:** Not downloaded → Downloading → Checking (SHA-256) → Loading → Ready, or Error with Retry. "Ready" is only shown after the model has loaded *and* found a person in a bundled public-domain photo (the self-test). The checksum is checked again before every load, offline.
+- **Rate:** at most 6 detections per second by default (Settings). The rate is lowered automatically when the detector is slower than that, while the scene model runs, when the phone is warm, or when memory is low. Frames are never queued.
+- **Parity with the desktop:** the exported model matched all 21 desktop detections scoring 0.4 or higher on the 16 fixture photos (`docs/detector-parity-tflite.md`). The emulator test repeats the comparison through the app's own Kotlin code.
+
+## Testing on your phone
+
+1. Install the newest `aurasight-debug-apk` (see below). Uninstalling the old one first isn't necessary.
+2. Open the app. The **Live** tab shows "Object detector not downloaded": press **Download (10.2 MB)**. You'll see the progress, then "Checking the download…", "Loading…", and finally "Object detector ready · GPU" (or CPU, with the reason).
+3. Press **Start camera** and point the phone at a chair, a cup or a person. Objects appear in the list with their position and confidence, and new ones are announced.
+4. **Offline check:** turn on aeroplane mode, close the app completely, reopen it. The detector should reach "ready" again with no network.
+5. **Benchmark:** Settings → Models → Detector benchmark (see `docs/benchmark-android.md`).
+6. If something fails, collect the log with adb: `adb logcat -s flutter AndroidRuntime tflite` while reproducing it.
 
 ## Privacy
 

@@ -71,10 +71,11 @@ void main() {
   final goodSha = sha256.convert(weights).toString();
   var requests = 0;
 
-  ModelManager mm(Uint8List served) => ModelManager(dir, client: () => MockClient((_) async {
-        requests++;
-        return http.Response.bytes(served, 200);
-      }));
+  ModelManager mm(Uint8List served) => ModelManager(dir,
+      client: () => MockClient((_) async {
+            requests++;
+            return http.Response.bytes(served, 200);
+          }));
 
   /// No network at all: any request fails the test.
   ModelManager offline() => ModelManager(dir, client: () => MockClient((_) async => throw StateError('network used')));
@@ -99,12 +100,14 @@ void main() {
     expect(s.phase, DetectorPhase.ready);
     expect(s.info!.backend, 'cpu');
     expect(s.selfTest, startsWith('person 0.84'));
-    expect(phases, containsAllInOrder([
-      DetectorPhase.downloading,
-      DetectorPhase.verifying,
-      DetectorPhase.loading,
-      DetectorPhase.ready,
-    ]));
+    expect(
+        phases,
+        containsAllInOrder([
+          DetectorPhase.downloading,
+          DetectorPhase.verifying,
+          DetectorPhase.loading,
+          DetectorPhase.ready,
+        ]));
     expect(d.calls, ['load', 'detectImage']);
     expect(File(d.loadedPath!).lengthSync(), weights.length);
   });

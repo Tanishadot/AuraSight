@@ -68,7 +68,6 @@ class NoDetector implements DetectionService {
   Future<void> dispose() async {}
 }
 
-
 /// A stand-in that streams a fixed reply, used only to test the controller's
 /// streaming and de-duplication rules (the real model runs natively).
 class ScriptedVlm implements SceneUnderstandingService {

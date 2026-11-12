@@ -51,5 +51,6 @@ class CameraLifecycle {
       });
 
   /// Lifecycle events can arrive faster than the camera opens or closes; run them in order.
-  Future<void> _serial(Future<void> Function() action) => _pending = _pending.then((_) => action(), onError: (_) => action());
+  Future<void> _serial(Future<void> Function() action) =>
+      _pending = _pending.then((_) => action(), onError: (_) => action());
 }

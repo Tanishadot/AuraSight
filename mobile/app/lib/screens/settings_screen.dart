@@ -67,8 +67,7 @@ class SettingsScreen extends ConsumerWidget {
         SecondaryButton(
           label: 'Detector benchmark',
           icon: Icons.speed_rounded,
-          onPressed: () =>
-              Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const BenchmarkScreen())),
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const BenchmarkScreen())),
         ),
         const SizedBox(height: 12),
         for (final m in modelCatalog) _ModelTile(m),

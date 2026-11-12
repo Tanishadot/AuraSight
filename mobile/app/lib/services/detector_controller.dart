@@ -136,12 +136,14 @@ class DetectorController {
       if (hits.isEmpty) {
         await detector.dispose();
         final seen = r.detections.map((d) => '${m.labels[d.cls]} ${d.score.toStringAsFixed(2)}').join(', ');
-        return _fail('The detector loaded but failed its self-test (expected a person, found: ${seen.isEmpty ? 'nothing' : seen}).',
+        return _fail(
+            'The detector loaded but failed its self-test (expected a person, found: ${seen.isEmpty ? 'nothing' : seen}).',
             'Delete the model in Settings and download it again.');
       }
       final best = hits.reduce((a, b) => a.score >= b.score ? a : b);
       final s = DetectorStatus(DetectorPhase.ready,
-          info: info, selfTest: '$selfTestLabel ${best.score.toStringAsFixed(2)} in ${r.inferenceMs.toStringAsFixed(0)} ms');
+          info: info,
+          selfTest: '$selfTestLabel ${best.score.toStringAsFixed(2)} in ${r.inferenceMs.toStringAsFixed(0)} ms');
       _set(s);
       return s;
     } catch (e) {

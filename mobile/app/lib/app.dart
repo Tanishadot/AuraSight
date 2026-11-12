@@ -66,8 +66,7 @@ class _HomeShellState extends ConsumerState<HomeShell> with WidgetsBindingObserv
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) =>
-      ref.read(cameraLifecycleProvider).onAppLifecycle(state);
+  void didChangeAppLifecycleState(AppLifecycleState state) => ref.read(cameraLifecycleProvider).onAppLifecycle(state);
 
   @override
   Widget build(BuildContext context) {

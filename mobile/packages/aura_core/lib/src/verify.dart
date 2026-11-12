@@ -47,6 +47,7 @@ class VerifyRequest {
   final int trackId;
   final Box box;
   final int cls;
+
   /// Padded crops (padding fraction, detector input size); the result is the
   /// mean of the best same-class score overlapping the box in each crop.
   final List<(double, int)> crops;
@@ -216,8 +217,8 @@ class ObjectVerifier {
 /// a crop. [cropOrigin] is the crop's top-left in frame pixels. Port of
 /// `ObjectVerifier._crop_score`.
 double cropScore(Box target, int cls, (double, double) cropOrigin, List<Detection> cropDetections) {
-  final t = Box(target.x1 - cropOrigin.$1, target.y1 - cropOrigin.$2, target.x2 - cropOrigin.$1,
-      target.y2 - cropOrigin.$2);
+  final t =
+      Box(target.x1 - cropOrigin.$1, target.y1 - cropOrigin.$2, target.x2 - cropOrigin.$1, target.y2 - cropOrigin.$2);
   var best = 0.0;
   for (final d in cropDetections) {
     if (d.cls == cls && iou(t, d.box) > 0.4 && d.score > best) best = d.score;

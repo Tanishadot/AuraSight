@@ -128,7 +128,9 @@ void main() {
         final thumbs = sc['thumbs'] as List?;
         for (var f = 0; f < frames.length; f++) {
           clock.t += 0.2;
-          final views = [for (final o in frames[f] as List) view(o['id'] as int, o['label'] as String, o['box'] as List)];
+          final views = [
+            for (final o in frames[f] as List) view(o['id'] as int, o['label'] as String, o['box'] as List)
+          ];
           Float32List? thumb;
           if (thumbs != null) {
             thumb = Float32List.fromList([
@@ -141,7 +143,8 @@ void main() {
           expect(
               evs.map((e) => [e.kindName, e.message, e.priority.name, e.label, e.trackId]).toList(),
               [
-                for (final e in exp['events'] as List) [e['kind'], e['message'], e['priority'], e['label'], e['track_id']]
+                for (final e in exp['events'] as List)
+                  [e['kind'], e['message'], e['priority'], e['label'], e['track_id']]
               ],
               reason: 'frame $f');
           expect(views.map((v) => v.approaching).toList(), exp['approaching'], reason: 'frame $f approaching');
@@ -167,7 +170,9 @@ void main() {
       );
     }
 
-    final batches = [for (final b in g['batches'] as List) [for (final e in b as List) event(e as Map)]];
+    final batches = [
+      for (final b in g['batches'] as List) [for (final e in b as List) event(e as Map)]
+    ];
     for (final run in g['runs'] as List) {
       test('handle ${run['settings']}', () {
         final s = settingsFrom((run['settings'] as Map).cast<String, dynamic>());
@@ -186,7 +191,9 @@ void main() {
 
     test('summarizeObjects', () {
       for (final c in g['summaries'] as List) {
-        final objs = [for (final o in c['objects'] as List) view(o['id'] as int, o['label'] as String, o['box'] as List)];
+        final objs = [
+          for (final o in c['objects'] as List) view(o['id'] as int, o['label'] as String, o['box'] as List)
+        ];
         expect(summarizeObjects(objs, maxGroups: c['max_groups'] as int, detailed: c['detailed'] as bool), c['out']);
       }
     });

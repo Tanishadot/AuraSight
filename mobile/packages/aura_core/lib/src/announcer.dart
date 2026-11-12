@@ -39,7 +39,10 @@ class Announcer {
     final now = _clock();
     final spoken = <String>[];
 
-    final warnings = [for (final e in events) if (e.kind == EventKind.obstacle || e.kind == EventKind.approaching) e];
+    final warnings = [
+      for (final e in events)
+        if (e.kind == EventKind.obstacle || e.kind == EventKind.approaching) e
+    ];
     if (s.obstacleAlerts && warnings.isNotEmpty) {
       final text = warnings.take(2).map((e) => e.message).join(' ');
       if (_speech.say(text, priority: SpeechPriority.urgent, kind: 'alert', maxAge: 2.5)) spoken.add(text);
@@ -74,7 +77,10 @@ class Announcer {
     }
 
     if (s.announceDepartures) {
-      final gone = [for (final e in events) if (e.kind == EventKind.left && e.label != null) spokenLabel(e.label!)];
+      final gone = [
+        for (final e in events)
+          if (e.kind == EventKind.left && e.label != null) spokenLabel(e.label!)
+      ];
       if (gone.isNotEmpty) {
         var text = '${gone.take(3).join(', ')} gone.';
         text = text[0].toUpperCase() + text.substring(1);
@@ -126,8 +132,10 @@ String summarizeObjects(List<ObjectView> objects, {int maxGroups = 6, bool detai
 // Words a scene description may use for a detector class. Used only to avoid
 // repeating an object the description already named.
 const _synonyms = <String, List<String>>{
-  'person': ['person', 'people', 'man', 'men', 'woman', 'women', 'boy', 'girl', 'child', 'children', //
-    'kid', 'kids', 'someone', 'lady', 'guy', 'baby'],
+  'person': [
+    'person', 'people', 'man', 'men', 'woman', 'women', 'boy', 'girl', 'child', 'children', //
+    'kid', 'kids', 'someone', 'lady', 'guy', 'baby'
+  ],
   'tv': ['tv', 'tvs', 'television', 'monitor', 'monitors', 'screen', 'screens'],
   'dining table': ['table', 'tables', 'desk', 'desks'],
   'cell phone': ['phone', 'phones', 'smartphone', 'mobile'],

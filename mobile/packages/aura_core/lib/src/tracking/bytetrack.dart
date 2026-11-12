@@ -130,11 +130,23 @@ class ByteTracker {
     frameId += 1;
     final fid = frameId;
     final dets = [for (final d in detections) _STrack(d.box, f32(d.score), d.cls)];
-    final detsHi = [for (final d in dets) if (d.score >= trackThresh) d];
-    final detsLo = [for (final d in dets) if (d.score >= lowThresh && d.score < trackThresh) d];
+    final detsHi = [
+      for (final d in dets)
+        if (d.score >= trackThresh) d
+    ];
+    final detsLo = [
+      for (final d in dets)
+        if (d.score >= lowThresh && d.score < trackThresh) d
+    ];
 
-    final unconfirmed = [for (final t in _tracked) if (!t.isActivated) t];
-    final confirmed = [for (final t in _tracked) if (t.isActivated) t];
+    final unconfirmed = [
+      for (final t in _tracked)
+        if (!t.isActivated) t
+    ];
+    final confirmed = [
+      for (final t in _tracked)
+        if (t.isActivated) t
+    ];
     final pool = [...confirmed, ..._lost];
     for (final t in pool) {
       t.predict(_kf);
@@ -153,7 +165,10 @@ class ByteTracker {
     final uDetHi = r.unmatchedCols;
 
     // 2) remaining *tracked* tracks vs low-confidence detections
-    final rTracked = [for (final i in r.unmatchedRows) if (pool[i].state == TrackState.tracked) pool[i]];
+    final rTracked = [
+      for (final i in r.unmatchedRows)
+        if (pool[i].state == TrackState.tracked) pool[i]
+    ];
     r = linearAssignment(_cost(rTracked, detsLo, false), rTracked.length, detsLo.length, 0.5);
     for (final (ti, di) in r.matches) {
       rTracked[ti].update(_kf, detsLo[di], fid);
@@ -201,7 +216,10 @@ class ByteTracker {
       if (t.state == TrackState.tracked && seen.add(t)) tracked.add(t);
     }
     _tracked = tracked;
-    _lost = [for (final t in stillLost) if (!seen.contains(t)) t];
+    _lost = [
+      for (final t in stillLost)
+        if (!seen.contains(t)) t
+    ];
 
     return [
       for (final t in _tracked)

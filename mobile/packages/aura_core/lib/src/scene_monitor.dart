@@ -135,13 +135,13 @@ class SceneMonitor {
           o.spatial.distance != Distance.far &&
           now - m.lastAlert >= alertCooldownS * 0.8) {
         m.lastAlert = now;
-        events.add(SceneEvent(EventKind.approaching, '${_cap(name)} approaching, ${o.spatial.direction}.',
-            EventPriority.warning,
+        events.add(SceneEvent(
+            EventKind.approaching, '${_cap(name)} approaching, ${o.spatial.direction}.', EventPriority.warning,
             label: o.label, trackId: o.trackId, spatial: o.spatial));
       } else if (m.entered && nearPath && !m.nearPath && obstacleLike && now - m.lastAlert >= alertCooldownS) {
         m.lastAlert = now;
-        events.add(SceneEvent(EventKind.obstacle, 'Caution: $name close, ${o.spatial.direction}.',
-            EventPriority.warning,
+        events.add(SceneEvent(
+            EventKind.obstacle, 'Caution: $name close, ${o.spatial.direction}.', EventPriority.warning,
             label: o.label, trackId: o.trackId, spatial: o.spatial));
       }
 
@@ -149,8 +149,8 @@ class SceneMonitor {
         m.entered = true;
         if (nearPath && obstacleLike) {
           m.lastAlert = now;
-          events.add(SceneEvent(EventKind.obstacle, 'Caution: $name close, ${o.spatial.direction}.',
-              EventPriority.warning,
+          events.add(SceneEvent(
+              EventKind.obstacle, 'Caution: $name close, ${o.spatial.direction}.', EventPriority.warning,
               label: o.label, trackId: o.trackId, spatial: o.spatial));
         } else {
           events.add(SceneEvent(EventKind.entered, '${_cap(name)} ${o.spatial.phrase()}.', EventPriority.info,
@@ -168,13 +168,15 @@ class SceneMonitor {
         _mem.remove(tid);
         if (m.entered) {
           _recentlyLeft.add(m);
-          events.add(SceneEvent(EventKind.left, '${_cap(spokenLabel(m.label))} no longer visible.',
-              EventPriority.info,
+          events.add(SceneEvent(EventKind.left, '${_cap(spokenLabel(m.label))} no longer visible.', EventPriority.info,
               label: m.label, trackId: tid, spatial: m.spatial));
         }
       }
     }
-    _recentlyLeft = [for (final m in _recentlyLeft) if (now - m.lastSeen < reidWindowS) m];
+    _recentlyLeft = [
+      for (final m in _recentlyLeft)
+        if (now - m.lastSeen < reidWindowS) m
+    ];
 
     if (thumbnail != null) {
       final ev = _sceneChange(thumbnail, now);

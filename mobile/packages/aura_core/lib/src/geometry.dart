@@ -6,8 +6,8 @@ class Box {
   final double x1, y1, x2, y2;
   const Box(this.x1, this.y1, this.x2, this.y2);
 
-  factory Box.fromList(List<dynamic> v) => Box((v[0] as num).toDouble(),
-      (v[1] as num).toDouble(), (v[2] as num).toDouble(), (v[3] as num).toDouble());
+  factory Box.fromList(List<dynamic> v) =>
+      Box((v[0] as num).toDouble(), (v[1] as num).toDouble(), (v[2] as num).toDouble(), (v[3] as num).toDouble());
 
   double get width => x2 - x1;
   double get height => y2 - y1;

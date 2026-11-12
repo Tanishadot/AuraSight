@@ -74,9 +74,14 @@ internal class TtsHandler(private val context: Context) : MethodChannel.MethodCa
         tts = engine
     }
 
-    private fun complete(id: String, finished: Boolean) = main.post { pending.remove(id)?.success(finished) }
+    // Listener callbacks arrive on a TTS thread; channel replies must be on the main thread.
+    private fun complete(id: String, finished: Boolean) {
+        main.post { pending.remove(id)?.success(finished) }
+    }
 
-    private fun fail(id: String, message: String) = main.post { pending.remove(id)?.error("tts_speak", message, null) }
+    private fun fail(id: String, message: String) {
+        main.post { pending.remove(id)?.error("tts_speak", message, null) }
+    }
 
     private fun info(): Map<String, Any> =
         mapOf("engine" to (tts?.defaultEngine ?: "unknown"), "offlineVoices" to offlineVoices().size)

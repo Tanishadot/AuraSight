@@ -50,12 +50,16 @@ class _STrack {
   void predict(KalmanFilterXYAH kf) {
     final m = List<double>.of(mean!);
     if (state != TrackState.tracked) m[7] = 0; // freeze height velocity while lost
-    (mean, cov) = kf.predict(m, cov!);
+    final (nm, nc) = kf.predict(m, cov!);
+    mean = nm;
+    cov = nc;
   }
 
   void activate(KalmanFilterXYAH kf, int fid, int id) {
     trackId = id;
-    (mean, cov) = kf.initiate(xyxyToXyah(lastBox.toList()));
+    final (nm, nc) = kf.initiate(xyxyToXyah(lastBox.toList()));
+    mean = nm;
+    cov = nc;
     state = TrackState.tracked;
     isActivated = fid == 1;
     frameId = startFrame = fid;
@@ -63,7 +67,9 @@ class _STrack {
   }
 
   void update(KalmanFilterXYAH kf, _STrack det, int fid) {
-    (mean, cov) = kf.update(mean!, cov!, xyxyToXyah(det.lastBox.toList()));
+    final (nm, nc) = kf.update(mean!, cov!, xyxyToXyah(det.lastBox.toList()));
+    mean = nm;
+    cov = nc;
     lastBox = det.lastBox;
     score = det.score;
     state = TrackState.tracked;

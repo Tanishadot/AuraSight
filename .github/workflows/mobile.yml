@@ -98,15 +98,18 @@ jobs:
   native-scaffold:
     name: Scaffold native plugin (first run only)
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('mobile/packages/aura_native/pubspec.yaml') == '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
-      - working-directory: mobile/packages
+      - id: check
+        run: test -f mobile/packages/aura_native/pubspec.yaml && echo "exists=true" >> "$GITHUB_OUTPUT" || echo "exists=false" >> "$GITHUB_OUTPUT"
+      - if: steps.check.outputs.exists == 'false'
+        working-directory: mobile/packages
         run: flutter create --template=plugin --platforms=android,ios --org com.tanishadot --project-name aura_native --no-pub aura_native
-      - uses: actions/upload-artifact@v4
+      - if: steps.check.outputs.exists == 'false'
+        uses: actions/upload-artifact@v4
         with:
           name: native-plugin-scaffold
           path: mobile/packages/aura_native

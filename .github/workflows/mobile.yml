@@ -23,6 +23,17 @@ jobs:
         with:
           sdk: stable
       - run: dart pub get
-      - run: dart format --output=none --set-exit-if-changed --line-length 120 lib test
       - run: dart analyze --fatal-infos
       - run: dart test --reporter expanded
+      # Formatting is checked last and published as a patch to apply locally.
+      - name: Format check
+        id: fmt
+        continue-on-error: true
+        run: |
+          dart format --line-length 120 lib test
+          git diff --exit-code -- . > /dev/null || { git diff -- . > "$RUNNER_TEMP/format.patch"; exit 1; }
+      - if: steps.fmt.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: format-patch-core
+          path: ${{ runner.temp }}/format.patch

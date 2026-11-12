@@ -7,15 +7,19 @@ import io.flutter.plugin.common.MethodChannel
 class AuraNativePlugin : FlutterPlugin {
     private val channels = mutableListOf<MethodChannel>()
     private var tts: TtsHandler? = null
+    private var detector: DetectorHandler? = null
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         val ctx = binding.applicationContext
         val speech = TtsHandler(ctx)
+        val det = DetectorHandler()
         tts = speech
+        detector = det
         channels += MethodChannel(binding.binaryMessenger, "aurasight/tts").also { it.setMethodCallHandler(speech) }
         channels += MethodChannel(binding.binaryMessenger, "aurasight/system").also {
             it.setMethodCallHandler(SystemHandler(ctx))
         }
+        channels += MethodChannel(binding.binaryMessenger, "aurasight/detector").also { it.setMethodCallHandler(det) }
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
@@ -23,5 +27,7 @@ class AuraNativePlugin : FlutterPlugin {
         channels.clear()
         tts?.shutdown()
         tts = null
+        detector?.shutdown()
+        detector = null
     }
 }

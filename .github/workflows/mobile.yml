@@ -22,7 +22,7 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       TAG: mobile-models-v1
-      FILE: yolo11n_320_float16.tflite
+      FILE: yolo11n_320_float32.tflite
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -44,7 +44,7 @@ jobs:
           else
             gh release create "$TAG" "dist/$FILE" --target "$GITHUB_SHA" --prerelease \
               --title "AuraSight mobile models v1" \
-              --notes "On-device models for the AuraSight mobile app. YOLO11n by Ultralytics (AGPL-3.0), exported to LiteRT/TFLite float16 at 320x320 by mobile/tools/export_detector.py."
+              --notes "On-device models for the AuraSight mobile app. YOLO11n by Ultralytics (AGPL-3.0), exported to LiteRT/TFLite (FP32) at 320x320 by mobile/tools/export_detector.py."
           fi
       - name: Fetch and validate the published model
         if: steps.mode.outputs.mode == 'validate'
@@ -127,6 +127,9 @@ jobs:
       - run: flutter analyze --no-fatal-infos
       - run: flutter test --reporter expanded
       - run: flutter build apk --debug
+      - name: Native unit tests (Kotlin: letterbox, YUV/rotation sampling, decoding, NMS)
+        working-directory: mobile/app/android
+        run: ./gradlew :aura_native:testDebugUnitTest --console=plain
       - uses: actions/upload-artifact@v4
         with:
           name: aurasight-debug-apk

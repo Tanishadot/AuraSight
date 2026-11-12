@@ -72,5 +72,11 @@ kotlin {
 }
 
 dependencies {
+    // LiteRT (TensorFlow Lite) runtime + GPU delegate; classic Interpreter API.
+    implementation("com.google.ai.edge.litert:litert:1.4.0")
+    implementation("com.google.ai.edge.litert:litert-gpu:1.4.0")
+    implementation("com.google.ai.edge.litert:litert-gpu-api:1.4.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

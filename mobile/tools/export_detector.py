@@ -35,7 +35,7 @@ from backend.detection.yolo_onnx import COCO_NAMES  # noqa: E402  (single source
 PT_URL = "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt"
 PT_SHA = "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1"
 SIZE = 320
-FILE_NAME = "yolo11n_320_float16.tflite"
+FILE_NAME = "yolo11n_320_float32.tflite"
 RELEASE_TAG = "mobile-models-v1"
 REPO = "Tanishadot/AuraSight"
 MANIFEST = ROOT / "mobile" / "app" / "assets" / "models" / "detector.json"
@@ -205,11 +205,15 @@ def cmd_export(out_dir: Path) -> None:
     import ultralytics
     from ultralytics import YOLO
 
-    YOLO(str(pt)).export(format="tflite", imgsz=SIZE, half=True)
-    found = glob.glob(str(out_dir / "**" / "*float16.tflite"), recursive=True) or glob.glob("**/*float16.tflite",
-                                                                                           recursive=True)
+    # Current Ultralytics exports LiteRT as FP32 or INT8 only (no FP16). FP32 keeps desktop accuracy;
+    # the GPU delegate still computes in FP16 on the phone.
+    YOLO(str(pt)).export(format="tflite", imgsz=SIZE)
+    found = [f for f in glob.glob("**/*.tflite", recursive=True)
+             if "int8" not in f and "integer" not in f and "float16" not in f and FILE_NAME not in f]
+    found.sort(key=lambda f: ("float32" not in f, len(f)))
     if not found:
-        sys.exit("export produced no float16 .tflite")
+        sys.exit("export produced no float32 .tflite")
+    print("exported:", found)
     model = out_dir / FILE_NAME
     shutil.copy(found[0], model)
     info = describe(model)
@@ -238,7 +242,7 @@ def cmd_export(out_dir: Path) -> None:
         "iouThreshold": 0.5,
         "labels": COCO_NAMES,
         "export": {"source": PT_URL, "sourceSha256": PT_SHA, "ultralytics": ultralytics.__version__,
-                   "tensorflow": tf_version, "precision": "float16 weights, float32 input/output"},
+                   "tensorflow": tf_version, "precision": "float32"},
     }
     (out_dir / "detector.json").write_text(json.dumps(manifest, indent=1) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in manifest.items() if k != "labels"}, indent=1))

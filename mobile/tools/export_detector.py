@@ -216,6 +216,12 @@ def cmd_export(out_dir: Path) -> None:
     print("exported:", found)
     model = out_dir / FILE_NAME
     shutil.copy(found[0], model)
+    build_manifest(model, out_dir)
+
+
+def build_manifest(model: Path, out_dir: Path) -> None:
+    """Describe, parity-check and write detector.json for exactly this file."""
+    import ultralytics
     info = describe(model)
     par = parity(model, info["normalized"])
     write_report(out_dir / "parity.md", info, par)
@@ -225,7 +231,7 @@ def cmd_export(out_dir: Path) -> None:
     except ImportError:
         tf_version = None
     manifest = {
-        "id": "yolo11n-320-f16",
+        "id": "yolo11n-320-f32",
         "title": "Object detector (YOLO11n)",
         "purpose": "Finds and tracks everyday objects in the camera view.",
         "license": "AGPL-3.0, Ultralytics",
@@ -281,8 +287,16 @@ if __name__ == "__main__":
     sub = ap.add_subparsers(dest="cmd", required=True)
     e = sub.add_parser("export")
     e.add_argument("--out", type=Path, default=Path("dist"))
+    mf = sub.add_parser("manifest")
+    mf.add_argument("--model", type=Path, required=True)
+    mf.add_argument("--out", type=Path, default=Path("dist"))
     v = sub.add_parser("validate")
     v.add_argument("--model", type=Path, required=True)
     v.add_argument("--report", type=Path, default=Path("parity.md"))
     a = ap.parse_args()
-    cmd_export(a.out) if a.cmd == "export" else cmd_validate(a.model, a.report)
+    if a.cmd == "export":
+        cmd_export(a.out)
+    elif a.cmd == "manifest":
+        build_manifest(a.model, a.out)
+    else:
+        cmd_validate(a.model, a.report)

@@ -38,16 +38,21 @@ jobs:
           # (duplicate aten op registration); 8.3.100 uses the proven ONNX to onnx2tf route.
           pip install "ultralytics==8.3.100" "tensorflow==2.19.0" opencv-python-headless
           python mobile/tools/export_detector.py export --out dist
-      - name: Publish model as a release asset (first run only)
+      - name: Publish model as a release asset (first run only, never overwritten)
         if: steps.mode.outputs.mode == 'export'
         run: |
-          if gh release view "$TAG" > /dev/null 2>&1; then
-            gh release upload "$TAG" "dist/$FILE" --clobber
+          gh release view "$TAG" > /dev/null 2>&1 || gh release create "$TAG" --target "$GITHUB_SHA" --prerelease             --title "AuraSight mobile models v1"             --notes "On-device models for the AuraSight mobile app. YOLO11n by Ultralytics (AGPL-3.0), exported to LiteRT/TFLite (FP32) at 320x320 by mobile/tools/export_detector.py."
+          if gh release view "$TAG" --json assets -q '.assets[].name' | grep -qx "$FILE"; then
+            echo "::warning::$FILE is already published; keeping the published file (it is what the app downloads)."
           else
-            gh release create "$TAG" "dist/$FILE" --target "$GITHUB_SHA" --prerelease \
-              --title "AuraSight mobile models v1" \
-              --notes "On-device models for the AuraSight mobile app. YOLO11n by Ultralytics (AGPL-3.0), exported to LiteRT/TFLite (FP32) at 320x320 by mobile/tools/export_detector.py."
+            gh release upload "$TAG" "dist/$FILE"
           fi
+      - name: Build the manifest from the published file
+        if: steps.mode.outputs.mode == 'export'
+        run: |
+          mkdir -p published
+          gh release download "$TAG" -p "$FILE" -D published --clobber
+          python mobile/tools/export_detector.py manifest --model "published/$FILE" --out dist
       - name: Fetch and validate the published model
         if: steps.mode.outputs.mode == 'validate'
         run: |
@@ -207,7 +212,7 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           working-directory: mobile/app
-          script: flutter test integration_test/detector_test.dart -d emulator-5554 --reporter expanded 2>&1 | tee ../../integration.log
+          script: flutter test integration_test/detector_test.dart -d emulator-5554 --reporter expanded > ../../integration.log 2>&1; status=$?; cat ../../integration.log; exit $status
       - if: always() && steps.check.outputs.ok == 'true'
         uses: actions/upload-artifact@v4
         with:

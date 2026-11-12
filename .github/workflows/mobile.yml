@@ -95,26 +95,6 @@ jobs:
           name: format-patch-app
           path: ${{ runner.temp }}/format.patch
 
-  native-scaffold:
-    name: Scaffold native plugin (first run only)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-      - id: check
-        run: test -f mobile/packages/aura_native/pubspec.yaml && echo "exists=true" >> "$GITHUB_OUTPUT" || echo "exists=false" >> "$GITHUB_OUTPUT"
-      - if: steps.check.outputs.exists == 'false'
-        working-directory: mobile/packages
-        run: flutter create --template=plugin --platforms=android,ios --org com.tanishadot --project-name aura_native --no-pub aura_native
-      - if: steps.check.outputs.exists == 'false'
-        uses: actions/upload-artifact@v4
-        with:
-          name: native-plugin-scaffold
-          path: mobile/packages/aura_native
-          include-hidden-files: true
-
   ios:
     name: iOS build (simulator, unsigned)
     runs-on: macos-latest

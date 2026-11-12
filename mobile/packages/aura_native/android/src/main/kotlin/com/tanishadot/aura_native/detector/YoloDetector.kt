@@ -141,8 +141,11 @@ class YoloDetector private constructor(
         private fun tryGpu(model: MappedByteBuffer, inputSize: Int, numClasses: Int, normalized: Boolean,
                            guard: DetectorGuard?): YoloDetector? {
             val options = step(guard, "gpu_compat_check", "gpu") {
-                CompatibilityList().use { compat ->
+                val compat = CompatibilityList()
+                try {
                     if (compat.isDelegateSupportedOnThisDevice) compat.bestOptionsForThisDevice else null
+                } finally {
+                    compat.close() // frees its native handle
                 }
             } ?: return null
             val delegate = step(guard, "gpu_delegate_create", "gpu") { GpuDelegate(options) }

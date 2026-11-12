@@ -17,7 +17,21 @@ import io.flutter.plugin.common.MethodChannel
  */
 internal class SystemHandler(private val context: Context) : MethodChannel.MethodCallHandler {
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
-        if (call.method != "snapshot") return result.notImplemented()
+        when (call.method) {
+            "snapshot" -> snapshot(result)
+            "exitInfo" -> Thread {
+                val exits = try {
+                    CrashReports.recentExits(context)
+                } catch (e: Throwable) {
+                    emptyList()
+                }
+                android.os.Handler(android.os.Looper.getMainLooper()).post { result.success(exits) }
+            }.start()
+            else -> result.notImplemented()
+        }
+    }
+
+    private fun snapshot(result: MethodChannel.Result) {
         val pm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
         val thermal = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             when (pm.currentThermalStatus) {
@@ -47,6 +61,9 @@ internal class SystemHandler(private val context: Context) : MethodChannel.Metho
                 "availMemMb" to (mi.availMem / (1024 * 1024)).toInt(),
                 "lowMemory" to mi.lowMemory,
                 "appMemMb" to if (appPssKb >= 0) appPssKb / 1024 else null,
+                "totalMemMb" to (mi.totalMem / (1024 * 1024)).toInt(),
+                "nativeHeapMb" to android.os.Debug.getNativeHeapAllocatedSize() / (1024.0 * 1024.0),
+                "javaHeapMb" to (Runtime.getRuntime().let { it.totalMemory() - it.freeMemory() }) / (1024.0 * 1024.0),
                 "batteryTempC" to if (tempTenths != Int.MIN_VALUE) tempTenths / 10.0 else null,
                 "batteryPct" to bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY),
                 "batteryCurrentUa" to bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW),

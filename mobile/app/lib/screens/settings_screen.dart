@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/model_manager.dart';
 import '../widgets/detector_card.dart';
 import 'benchmark_screen.dart';
+import 'diagnostics_screen.dart';
 import '../services/speech_service.dart';
 import '../state/providers.dart';
 import '../widgets/common.dart';
@@ -63,6 +64,13 @@ class SettingsScreen extends ConsumerWidget {
             style: Theme.of(context).textTheme.bodyMedium),
         const SectionHeader('Models'),
         const DetectorCard(),
+        const SizedBox(height: 12),
+        SecondaryButton(
+          label: 'Detector diagnostics and crash report',
+          icon: Icons.medical_information_outlined,
+          onPressed: () =>
+              Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const DiagnosticsScreen())),
+        ),
         const SizedBox(height: 12),
         SecondaryButton(
           label: 'Detector benchmark',

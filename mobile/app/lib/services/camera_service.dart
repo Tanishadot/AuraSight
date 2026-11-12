@@ -56,6 +56,11 @@ abstract class CameraService {
 /// Implementation on the official `camera` plugin (CameraX on Android,
 /// AVFoundation on iOS).
 class PluginCameraService implements CameraService {
+  /// Low (about 320x240) while the detector is being proven on phones: the
+  /// model's input is 320x320 anyway, and every frame is copied from the
+  /// camera into Dart and then into native code, so smaller frames mean
+  /// much less memory churn. The preview is softer as a result.
+  static const resolution = ResolutionPreset.low;
   final _state = ValueNotifier(const CameraState(CameraStatus.off));
   final _frames = StreamController<CameraFrame>.broadcast();
   CameraController? _controller;
@@ -86,8 +91,7 @@ class PluginCameraService implements CameraService {
         return;
       }
       final back = cams.firstWhere((c) => c.lensDirection == CameraLensDirection.back, orElse: () => cams.first);
-      final c = CameraController(back, ResolutionPreset.medium,
-          enableAudio: false, imageFormatGroup: ImageFormatGroup.yuv420);
+      final c = CameraController(back, resolution, enableAudio: false, imageFormatGroup: ImageFormatGroup.yuv420);
       await c.initialize();
       _controller = c;
       await c.startImageStream((img) => _onImage(img, back.sensorOrientation));

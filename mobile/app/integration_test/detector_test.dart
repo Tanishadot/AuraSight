@@ -54,12 +54,36 @@ void main() {
   });
 
   testWidgets('loads with LiteRT and passes the self-test, offline', (_) async {
-    final c = DetectorController(detector: detector, models: offline(), manifest: manifest, selfTestImage: selfTest);
-    final s = await c.init();
+    final c = DetectorController(
+        detector: detector,
+        models: offline(),
+        manifest: manifest,
+        selfTestImage: selfTest,
+        guard: NativeDetectorGuard());
+    final s = await c.load(); // CPU by default
     expect(s.phase, DetectorPhase.ready, reason: '${s.error} ${s.recovery}');
+    expect(s.info!.backend, 'cpu');
     debugPrint('DETECTOR backend=${s.info!.backend} loadMs=${s.info!.loadMs.toStringAsFixed(0)} '
         'fallback=${s.info!.fallbackReason} selfTest=${s.selfTest}');
     expect(s.info!.labels.length, 80);
+  });
+
+  testWidgets('native safety: same load is reused, concurrent inference is refused, journal is clean', (_) async {
+    final path = offline().fileFor(manifest.spec, manifest.file).path;
+    final again = await detector.load(path, manifest);
+    expect(again.available, isTrue);
+    expect(again.cached, isTrue, reason: 'an identical load must not load the model again');
+    final img = await selfTest();
+    final results = await Future.wait([
+      detector.detectImage(img).then<Object>((r) => r, onError: (Object e) => e),
+      detector.detectImage(img).then<Object>((r) => r, onError: (Object e) => e),
+    ]);
+    expect(results.whereType<DetectionResult>(), hasLength(1));
+    expect(results.whereType<DetectorBusy>(), hasLength(1));
+    final guard = await NativeDetectorGuard().status();
+    expect(guard.interruptedStage, isNull);
+    expect(guard.lastGood, 'cpu');
+    debugPrint('MEMORY after inference: ${(results.whereType<DetectionResult>().first).memory}');
   });
 
   testWidgets('detections match the desktop detector on the fixture photos', (_) async {
@@ -120,7 +144,10 @@ void main() {
     final frame = await _yuvFrameRotated90(bytes);
     final viaCamera = await detector.detect(frame, conf: 0.25);
     expect([viaCamera.width, viaCamera.height], [frame.uprightWidth, frame.uprightHeight]);
-    final strong = [for (final d in direct.detections) if (d.score >= 0.5) d];
+    final strong = [
+      for (final d in direct.detections)
+        if (d.score >= 0.5) d
+    ];
     expect(strong, isNotEmpty);
     for (final d in strong) {
       final match = viaCamera.detections.where((m) => m.cls == d.cls).map((m) => iou(d.box, m.box)).fold(0.0, math.max);
@@ -172,6 +199,6 @@ Future<CameraFrame> _yuvFrameRotated90(Uint8List jpeg) async {
       }
     }
   }
-  return CameraFrame(sw, sh, 90,
-      [FramePlane(y, sw, 1), FramePlane(u, sw ~/ 2, 1), FramePlane(v, sw ~/ 2, 1)], DateTime.now());
+  return CameraFrame(
+      sw, sh, 90, [FramePlane(y, sw, 1), FramePlane(u, sw ~/ 2, 1), FramePlane(v, sw ~/ 2, 1)], DateTime.now());
 }

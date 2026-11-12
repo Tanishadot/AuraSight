@@ -53,6 +53,20 @@ class LiveScreen extends ConsumerWidget {
                   body: cam.message,
                   tone: Tone.danger),
             ],
+            if (snap.error != null) ...[
+              const SizedBox(height: 16),
+              StatusCard(
+                icon: Icons.error_outline_rounded,
+                title: 'Object detection stopped',
+                body: snap.error,
+                tone: Tone.danger,
+                action: FilledButton.icon(
+                  onPressed: () => pipeline.start(),
+                  icon: const Icon(Icons.refresh_rounded),
+                  label: const Text('Retry'),
+                ),
+              ),
+            ],
             const SizedBox(height: 16),
             const DetectorCard(compact: true),
             SectionHeader(confirmed.isEmpty ? 'Objects' : 'Objects (${confirmed.length})'),

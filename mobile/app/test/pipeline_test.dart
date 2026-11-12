@@ -20,8 +20,19 @@ const labels = ['person', 'bicycle', 'car', 'chair'];
 class ScriptedDetector implements DetectionService {
   Duration latency = Duration.zero;
   List<Detection> next = const [];
-  int calls = 0;
+  int calls = 0, cropCalls = 0, inFlight = 0, maxInFlight = 0;
   bool available = true;
+  Object? error; // thrown by detect when set
+
+  Future<T> _track<T>(Future<T> Function() f) async {
+    inFlight++;
+    if (inFlight > maxInFlight) maxInFlight = inFlight;
+    try {
+      return await f();
+    } finally {
+      inFlight--;
+    }
+  }
 
   @override
   DetectorInfo get info => available
@@ -29,17 +40,22 @@ class ScriptedDetector implements DetectionService {
       : DetectorInfo.notLoaded;
 
   @override
-  Future<DetectionResult> detect(CameraFrame frame, {double conf = 0.1}) async {
-    calls++;
-    if (latency > Duration.zero) await Future<void>.delayed(latency);
-    return DetectionResult(next, 480, 640, latency.inMicroseconds / 1000);
-  }
+  Future<DetectionResult> detect(CameraFrame frame, {double conf = 0.1}) => _track(() async {
+        calls++;
+        if (latency > Duration.zero) await Future<void>.delayed(latency);
+        if (error != null) throw error!;
+        return DetectionResult(next, 480, 640, latency.inMicroseconds / 1000);
+      });
 
   @override
-  Future<DetectorInfo> load(String modelPath, DetectorManifest manifest, {String backend = 'auto'}) async => info;
+  Future<DetectorInfo> load(String modelPath, DetectorManifest manifest, {String backend = 'cpu'}) async => info;
   @override
-  Future<List<Detection>> detectCrop(CameraFrame f, (int, int, int, int) r, int s, {double conf = 0.05}) async =>
-      const [];
+  Future<List<Detection>> detectCrop(CameraFrame f, (int, int, int, int) r, int s, {double conf = 0.05}) =>
+      _track(() async {
+        cropCalls++;
+        if (latency > Duration.zero) await Future<void>.delayed(latency);
+        return const [];
+      });
   @override
   Future<DetectionResult> detectImage(Uint8List bytes, {double conf = 0.25}) => throw UnimplementedError();
   @override
@@ -105,6 +121,18 @@ void main() {
   var now = DateTime(2026, 11, 12, 10);
   var vlmBusy = false;
   var clockS = 0.0;
+  late AudioOrchestrator audio;
+
+  LivePipeline build({double maxFps = 15}) => LivePipeline(
+        settings: () => settings,
+        camera: camera,
+        detector: det,
+        tracking: TrackingService(() => settings, () => clockS),
+        audio: audio,
+        vlmBusy: () => vlmBusy,
+        now: () => now,
+        maxFps: maxFps,
+      );
 
   setUp(() async {
     settings = const AuraSettings(detectionFps: 5, minTrackFrames: 3);
@@ -117,17 +145,9 @@ void main() {
     log = [];
     double clock() => clockS;
     final queue = SpeechQueue(() => settings, tts, clock);
-    final audio = AudioOrchestrator(() => settings, queue, clock, log: (e) async => log.add(e), haptic: (_) async {});
+    audio = AudioOrchestrator(() => settings, queue, clock, log: (e) async => log.add(e), haptic: (_) async {});
     await audio.start();
-    pipeline = LivePipeline(
-      settings: () => settings,
-      camera: camera,
-      detector: det,
-      tracking: TrackingService(() => settings, clock),
-      audio: audio,
-      vlmBusy: () => vlmBusy,
-      now: () => now,
-    );
+    pipeline = build();
     await camera.start();
     await pipeline.start();
   });
@@ -200,6 +220,69 @@ void main() {
     expect(pipeline.snapshot.value.objects, isEmpty);
   });
 
+  test('the default build caps detection at the conservative rate', () async {
+    await pipeline.stop();
+    pipeline = build(maxFps: LivePipeline.conservativeFps);
+    await pipeline.start();
+    settings = const AuraSettings(detectionFps: 6, minTrackFrames: 3);
+    for (var i = 0; i < 30; i++) {
+      await frameAfter(100); // a 10 fps camera for 3 s
+    }
+    expect(det.calls, inInclusiveRange(5, 7)); // 2 per second
+    expect(pipeline.snapshot.value.throttleReason, 'safe start-up rate');
+  });
+
+  test('verification crops share the single in-flight slot with detection', () async {
+    // A confusable class (tv) needs zoomed-crop checks; with a slow detector, nothing may overlap.
+    const tvLabels = ['tv'];
+    final tv = _TvDetector();
+    await pipeline.stop();
+    pipeline = LivePipeline(
+      settings: () => settings,
+      camera: camera,
+      detector: tv,
+      tracking: TrackingService(() => settings, () => clockS)..setLabels(tvLabels),
+      audio: audio,
+      vlmBusy: () => false,
+      now: () => now,
+      maxFps: 15,
+    );
+    await pipeline.start();
+    for (var i = 0; i < 40; i++) {
+      now = now.add(const Duration(milliseconds: 100));
+      clockS += 0.1;
+      camera.emit();
+      await Future<void>.delayed(const Duration(milliseconds: 3));
+    }
+    await Future<void>.delayed(const Duration(milliseconds: 50));
+    expect(tv.cropCalls, greaterThan(0), reason: 'the scenario must exercise verification');
+    expect(tv.maxInFlight, 1);
+  });
+
+  test('a busy detector skips the frame without counting an error', () async {
+    det.error = DetectorBusy();
+    for (var i = 0; i < 6; i++) {
+      await frameAfter(250);
+    }
+    expect(pipeline.snapshot.value.error, isNull);
+    expect(log.where((e) => e.priority == 'error'), isEmpty);
+  });
+
+  test('repeated failures stop detection with a visible error; Retry resumes', () async {
+    det.error = const DetectorFailure('model produced non-finite output');
+    for (var i = 0; i < 10; i++) {
+      await frameAfter(250);
+    }
+    expect(det.calls, LivePipeline.maxFailures, reason: 'stops calling a failing detector');
+    expect(pipeline.snapshot.value.error, contains('non-finite'));
+    expect(log.where((e) => e.priority == 'error'), hasLength(1));
+    det.error = null;
+    await pipeline.start(); // the Retry button
+    expect(pipeline.snapshot.value.error, isNull);
+    await frameAfter(250);
+    expect(det.calls, LivePipeline.maxFailures + 1);
+  });
+
   group('camera lifecycle', () {
     test('background stops camera and detection; returning restores both', () async {
       final lc = CameraLifecycle(camera, pipeline);
@@ -222,4 +305,15 @@ void main() {
       expect(pipeline.running, isFalse);
     });
   });
+}
+
+/// Always sees a mid-confidence TV, so the verifier keeps asking for crop checks.
+class _TvDetector extends ScriptedDetector {
+  _TvDetector() {
+    latency = const Duration(milliseconds: 10);
+    next = const [Detection(Box(100, 100, 300, 300), 0.6, 0)];
+  }
+
+  @override
+  DetectorInfo get info => const DetectorInfo(available: true, backend: 'cpu', inputSize: 320, labels: ['tv']);
 }

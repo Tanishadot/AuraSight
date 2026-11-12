@@ -87,12 +87,16 @@ Debug builds are unsigned for release and meant for testing only.
 
 ## Testing on your phone
 
+The detector crashed the app on an iQOO Z7s during its first self-test. See `docs/android-detector-crash.md` for the analysis, the staged test, and the adb commands to collect logs. In short:
+
 1. Install the newest `aurasight-debug-apk` (see below). Uninstalling the old one first isn't necessary.
-2. Open the app. The **Live** tab shows "Object detector not downloaded": press **Download (10.2 MB)**. You'll see the progress, then "Checking the download…", "Loading…", and finally "Object detector ready · GPU" (or CPU, with the reason).
-3. Press **Start camera** and point the phone at a chair, a cup or a person. Objects appear in the list with their position and confidence, and new ones are announced.
-4. **Offline check:** turn on aeroplane mode, close the app completely, reopen it. The detector should reach "ready" again with no network.
-5. **Benchmark:** Settings → Models → Detector benchmark (see `docs/benchmark-android.md`).
-6. If something fails, collect the log with adb: `adb logcat -s flutter AndroidRuntime tflite` while reproducing it.
+2. Open the app. Nothing is loaded automatically the first time. If the model is not downloaded yet, press **Download (10.2 MB)**. It is downloaded and its SHA-256 is checked; it is not loaded yet.
+3. Open **Settings → Detector diagnostics** and run stages 1 to 6 in order. Each stage only becomes available after the previous one passes. Press **Copy hardware check report** and keep the text.
+4. The detector runs on the **CPU** by default. The GPU is optional (**Try the GPU**). If a GPU step ever closes the app, the next start says which step it was and keeps the GPU switched off.
+5. On the Live tab, press **Start camera**. For now detection is capped at 2 per second and camera frames use low resolution.
+6. If the app closes: reopen it, then **Settings → Detector diagnostics → Copy crash report**. With a computer, also collect the adb logs listed in `docs/android-detector-crash.md`. Native crashes don't appear under `adb logcat -s flutter`.
+7. **Offline check:** after a successful load, turn on aeroplane mode, close the app completely and reopen it. The detector should reach "ready" again with no network.
+8. **Benchmark:** Settings → Models → Detector benchmark (see `docs/benchmark-android.md`).
 
 ## Privacy
 

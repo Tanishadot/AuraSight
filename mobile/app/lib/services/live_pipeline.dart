@@ -18,6 +18,9 @@ class LiveSnapshot {
   final double targetFps;
   final String throttleReason; // why we're below the configured rate, or ''
   final DetectorInfo detector;
+
+  /// Set when detection stopped after repeated failures; shown with a Retry button.
+  final String? error;
   const LiveSnapshot({
     this.objects = const [],
     this.detectionFps = 0,
@@ -25,13 +28,16 @@ class LiveSnapshot {
     this.targetFps = 0,
     this.throttleReason = '',
     this.detector = DetectorInfo.notLoaded,
+    this.error,
   });
 }
 
 /// Camera frames -> detector (adaptive rate) -> tracker/verifier -> events
 /// -> audio. Never blocks the UI thread: inference is native and awaited,
-/// and at most one detection is in flight at a time (frames arriving in the
-/// meantime are skipped, not queued).
+/// and at most one native request (detection or verification crop) is in
+/// flight at a time; frames arriving in the meantime are skipped, not queued.
+/// After [maxFailures] failures in a row detection stops with a visible error
+/// instead of retrying forever.
 class LivePipeline {
   final AuraSettings Function() _settings;
   final CameraService camera;
@@ -41,6 +47,13 @@ class LivePipeline {
   final bool Function() vlmBusy;
   final MethodChannel _system;
   final DateTime Function() _now;
+
+  /// Upper bound on detections per second, whatever the settings say. Kept
+  /// low until the detector has been proven on the phone (see the README).
+  final double maxFps;
+  static const conservativeFps = 2.0;
+  static const maxFailures = 3;
+  int _failures = 0;
 
   final snapshot = ValueNotifier(const LiveSnapshot());
   StreamSubscription<CameraFrame>? _sub;
@@ -67,6 +80,7 @@ class LivePipeline {
     required this.vlmBusy,
     MethodChannel? system,
     DateTime Function()? now,
+    this.maxFps = conservativeFps,
   })  : _settings = settings,
         _system = system ?? AuraChannels.system,
         _now = now ?? DateTime.now;
@@ -77,6 +91,7 @@ class LivePipeline {
   /// DetectorController; until it is ready, frames are not analysed.
   Future<void> start() async {
     _running = true;
+    _failures = 0;
     processed = skipped = 0;
     _emaMs = 0;
     snapshot.value = LiveSnapshot(detector: detector.info);
@@ -116,6 +131,10 @@ class LivePipeline {
     final s = _settings();
     var fps = s.detectionFps;
     var why = '';
+    if (fps > maxFps) {
+      fps = maxFps;
+      why = 'safe start-up rate';
+    }
     if (_emaMs > 0) {
       final capacity = 1000 / (_emaMs * 1.25); // leave headroom for the UI and camera
       if (capacity < fps) {
@@ -142,7 +161,8 @@ class LivePipeline {
   }
 
   Future<void> _onFrame(CameraFrame frame) async {
-    if (!detector.info.available) return;
+    if (!_running || !detector.info.available) return;
+    if (_failures >= maxFailures) return; // halted: waits for Retry (start())
     if (_inFlight) {
       skipped++; // never queue frames: a stale frame is worse than a dropped one
       return;
@@ -159,12 +179,18 @@ class LivePipeline {
     try {
       final r = await detector.detect(frame, conf: 0.1);
       if (!_running) return; // stopped while the frame was being analysed
+      _failures = 0;
       _emaMs = _emaMs == 0 ? r.inferenceMs : 0.8 * _emaMs + 0.2 * r.inferenceMs;
       final thumb = _thumbnail(frame);
       final analysis = tracking.process(r.detections, r.width, r.height, thumbnail: thumb);
-      for (final req in analysis.verifyRequests) {
-        unawaited(_verify(frame, req, r.width, r.height));
+      // At most one verification per frame, inside the same in-flight slot, so
+      // crops never pile up behind the detector (each would hold a whole frame).
+      final reqs = analysis.verifyRequests;
+      if (reqs.isNotEmpty) await _verify(frame, reqs.first, r.width, r.height);
+      for (final req in reqs.skip(1)) {
+        tracking.verifier.cancel(req.trackId); // not a miss: asked for again on a later frame
       }
+      if (!_running) return;
       audio.handleEvents(analysis.events);
       processed++;
       _count++;
@@ -182,8 +208,16 @@ class LivePipeline {
         throttleReason: why,
         detector: detector.info,
       );
+    } on DetectorBusy {
+      skipped++; // another native request is running (e.g. a diagnostics test)
     } catch (e) {
-      unawaited(audio.log('error', 'Detection error: $e', priority: 'error'));
+      _failures++;
+      debugPrint('AuraDetector: live detection failed ($_failures in a row): $e');
+      if (_failures >= maxFailures && _running) {
+        final msg = 'Object detection stopped after $_failures errors in a row: $e';
+        snapshot.value = LiveSnapshot(detector: detector.info, error: msg);
+        unawaited(audio.log('error', msg, priority: 'error'));
+      }
     } finally {
       _inFlight = false;
     }
@@ -194,6 +228,10 @@ class LivePipeline {
     try {
       final scores = <double>[];
       for (final (pad, size) in req.crops) {
+        if (!_running) {
+          tracking.verifier.cancel(req.trackId);
+          return;
+        }
         final rect = cropRect(req.box, pad, w, h);
         if (rect == null) {
           scores.add(0);
@@ -203,6 +241,8 @@ class LivePipeline {
         scores.add(cropScore(req.box, req.cls, (rect.$1.toDouble(), rect.$2.toDouble()), dets));
       }
       tracking.verifier.submit(req.trackId, scores.reduce((a, b) => a + b) / scores.length);
+    } on DetectorBusy {
+      tracking.verifier.cancel(req.trackId);
     } catch (_) {
       tracking.verifier.submitFailure(req.trackId);
     }

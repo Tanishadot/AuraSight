@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +15,11 @@ import 'state/providers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Uncaught Dart errors are logged (adb logcat -s flutter) rather than lost; they never close the app.
+  PlatformDispatcher.instance.onError = (error, stack) {
+    debugPrint('AuraError: $error\n$stack');
+    return true;
+  };
   // Positions ("on your left") assume the phone is held upright.
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final db = await AuraDatabase.open();

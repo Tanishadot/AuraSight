@@ -11,10 +11,15 @@ import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 
 /**
- * YOLO11n on LiteRT (TensorFlow Lite). Tries the GPU delegate first (Adreno on
- * Snapdragon), verified with a warm-up inference, and falls back to the CPU
- * (XNNPACK) if the GPU is unsupported or fails. Not thread-safe: the channel
- * handler calls it from one background thread.
+ * YOLO11n on LiteRT (TensorFlow Lite).
+ *
+ * The CPU (XNNPACK) is the default. The GPU delegate is only tried when asked
+ * for ("gpu" or "auto"), and never when [DetectorGuard] recorded that a GPU
+ * step killed the process before: GPU delegate and driver crashes are native
+ * signals that no Kotlin `catch` can stop. Every native step is journalled in
+ * the guard so the next start can say exactly where a crash happened.
+ *
+ * Not thread-safe: the channel handler calls it from one background thread.
  */
 class YoloDetector private constructor(
     private val interpreter: Interpreter,
@@ -25,11 +30,18 @@ class YoloDetector private constructor(
     val numAnchors: Int,
     val channelsFirst: Boolean,
     private val normalized: Boolean,
+    private val guard: DetectorGuard?,
 ) : AutoCloseable {
     var loadMs = 0.0
         private set
     var fallbackReason: String? = null
         private set
+    var warmupMs = 0.0
+        private set
+
+    /** True once one real inference has completed; until then inferences are journalled. */
+    private var proven = false
+    private var closed = false
 
     private val input = ByteBuffer.allocateDirect(4 * inputSize * inputSize * 3).order(ByteOrder.nativeOrder())
     private val inputF = input.asFloatBuffer()
@@ -41,11 +53,17 @@ class YoloDetector private constructor(
     }
 
     fun detect(src: PixelSource, conf: Float, iou: Float): Pair<List<Detection>, Timing> {
+        check(!closed) { "detector was closed" }
         val t0 = System.nanoTime()
         val lb = Letterbox(src.width, src.height, inputSize)
         Preprocess.fill(src, lb, inputF)
         val t1 = System.nanoTime()
-        runModel()
+        if (proven || guard == null) {
+            runModel()
+        } else {
+            guard.step("first_inference", backend) { runModel() }
+            proven = true
+        }
         val t2 = System.nanoTime()
         val dets = YoloPost.decode(outF, numAnchors, numClasses, channelsFirst, normalized, lb, conf, iou)
         val t3 = System.nanoTime()
@@ -60,76 +78,121 @@ class YoloDetector private constructor(
         output.asFloatBuffer().get(outF)
     }
 
-    /** Runs the model on a plain grey image and checks the output is sane. */
-    private fun selfCheck() {
+    /** Runs the model once on a plain grey image and checks the output is finite. */
+    private fun warmUp() {
+        val t0 = System.nanoTime()
         inputF.rewind()
         repeat(inputSize * inputSize * 3) { inputF.put(114f / 255f) }
         runModel()
         require(outF.all { it.isFinite() }) { "model produced non-finite output" }
+        warmupMs = (System.nanoTime() - t0) / 1e6
     }
 
     override fun close() {
+        if (closed) return
+        closed = true
+        // Interpreter first: it still references the delegate.
         interpreter.close()
         gpu?.close()
     }
 
     companion object {
         /**
-         * @param backend "auto" (GPU, else CPU), "gpu" (fail if unavailable) or "cpu"
+         * @param backend "cpu" (default), "gpu" (fail if unavailable) or "auto" (GPU, else CPU)
          */
-        fun load(file: File, inputSize: Int, numClasses: Int, normalized: Boolean, backend: String, threads: Int): YoloDetector {
+        fun load(
+            file: File,
+            inputSize: Int,
+            numClasses: Int,
+            normalized: Boolean,
+            backend: String,
+            threads: Int,
+            guard: DetectorGuard? = null,
+        ): YoloDetector {
+            require(backend in setOf("cpu", "gpu", "auto")) { "unknown backend $backend" }
             val t0 = System.nanoTime()
-            val model = mapFile(file)
+            val model = step(guard, "map_model", backend) { mapFile(file) }
             var reason: String? = null
-            if (backend == "auto" || backend == "gpu") {
-                try {
-                    val compat = CompatibilityList()
-                    if (compat.isDelegateSupportedOnThisDevice) {
-                        val delegate = GpuDelegate(compat.bestOptionsForThisDevice)
-                        try {
-                            return create(Interpreter(model, Interpreter.Options().addDelegate(delegate)), delegate, "gpu",
-                                inputSize, numClasses, normalized).also { it.loadMs = (System.nanoTime() - t0) / 1e6 }
-                        } catch (e: Throwable) {
-                            delegate.close()
-                            throw e
-                        }
+            if (backend != "cpu") {
+                val blocked = guard?.gpuBlockedReason
+                if (blocked != null) {
+                    reason = "GPU switched off: $blocked"
+                } else {
+                    try {
+                        val gpu = tryGpu(model, inputSize, numClasses, normalized, guard)
+                        if (gpu != null) return gpu.also { it.loadMs = (System.nanoTime() - t0) / 1e6 }
+                        reason = "GPU delegate not supported on this device"
+                    } catch (e: Throwable) {
+                        reason = "GPU failed: ${e.message ?: e.javaClass.simpleName}"
                     }
-                    reason = "GPU delegate not supported on this device"
-                } catch (e: Throwable) {
-                    reason = "GPU failed: ${e.message ?: e.javaClass.simpleName}"
                 }
                 if (backend == "gpu") throw IllegalStateException(reason)
             }
-            val opts = Interpreter.Options().setNumThreads(threads).setUseXNNPACK(true)
-            return create(Interpreter(model, opts), null, "cpu", inputSize, numClasses, normalized).also {
+            val interpreter = step(guard, "cpu_interpreter_create", "cpu", "threads=$threads") {
+                Interpreter(model, Interpreter.Options().setNumThreads(threads).setUseXNNPACK(true))
+            }
+            return create(interpreter, null, "cpu", inputSize, numClasses, normalized, guard).also {
                 it.loadMs = (System.nanoTime() - t0) / 1e6
                 it.fallbackReason = reason
             }
         }
 
-        private fun create(it: Interpreter, gpu: GpuDelegate?, backend: String, inputSize: Int, numClasses: Int,
-                           normalized: Boolean): YoloDetector {
+        /** The GPU detector, or null when the delegate isn't supported here. Java failures throw. */
+        private fun tryGpu(model: MappedByteBuffer, inputSize: Int, numClasses: Int, normalized: Boolean,
+                           guard: DetectorGuard?): YoloDetector? {
+            val options = step(guard, "gpu_compat_check", "gpu") {
+                CompatibilityList().use { compat ->
+                    if (compat.isDelegateSupportedOnThisDevice) compat.bestOptionsForThisDevice else null
+                }
+            } ?: return null
+            val delegate = step(guard, "gpu_delegate_create", "gpu") { GpuDelegate(options) }
             try {
-                val inShape = it.getInputTensor(0).shape() // [1, S, S, 3]
-                require(inShape.size == 4 && inShape[1] == inputSize && inShape[2] == inputSize && inShape[3] == 3) {
-                    "unexpected input shape ${inShape.contentToString()}"
+                val interpreter = step(guard, "gpu_interpreter_create", "gpu") {
+                    Interpreter(model, Interpreter.Options().addDelegate(delegate))
                 }
-                val outShape = it.getOutputTensor(0).shape() // [1, 4+C, N] or [1, N, 4+C]
-                require(outShape.size == 3) { "unexpected output shape ${outShape.contentToString()}" }
-                val ch = 4 + numClasses
-                val channelsFirst = when (ch) {
-                    outShape[1] -> true
-                    outShape[2] -> false
-                    else -> throw IllegalArgumentException("output ${outShape.contentToString()} doesn't fit $numClasses classes")
+                return create(interpreter, delegate, "gpu", inputSize, numClasses, normalized, guard)
+            } catch (e: Throwable) {
+                delegate.close()
+                throw e
+            }
+        }
+
+        private fun create(it: Interpreter, gpu: GpuDelegate?, backend: String, inputSize: Int, numClasses: Int,
+                           normalized: Boolean, guard: DetectorGuard?): YoloDetector {
+            try {
+                val (inShape, outShape) = step(guard, "tensor_shapes", backend) {
+                    it.getInputTensor(0).shape() to it.getOutputTensor(0).shape()
                 }
-                val anchors = if (channelsFirst) outShape[2] else outShape[1]
-                return YoloDetector(it, gpu, backend, inputSize, numClasses, anchors, channelsFirst, normalized)
-                    .also { d -> d.selfCheck() }
+                val layout = checkShapes(inShape, outShape, inputSize, numClasses)
+                val d = YoloDetector(it, gpu, backend, inputSize, numClasses, layout.second, layout.first,
+                    normalized, guard)
+                step(guard, "${backend}_warmup", backend) { d.warmUp() }
+                return d
             } catch (e: Throwable) {
                 it.close()
                 throw e
             }
         }
+
+        /**
+         * Validates [1, S, S, 3] input and [1, 4+C, N] or [1, N, 4+C] output.
+         * @return (channelsFirst, numAnchors)
+         */
+        fun checkShapes(inShape: IntArray, outShape: IntArray, inputSize: Int, numClasses: Int): Pair<Boolean, Int> {
+            require(inShape.size == 4 && inShape[0] == 1 && inShape[1] == inputSize && inShape[2] == inputSize &&
+                inShape[3] == 3) { "unexpected input shape ${inShape.contentToString()}, expected [1, $inputSize, $inputSize, 3]" }
+            require(outShape.size == 3 && outShape[0] == 1) { "unexpected output shape ${outShape.contentToString()}" }
+            val ch = 4 + numClasses
+            return when (ch) {
+                outShape[1] -> true to outShape[2]
+                outShape[2] -> false to outShape[1]
+                else -> throw IllegalArgumentException("output ${outShape.contentToString()} doesn't fit $numClasses classes")
+            }
+        }
+
+        private inline fun <T> step(guard: DetectorGuard?, stage: String, backend: String, detail: String = "",
+                                    crossinline block: () -> T): T =
+            if (guard == null) block() else guard.step(stage, backend, detail) { block() }
 
         private fun mapFile(file: File): MappedByteBuffer = FileInputStream(file).use { s ->
             s.channel.map(FileChannel.MapMode.READ_ONLY, 0, s.channel.size())

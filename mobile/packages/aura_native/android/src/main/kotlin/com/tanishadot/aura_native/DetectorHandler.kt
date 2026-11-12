@@ -2,12 +2,17 @@ package com.tanishadot.aura_native
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Debug
 import android.os.Handler
 import android.os.Looper
 import android.os.Process
+import android.util.Log
 import com.tanishadot.aura_native.detector.ArgbSource
 import com.tanishadot.aura_native.detector.Detection
+import com.tanishadot.aura_native.detector.DetectorGuard
+import com.tanishadot.aura_native.detector.LoadKey
 import com.tanishadot.aura_native.detector.PixelSource
+import com.tanishadot.aura_native.detector.RequestGate
 import com.tanishadot.aura_native.detector.YoloDetector
 import com.tanishadot.aura_native.detector.YuvSource
 import io.flutter.plugin.common.MethodCall
@@ -16,10 +21,17 @@ import java.io.File
 import java.util.concurrent.Executors
 
 /**
- * `aurasight/detector`: YOLO11n on LiteRT. All work runs on one background
- * thread so the UI thread never blocks; replies are posted to the main thread.
+ * `aurasight/detector`: YOLO11n on LiteRT.
+ *
+ * - All native work runs on one background thread, so there is only ever one
+ *   interpreter and one inference at a time; replies are posted to the main thread.
+ * - Inference requests are refused with code "busy" while another is pending
+ *   (never queued), so frames can't accumulate.
+ * - A `load` identical to the current one reuses the loaded model.
+ * - Every native step is journalled by [DetectorGuard] (see `guardStatus`).
+ * - Failures, including OutOfMemoryError, come back as channel errors; the app stays up.
  */
-internal class DetectorHandler : MethodChannel.MethodCallHandler {
+internal class DetectorHandler(filesDir: File) : MethodChannel.MethodCallHandler {
     private val exec = Executors.newSingleThreadExecutor { r ->
         Thread({
             Process.setThreadPriority(Process.THREAD_PRIORITY_DISPLAY) // keep up with the camera, below the UI
@@ -27,60 +39,114 @@ internal class DetectorHandler : MethodChannel.MethodCallHandler {
         }, "aura-detector")
     }
     private val main = Handler(Looper.getMainLooper())
+    private val gate = RequestGate()
+    val guard = DetectorGuard(File(filesDir, "detector_guard"), log = { Log.i(TAG, it) })
     private var detector: YoloDetector? = null
+    private var loadedKey: LoadKey? = null
     private var iou = 0.5f
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
             "load" -> work(result) { load(call) }
-            "detect" -> work(result) { detect(frameSource(call.argument<Map<String, Any?>>("frame")!!, null), call) }
-            "detectCrop" -> work(result) {
+            "detect" -> inference(result) { detect(frameSource(call.argument<Map<String, Any?>>("frame")!!, null), call) }
+            "detectCrop" -> inference(result) {
                 val rect = call.argument<List<Int>>("rect")!!.toIntArray()
                 detect(frameSource(call.argument<Map<String, Any?>>("frame")!!, rect), call)
             }
-            "detectImage" -> work(result) { detect(imageSource(call.argument<ByteArray>("bytes")!!), call) }
+            "detectImage" -> inference(result) { detect(imageSource(call.argument<ByteArray>("bytes")!!), call) }
             "dispose" -> work(result) {
-                detector?.close()
-                detector = null
+                release()
                 null
+            }
+            "guardStatus" -> result.success(guardStatus())
+            "markGood" -> {
+                guard.markGood(call.argument<String>("backend") ?: "cpu")
+                result.success(null)
+            }
+            "clearGpuBlock" -> {
+                guard.clearGpuBlock()
+                result.success(null)
             }
             else -> result.notImplemented()
         }
     }
 
-    private fun work(result: MethodChannel.Result, block: () -> Any?) {
-        exec.execute {
-            try {
-                val r = block()
-                main.post { result.success(r) }
-            } catch (e: Throwable) {
-                main.post { result.error("detector", e.message ?: e.javaClass.simpleName, null) }
+    private fun guardStatus(): Map<String, Any?> = mapOf(
+        "interrupted" to guard.interrupted?.let {
+            mapOf("stage" to it.stage, "backend" to it.backend, "atMs" to it.atMs, "detail" to it.detail)
+        },
+        "gpuBlocked" to guard.gpuBlockedReason,
+        "lastGood" to guard.lastGoodBackend,
+    )
+
+    private fun inference(result: MethodChannel.Result, block: () -> Any?) {
+        if (!gate.tryEnter()) {
+            result.error("busy", "another detection is still running", null)
+            return
+        }
+        work(result, onDone = gate::leave, block = block)
+    }
+
+    private fun work(result: MethodChannel.Result, onDone: () -> Unit = {}, block: () -> Any?) {
+        try {
+            exec.execute {
+                try {
+                    val r = block()
+                    main.post { result.success(r) }
+                } catch (e: OutOfMemoryError) {
+                    Log.e(TAG, "out of memory", e)
+                    val msg = "The phone ran out of memory for the detector (${memoryLine()})."
+                    main.post { result.error("oom", msg, null) }
+                } catch (e: Throwable) {
+                    Log.e(TAG, "detector call failed", e)
+                    main.post { result.error("detector", e.message ?: e.javaClass.simpleName, null) }
+                } finally {
+                    onDone()
+                }
             }
+        } catch (e: Throwable) { // executor already shut down
+            onDone()
+            result.error("detector", "detector is shut down", null)
         }
     }
 
     private fun load(call: MethodCall): Map<String, Any?> {
-        detector?.close()
-        detector = null
         val file = File(call.argument<String>("modelPath")!!)
         require(file.isFile) { "model file not found: ${file.path}" }
+        val backend = call.argument<String>("backend") ?: "cpu"
+        val threads = call.argument<Int>("threads")?.takeIf { it > 0 } ?: defaultThreads()
+        val key = LoadKey(file.path, file.length(), file.lastModified(), call.argument<Int>("inputSize")!!,
+            call.argument<Int>("numClasses")!!, call.argument<Boolean>("normalized")!!, backend, threads)
         iou = (call.argument<Double>("iou") ?: 0.5).toFloat()
-        val d = YoloDetector.load(
-            file,
-            inputSize = call.argument<Int>("inputSize")!!,
-            numClasses = call.argument<Int>("numClasses")!!,
-            normalized = call.argument<Boolean>("normalized")!!,
-            backend = call.argument<String>("backend") ?: "auto",
-            threads = call.argument<Int>("threads")?.takeIf { it > 0 } ?: defaultThreads(),
-        )
+        val current = detector
+        if (current != null && key == loadedKey) {
+            Log.i(TAG, "load: same model and backend already loaded, reusing it")
+            return loadInfo(current, cached = true)
+        }
+        release()
+        Log.i(TAG, "load: ${file.name} backend=$backend threads=$threads (${memoryLine()})")
+        val d = YoloDetector.load(file, key.inputSize, key.numClasses, key.normalized, backend, threads, guard)
         detector = d
-        return mapOf(
-            "backend" to d.backend,
-            "inputSize" to d.inputSize,
-            "loadMs" to d.loadMs,
-            "fallbackReason" to d.fallbackReason,
-            "anchors" to d.numAnchors,
-        )
+        loadedKey = key
+        Log.i(TAG, "loaded on ${d.backend} in ${"%.0f".format(d.loadMs)} ms, warm-up ${"%.0f".format(d.warmupMs)} ms" +
+            (d.fallbackReason?.let { ", fallback: $it" } ?: "") + " (${memoryLine()})")
+        return loadInfo(d, cached = false)
+    }
+
+    private fun loadInfo(d: YoloDetector, cached: Boolean) = mapOf(
+        "backend" to d.backend,
+        "inputSize" to d.inputSize,
+        "loadMs" to d.loadMs,
+        "warmupMs" to d.warmupMs,
+        "fallbackReason" to d.fallbackReason,
+        "anchors" to d.numAnchors,
+        "cached" to cached,
+    ) + memory()
+
+    private fun release() {
+        detector?.close()
+        detector = null
+        loadedKey = null
     }
 
     /** Big cores only: the Snapdragon 695 has 2 fast + 6 efficiency cores. */
@@ -101,7 +167,7 @@ internal class DetectorHandler : MethodChannel.MethodCallHandler {
             "modelMs" to t.modelMs,
             "postMs" to t.postMs,
             "backend" to d.backend,
-        )
+        ) + memory()
     }
 
     @Suppress("UNCHECKED_CAST")
@@ -120,18 +186,40 @@ internal class DetectorHandler : MethodChannel.MethodCallHandler {
         val opts = BitmapFactory.Options().apply { inPreferredConfig = Bitmap.Config.ARGB_8888 }
         val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size, opts)
             ?: throw IllegalArgumentException("could not decode image")
-        val px = IntArray(bmp.width * bmp.height)
-        bmp.getPixels(px, 0, bmp.width, 0, 0, bmp.width, bmp.height)
-        val src = ArgbSource(px, bmp.width, bmp.height)
-        bmp.recycle()
-        return src
+        try {
+            val px = IntArray(bmp.width * bmp.height)
+            bmp.getPixels(px, 0, bmp.width, 0, 0, bmp.width, bmp.height)
+            return ArgbSource(px, bmp.width, bmp.height)
+        } finally {
+            bmp.recycle()
+        }
     }
 
     fun shutdown() {
-        exec.execute {
-            detector?.close()
-            detector = null
+        try {
+            exec.execute { release() }
+        } catch (_: Throwable) {
         }
         exec.shutdown()
+    }
+
+    companion object {
+        const val TAG = "AuraDetector"
+
+        /** Cheap memory readings (no PSS walk), attached to every reply. */
+        fun memory(): Map<String, Any?> {
+            val rt = Runtime.getRuntime()
+            return mapOf(
+                "nativeHeapMb" to Debug.getNativeHeapAllocatedSize() / (1024.0 * 1024.0),
+                "javaHeapMb" to (rt.totalMemory() - rt.freeMemory()) / (1024.0 * 1024.0),
+                "javaHeapMaxMb" to rt.maxMemory() / (1024.0 * 1024.0),
+            )
+        }
+
+        fun memoryLine(): String {
+            val m = memory()
+            return "native heap %.1f MB, java heap %.1f of %.0f MB".format(
+                m["nativeHeapMb"] as Double, m["javaHeapMb"] as Double, m["javaHeapMaxMb"] as Double)
+        }
     }
 }

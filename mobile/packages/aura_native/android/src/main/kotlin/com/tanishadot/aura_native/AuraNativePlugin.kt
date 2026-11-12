@@ -12,7 +12,8 @@ class AuraNativePlugin : FlutterPlugin {
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         val ctx = binding.applicationContext
         val speech = TtsHandler(ctx)
-        val det = DetectorHandler()
+        CrashReports.installJavaRecorder(ctx)
+        val det = DetectorHandler(ctx.filesDir)
         tts = speech
         detector = det
         channels += MethodChannel(binding.binaryMessenger, "aurasight/tts").also { it.setMethodCallHandler(speech) }

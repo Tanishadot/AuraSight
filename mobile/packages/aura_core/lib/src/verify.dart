@@ -211,6 +211,16 @@ class ObjectVerifier {
 
   /// The detector found nothing usable (or failed): count it as a miss.
   ObjectState? submitFailure(int trackId) => submit(trackId, 0.0);
+
+  /// The check could not run at all (e.g. the detector was busy): release the
+  /// request without counting it as a miss; it is asked for again shortly.
+  void cancel(int trackId) {
+    final st = _states[trackId];
+    if (st == null || !st.pending) return;
+    st.pending = false;
+    if (st.verifyAttempts > 0) st.verifyAttempts -= 1;
+    st.nextVerifyAt = _clock() + secondPassS;
+  }
 }
 
 /// Best same-class score overlapping the target box among detections made on

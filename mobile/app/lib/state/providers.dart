@@ -65,6 +65,7 @@ final cameraServiceProvider = Provider<CameraService>((ref) {
 });
 
 final detectionServiceProvider = Provider<DetectionService>((ref) => NativeDetectionService());
+final detectorGuardProvider = Provider<DetectorGuardService>((ref) => NativeDetectorGuard());
 final vlmServiceProvider = Provider<SceneUnderstandingService>((ref) => NativeVlmService());
 final ttsEngineProvider = Provider<NativeTtsEngine>((ref) => NativeTtsEngine());
 
@@ -74,6 +75,7 @@ final detectorControllerProvider = Provider<DetectorController>((ref) {
     models: ref.read(modelManagerProvider),
     manifest: ref.read(detectorManifestProvider),
     selfTestImage: () async => (await rootBundle.load(selfTestAsset)).buffer.asUint8List(),
+    guard: ref.read(detectorGuardProvider),
   );
   ref.onDispose(c.dispose);
   return c;

@@ -49,6 +49,18 @@ class DetectorCard extends ConsumerWidget {
                 label: Text('Download (${_mb(size)})'),
               ),
             );
+          case DetectorPhase.notLoaded:
+            return StatusCard(
+              icon: Icons.play_circle_outline_rounded,
+              title: 'Object detector downloaded',
+              body: 'Not started yet. It runs on the CPU and checks itself on a test photo.',
+              tone: Tone.warn,
+              action: FilledButton.icon(
+                onPressed: () => c.load(),
+                icon: const Icon(Icons.play_arrow_rounded),
+                label: const Text('Load detector'),
+              ),
+            );
           case DetectorPhase.downloading:
           case DetectorPhase.verifying:
             final verifying = s.phase == DetectorPhase.verifying;
@@ -96,7 +108,7 @@ class DetectorCard extends ConsumerWidget {
               tone: Tone.danger,
               action: Wrap(spacing: 10, runSpacing: 10, children: [
                 FilledButton.icon(
-                    onPressed: c.retry, icon: const Icon(Icons.refresh_rounded), label: const Text('Retry')),
+                    onPressed: () => c.retry(), icon: const Icon(Icons.refresh_rounded), label: const Text('Retry')),
                 if (!compact)
                   OutlinedButton(
                     onPressed: c.deleteModel,

@@ -17,8 +17,8 @@ import 'live_pipeline.dart';
 /// when the platform doesn't expose them.
 class SystemSnapshot {
   final String? device, os, soc, thermal;
-  final int? availMemMb, appMemMb, batteryPct, batteryCurrentUa;
-  final double? batteryTempC;
+  final int? availMemMb, appMemMb, totalMemMb, batteryPct, batteryCurrentUa;
+  final double? batteryTempC, nativeHeapMb, javaHeapMb;
   final bool? charging;
   final DateTime time;
   const SystemSnapshot(this.time,
@@ -28,6 +28,9 @@ class SystemSnapshot {
       this.thermal,
       this.availMemMb,
       this.appMemMb,
+      this.totalMemMb,
+      this.nativeHeapMb,
+      this.javaHeapMb,
       this.batteryPct,
       this.batteryCurrentUa,
       this.batteryTempC,
@@ -43,11 +46,16 @@ class SystemSnapshot {
           thermal: r['thermal'] as String?,
           availMemMb: r['availMemMb'] as int?,
           appMemMb: r['appMemMb'] as int?,
+          totalMemMb: r['totalMemMb'] as int?,
+          nativeHeapMb: (r['nativeHeapMb'] as num?)?.toDouble(),
+          javaHeapMb: (r['javaHeapMb'] as num?)?.toDouble(),
           batteryPct: r['batteryPct'] as int?,
           batteryCurrentUa: r['batteryCurrentUa'] as int?,
           batteryTempC: (r['batteryTempC'] as num?)?.toDouble(),
           charging: r['charging'] as bool?);
     } on MissingPluginException {
+      return SystemSnapshot(DateTime.now());
+    } on PlatformException {
       return SystemSnapshot(DateTime.now());
     }
   }
@@ -60,6 +68,9 @@ class SystemSnapshot {
         'thermal': thermal,
         'availMemMb': availMemMb,
         'appMemMb': appMemMb,
+        'totalMemMb': totalMemMb,
+        'nativeHeapMb': nativeHeapMb,
+        'javaHeapMb': javaHeapMb,
         'batteryPct': batteryPct,
         'batteryCurrentUa': batteryCurrentUa,
         'batteryTempC': batteryTempC,

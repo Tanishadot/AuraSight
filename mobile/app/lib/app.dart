@@ -48,14 +48,26 @@ class HomeShell extends ConsumerStatefulWidget {
   ConsumerState<HomeShell> createState() => _HomeShellState();
 }
 
-class _HomeShellState extends ConsumerState<HomeShell> {
+class _HomeShellState extends ConsumerState<HomeShell> with WidgetsBindingObserver {
   int _index = 0;
 
   @override
   void initState() {
     super.initState();
     ref.read(audioProvider); // start the speech engine early
+    ref.read(detectorControllerProvider).init(); // loads the detector if it is already downloaded
+    WidgetsBinding.instance.addObserver(this);
   }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) =>
+      ref.read(cameraLifecycleProvider).onAppLifecycle(state);
 
   @override
   Widget build(BuildContext context) {

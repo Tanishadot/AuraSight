@@ -34,6 +34,8 @@ class TrackingService {
 
   static int _lostFrames(AuraSettings s) => (2.0 * s.detectionFps).round().clamp(5, 60); // ~2 s of occlusion
 
+  List<String> get labels => _labels;
+
   void setLabels(List<String> labels) {
     _labels = labels;
     verifier = ObjectVerifier(_settings, labels, _clock);

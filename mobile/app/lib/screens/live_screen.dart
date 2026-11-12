@@ -6,6 +6,7 @@ import '../services/camera_service.dart';
 import '../services/live_pipeline.dart';
 import '../state/providers.dart';
 import '../widgets/common.dart';
+import '../widgets/detector_card.dart';
 
 /// Home: live camera, detected objects and the two everyday actions.
 class LiveScreen extends ConsumerWidget {
@@ -15,6 +16,7 @@ class LiveScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final camera = ref.watch(cameraServiceProvider);
     final pipeline = ref.watch(livePipelineProvider);
+    final lifecycle = ref.watch(cameraLifecycleProvider);
     return ValueListenableBuilder<CameraState>(
       valueListenable: camera.state,
       builder: (context, cam, _) => ValueListenableBuilder<LiveSnapshot>(
@@ -32,15 +34,7 @@ class LiveScreen extends ConsumerWidget {
               label: running ? 'Stop camera' : (cam.status == CameraStatus.starting ? 'Startingâ€¦' : 'Start camera'),
               icon: running ? Icons.videocam_off_rounded : Icons.videocam_rounded,
               busy: cam.status == CameraStatus.starting,
-              onPressed: () async {
-                if (running) {
-                  await pipeline.stop();
-                  await camera.stop();
-                } else {
-                  await camera.start();
-                  if (camera.state.value.status == CameraStatus.running) await pipeline.start();
-                }
-              },
+              onPressed: () => running ? lifecycle.stop() : lifecycle.start(),
             ),
             const SizedBox(height: 12),
             HeroButton(
@@ -59,15 +53,8 @@ class LiveScreen extends ConsumerWidget {
                   body: cam.message,
                   tone: Tone.danger),
             ],
-            if (running && !snap.detector.available) ...[
-              const SizedBox(height: 16),
-              StatusCard(
-                icon: Icons.visibility_off_rounded,
-                title: 'Object detection is off',
-                body: snap.detector.reason,
-                tone: Tone.warn,
-              ),
-            ],
+            const SizedBox(height: 16),
+            const DetectorCard(compact: true),
             SectionHeader(confirmed.isEmpty ? 'Objects' : 'Objects (${confirmed.length})'),
             if (!running)
               Text('Start the camera to hear what is around you.', style: Theme.of(context).textTheme.bodyLarge)
@@ -186,7 +173,7 @@ class _ObjectTile extends StatelessWidget {
       child: ListTile(
         leading: ExcludeSemantics(child: Icon(_icon(o.spatial.horizontal), size: 30)),
         title: Text(cap),
-        subtitle: Text(o.spatial.phrase()),
+        subtitle: Text('${o.spatial.phrase()} · ${(o.confidence * 100).round()}% sure'),
         trailing: o.approaching ? const Icon(Icons.warning_amber_rounded, semanticLabel: 'approaching') : null,
       ),
     );

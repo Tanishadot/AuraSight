@@ -40,6 +40,7 @@ class LivePipeline {
   final AudioOrchestrator audio;
   final bool Function() vlmBusy;
   final MethodChannel _system;
+  final DateTime Function() _now;
 
   final snapshot = ValueNotifier(const LiveSnapshot());
   StreamSubscription<CameraFrame>? _sub;
@@ -52,6 +53,10 @@ class LivePipeline {
   String _thermal = 'nominal';
   bool _lowMemory = false;
   Timer? _systemTimer;
+  bool _running = false;
+
+  /// Frames analysed / frames dropped by the scheduler since start (for tests and benchmarks).
+  int processed = 0, skipped = 0;
 
   LivePipeline({
     required AuraSettings Function() settings,
@@ -61,15 +66,19 @@ class LivePipeline {
     required this.audio,
     required this.vlmBusy,
     MethodChannel? system,
+    DateTime Function()? now,
   })  : _settings = settings,
-        _system = system ?? AuraChannels.system;
+        _system = system ?? AuraChannels.system,
+        _now = now ?? DateTime.now;
 
+  bool get running => _running;
+
+  /// Starts analysing camera frames. The model itself is loaded by the
+  /// DetectorController; until it is ready, frames are not analysed.
   Future<void> start() async {
-    final s = _settings();
-    if (!detector.info.available) {
-      final info = await detector.load(inputSize: s.inferenceSize);
-      if (info.available) tracking.setLabels(info.labels);
-    }
+    _running = true;
+    processed = skipped = 0;
+    _emaMs = 0;
     snapshot.value = LiveSnapshot(detector: detector.info);
     tracking.reset();
     await _sub?.cancel();
@@ -80,6 +89,7 @@ class LivePipeline {
   }
 
   Future<void> stop() async {
+    _running = false;
     await _sub?.cancel();
     _sub = null;
     _systemTimer?.cancel();
@@ -132,14 +142,23 @@ class LivePipeline {
   }
 
   Future<void> _onFrame(CameraFrame frame) async {
-    if (_inFlight || !detector.info.available) return;
+    if (!detector.info.available) return;
+    if (_inFlight) {
+      skipped++; // never queue frames: a stale frame is worse than a dropped one
+      return;
+    }
     final (fps, why) = targetRate();
-    final now = DateTime.now();
-    if (now.difference(_lastStart).inMicroseconds < 1e6 / fps * 0.9) return;
+    final now = _now();
+    if (now.difference(_lastStart).inMicroseconds < 1e6 / fps * 0.9) {
+      skipped++;
+      return;
+    }
+    if (tracking.labels.length != detector.info.labels.length) tracking.setLabels(detector.info.labels);
     _inFlight = true;
     _lastStart = now;
     try {
       final r = await detector.detect(frame, conf: 0.1);
+      if (!_running) return; // stopped while the frame was being analysed
       _emaMs = _emaMs == 0 ? r.inferenceMs : 0.8 * _emaMs + 0.2 * r.inferenceMs;
       final thumb = _thumbnail(frame);
       final analysis = tracking.process(r.detections, r.width, r.height, thumbnail: thumb);
@@ -147,6 +166,7 @@ class LivePipeline {
         unawaited(_verify(frame, req, r.width, r.height));
       }
       audio.handleEvents(analysis.events);
+      processed++;
       _count++;
       final dt = now.difference(_fpsT).inMilliseconds;
       if (dt >= 1000) {

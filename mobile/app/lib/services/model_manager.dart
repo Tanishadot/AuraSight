@@ -91,6 +91,18 @@ class ModelManager {
     return true;
   }
 
+  /// Re-hashes every installed file and compares it with the pinned SHA-256.
+  /// Used before each load, so a file damaged after download is never used.
+  /// Purely local: works offline.
+  Future<bool> verifyInstalled(ModelSpec m) async {
+    if (!await isInstalled(m)) return false;
+    for (final f in m.files) {
+      final digest = await sha256.bind(fileFor(m, f).openRead()).first;
+      if (digest.toString() != f.sha256) return false;
+    }
+    return true;
+  }
+
   Future<void> delete(ModelSpec m) async {
     final d = dirFor(m);
     if (await d.exists()) await d.delete(recursive: true);

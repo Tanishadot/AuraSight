@@ -34,7 +34,9 @@ jobs:
       - name: Export YOLO11n to TFLite (first run only)
         if: steps.mode.outputs.mode == 'export'
         run: |
-          pip install "ultralytics>=8.3,<9" opencv-python-headless
+          # Pinned: Ultralytics 8.4.8x moved TFLite export to a litert-torch path that currently fails
+          # (duplicate aten op registration); 8.3.100 uses the proven ONNX to onnx2tf route.
+          pip install "ultralytics==8.3.100" "tensorflow==2.19.0" opencv-python-headless
           python mobile/tools/export_detector.py export --out dist
       - name: Publish model as a release asset (first run only)
         if: steps.mode.outputs.mode == 'export'

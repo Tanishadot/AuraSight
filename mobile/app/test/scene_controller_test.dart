@@ -6,6 +6,7 @@ import 'package:aurasight/data/database.dart';
 import 'package:aurasight/services/audio_orchestrator.dart';
 import 'package:aurasight/services/camera_service.dart';
 import 'package:aurasight/services/detection_service.dart';
+import 'package:aurasight/services/detector_model.dart';
 import 'package:aurasight/services/live_pipeline.dart';
 import 'package:aurasight/services/scene_controller.dart';
 import 'package:aurasight/services/scene_understanding_service.dart';
@@ -55,15 +56,18 @@ class NoDetector implements DetectionService {
   @override
   DetectorInfo get info => DetectorInfo.notLoaded;
   @override
-  Future<DetectorInfo> load({int inputSize = 320, String backend = 'auto'}) async => info;
+  Future<DetectorInfo> load(String modelPath, DetectorManifest manifest, {String backend = 'auto'}) async => info;
   @override
   Future<DetectionResult> detect(CameraFrame frame, {double conf = 0.1}) => throw UnimplementedError();
   @override
   Future<List<Detection>> detectCrop(CameraFrame f, (int, int, int, int) r, int s, {double conf = 0.05}) =>
       throw UnimplementedError();
   @override
+  Future<DetectionResult> detectImage(Uint8List bytes, {double conf = 0.25}) => throw UnimplementedError();
+  @override
   Future<void> dispose() async {}
 }
+
 
 /// A stand-in that streams a fixed reply, used only to test the controller's
 /// streaming and de-duplication rules (the real model runs natively).

@@ -51,6 +51,9 @@ internal class SystemHandler(private val context: Context) : MethodChannel.Metho
                 "batteryPct" to bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY),
                 "batteryCurrentUa" to bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW),
                 "charging" to plugged,
+                "device" to "${Build.MANUFACTURER} ${Build.MODEL}",
+                "os" to "Android ${Build.VERSION.RELEASE} (API ${Build.VERSION.SDK_INT})",
+                "soc" to if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) "${Build.SOC_MANUFACTURER} ${Build.SOC_MODEL}" else Build.HARDWARE,
             ),
         )
     }

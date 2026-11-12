@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../services/model_manager.dart';
+import '../widgets/detector_card.dart';
+import 'benchmark_screen.dart';
 import '../services/speech_service.dart';
 import '../state/providers.dart';
 import '../widgets/common.dart';
@@ -60,6 +62,15 @@ class SettingsScreen extends ConsumerWidget {
         Text('The rate drops automatically when the phone is warm, low on memory or describing a scene.',
             style: Theme.of(context).textTheme.bodyMedium),
         const SectionHeader('Models'),
+        const DetectorCard(),
+        const SizedBox(height: 12),
+        SecondaryButton(
+          label: 'Detector benchmark',
+          icon: Icons.speed_rounded,
+          onPressed: () =>
+              Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const BenchmarkScreen())),
+        ),
+        const SizedBox(height: 12),
         for (final m in modelCatalog) _ModelTile(m),
         const SectionHeader('Privacy'),
         Text(

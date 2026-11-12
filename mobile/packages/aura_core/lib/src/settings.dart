@@ -42,7 +42,7 @@ class AuraSettings {
 
   const AuraSettings({
     this.inferenceSize = 320,
-    this.detectionFps = 10,
+    this.detectionFps = 6, // upper bound; a mid-range phone stays cool and responsive at this rate
     this.confidenceThreshold = 0.45,
     this.confusableThreshold = 0.5,
     this.strongConfidence = 0.7,

@@ -1,0 +1,3 @@
+person_living_room.jpg: "William Morrison, miner, sitting in living room of his home..." by Russell Lee (1940), U.S. National Archives (NARA 540445), public domain.
+Source: https://commons.wikimedia.org/wiki/File:William_Morrison,_miner,_sitting_in_living_room_of_his_home_in_company_housing_project._Pikes_Peak_Fuel_Company,_Pike..._-_NARA_-_540445.jpg
+Used for the object detector self-test.

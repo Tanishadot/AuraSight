@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   aura_core:
     path: ../packages/aura_core
+  aura_native:
+    path: ../packages/aura_native
   camera: ^0.11.0
   crypto: ^3.0.6
   flutter_riverpod: ^2.6.1

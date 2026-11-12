@@ -1,0 +1,24 @@
+name: aura_native
+description: AuraSight's native modules for Android (Kotlin) and iOS (Swift) - speech, device state and, later, on-device inference.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.0
+  flutter: ">=3.24.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.tanishadot.aura_native
+        pluginClass: AuraNativePlugin
+      ios:
+        pluginClass: AuraNativePlugin

@@ -36,7 +36,9 @@ jobs:
         run: |
           # Pinned: Ultralytics 8.4.8x moved TFLite export to a litert-torch path that currently fails
           # (duplicate aten op registration); 8.3.100 uses the proven ONNX to onnx2tf route.
-          pip install "ultralytics==8.3.100" "tensorflow==2.19.0" opencv-python-headless
+          # A PyTorch contemporary with that release (newer ones need onnxscript and pick opset 9).
+          pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install "ultralytics==8.3.100" "tensorflow==2.19.0" "onnx==1.17.0" opencv-python-headless
           python mobile/tools/export_detector.py export --out dist
       - name: Publish model as a release asset (first run only, never overwritten)
         if: steps.mode.outputs.mode == 'export'

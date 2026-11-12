@@ -1,0 +1,30 @@
+name: aurasight
+description: AuraSight - an offline vision assistant for blind and low-vision people. All AI runs on the phone.
+publish_to: none
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.5.0
+  flutter: ">=3.24.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  aura_core:
+    path: ../packages/aura_core
+  camera: ^0.11.0
+  crypto: ^3.0.6
+  flutter_riverpod: ^2.6.1
+  http: ^1.2.2
+  path: ^1.9.0
+  path_provider: ^2.1.5
+  sqflite: ^2.4.1
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+  sqflite_common_ffi: ^2.3.4
+
+flutter:
+  uses-material-design: true

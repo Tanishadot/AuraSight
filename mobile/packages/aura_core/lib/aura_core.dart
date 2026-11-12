@@ -3,6 +3,7 @@
 library;
 
 export 'src/announcer.dart';
+export 'src/find.dart';
 export 'src/geometry.dart';
 export 'src/scene_monitor.dart';
 export 'src/settings.dart';

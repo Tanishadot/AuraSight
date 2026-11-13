@@ -20,13 +20,19 @@ Future<void> _loadFonts() async {
   final root = Platform.environment['FLUTTER_ROOT'];
   if (root == null) throw StateError('set FLUTTER_ROOT to the Flutter SDK');
   final dir = Directory('$root/bin/cache/artifacts/material_fonts');
+  final files = dir.listSync(recursive: true).whereType<File>().toList();
+  // ignore: avoid_print
+  print('material_fonts: ${files.map((f) => f.uri.pathSegments.last).join(', ')}');
   final roboto = FontLoader('Roboto');
-  for (final f in dir.listSync().whereType<File>()) {
-    final name = f.uri.pathSegments.last;
-    if (name.startsWith('Roboto') && name.endsWith('.ttf') && !name.contains('Condensed')) {
+  var n = 0;
+  for (final f in files) {
+    final name = f.uri.pathSegments.last.toLowerCase();
+    if (name.contains('roboto') && (name.endsWith('.ttf') || name.endsWith('.otf')) && !name.contains('condensed')) {
       roboto.addFont(Future.value(ByteData.sublistView(f.readAsBytesSync())));
+      n++;
     }
   }
+  if (n == 0) throw StateError('no Roboto font files found in ${dir.path}');
   await roboto.load();
   final icons = FontLoader('MaterialIcons')
     ..addFont(Future.value(ByteData.sublistView(File('${dir.path}/MaterialIcons-Regular.otf').readAsBytesSync())));
@@ -63,6 +69,9 @@ void main() {
 
   Future<void> shot(WidgetTester tester, String name) async {
     await tester.pump(const Duration(milliseconds: 400));
+    final style = DefaultTextStyle.of(tester.element(find.byType(Scaffold).first)).style;
+    // ignore: avoid_print
+    print('$name: font family ${style.fontFamily}, fallback ${style.fontFamilyFallback}');
     await expectLater(find.byType(AuraApp), matchesGoldenFile('out/$name.png'));
   }
 

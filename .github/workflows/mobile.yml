@@ -222,3 +222,24 @@ jobs:
         with:
           name: android-integration-log
           path: integration.log
+
+  screenshots:
+    name: Render app screens (documentation)
+    runs-on: ubuntu-latest
+    needs: app
+    defaults:
+      run:
+        working-directory: mobile/app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: FLUTTER_ROOT="$(dirname "$(dirname "$(which flutter)")")" flutter test --update-goldens screenshots/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-screens
+          path: mobile/app/screenshots/out/*.png
+

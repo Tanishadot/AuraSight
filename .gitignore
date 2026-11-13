@@ -48,3 +48,4 @@ mobile/**/ios/.symlinks/
 mobile/**/ios/Flutter/Generated.xcconfig
 mobile/**/ios/Flutter/flutter_export_environment.sh
 mobile/app/integration_test/fixtures.g.dart
+mobile/app/screenshots/out/
